@@ -1,8 +1,8 @@
 <template>
   <view class="content">
     <image class="logo" src="/static/logo.png" />
-    <view class="text-area">
-      <text class="title">{{ title }}</text>
+    <view class="text-area bg-rose-500 h-30rpx p-20rpx red" >
+      <text class="">{{ title }}</text>
     </view>
   </view>
 </template>
@@ -12,7 +12,10 @@ import { ref } from 'vue'
 const title = ref('Hello')
 </script>
 
-<style>
+<style lang="scss">
+.red{
+  //color: green;
+}
 .content {
   display: flex;
   flex-direction: column;
