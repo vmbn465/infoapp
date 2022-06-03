@@ -8,6 +8,26 @@ import { resolve } from 'path';
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
+  resolve: {
+    alias: {
+      '@': resolve('./src'),
+    },
+  },
+  server: {
+    host: true,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.0:8000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+      '/upload': {
+        target: 'http://127.0.0.0:8000/upload',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/upload/, ''),
+      },
+    },
+  },
   plugins: [
     uni(),
     windicss(),
@@ -28,11 +48,6 @@ export default defineConfig({
       scss: {
         additionalData: '@import "@/assets/style/main.scss";',
       },
-    },
-  },
-  resolve: {
-    alias: {
-      '@': resolve('./src'),
     },
   },
 });
