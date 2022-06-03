@@ -23,6 +23,13 @@ export default defineConfig({
       cache: false,
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@/assets/style/main.scss";',
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': resolve('./src'),
