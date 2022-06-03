@@ -4,18 +4,17 @@
     <view class="text-area bg-rose-500 h-30rpx p-20rpx red" >
       <text class="">{{ title }}</text>
     </view>
+    <Test />
   </view>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import Test from "@/components/test/Test.vue";
 const title = ref('Hello')
 </script>
 
 <style lang="scss">
-.red{
-  //color: green;
-}
 .content {
   display: flex;
   flex-direction: column;
@@ -26,10 +25,7 @@ const title = ref('Hello')
 .logo {
   height: 200rpx;
   width: 200rpx;
-  margin-top: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50rpx;
+  margin: 200rpx auto 50rpx;
 }
 
 .text-area {
