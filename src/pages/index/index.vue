@@ -4,7 +4,11 @@
     <view class="text-area bg-rose-500 h-30rpx p-20rpx red">
       <text class="">{{ title }}</text>
     </view>
+    <view>{{ url }} ----</view>
     <Test />
+    <view>
+      <button @tap="jumLogin">登录</button>
+    </view>
   </view>
 </template>
 
@@ -12,6 +16,15 @@
   import { ref } from 'vue';
   import Test from '@/components/test/Test.vue';
   const title = ref('Hello');
+  const url = import.meta.env.VITE_BASE_URL;
+  console.log('url', url);
+  const jumLogin = () => {
+    console.log('/pages/login/index');
+
+    // uni.navigateTo({
+    //   url: '/pages/login/index',
+    // });
+  };
 </script>
 
 <style lang="scss">

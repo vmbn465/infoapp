@@ -37,11 +37,11 @@ export default defineConfig({
       // 	设计稿的像素宽度值，该尺寸会影响 rpx 转换过程中的计算比率
       designWidth: 350,
     }),
-    eslintPlugin({
-      include: ['src/**/*.js', 'src/**/*.vue', 'src/**/*.ts'],
-      exclude: ['./node_modules/**'],
-      cache: false,
-    }),
+    // eslintPlugin({
+    //   include: ['src/**/*.js', 'src/**/*.vue', 'src/**/*.ts'],
+    //   exclude: ['./node_modules/**'],
+    //   cache: false,
+    // }),
   ],
   css: {
     preprocessorOptions: {
