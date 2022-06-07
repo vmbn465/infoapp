@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { ref, reactive } from 'vue';
   import Test from '@/components/test/Test.vue';
   const title = ref('Hello');
   const url = import.meta.env.VITE_BASE_URL;
@@ -21,9 +21,31 @@
   const jumLogin = () => {
     console.log('/pages/login/index');
 
-    // uni.navigateTo({
-    //   url: '/pages/login/index',
-    // });
+    uni.navigateTo({
+      url: '/pages/login/index',
+    });
+  };
+
+  import { request } from '@/utils/http/index';
+  const form = reactive({
+    email: 'catch@admin.com',
+    password: 'catchadmin',
+  });
+  const loginType = ref('');
+  const submit = () => {
+    request
+      .post({
+        url: '/login',
+        data: form,
+      })
+      .then((res: any) => {
+        loginType.value = '登录成功';
+        console.log(res.message);
+      })
+      .catch((err: any) => {
+        loginType.value = '登录失败';
+        console.log(err.message);
+      });
   };
 </script>
 
