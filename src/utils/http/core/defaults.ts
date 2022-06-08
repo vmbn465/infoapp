@@ -1,4 +1,4 @@
-import { HttpRequestConfig } from '@/utils/types/http';
+import { HttpRequestConfig } from '@/types/http';
 
 /**
  * 默认的全局配置
