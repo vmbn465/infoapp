@@ -1,4 +1,6 @@
 /* eslint-disable */
+import { cloneDeep } from 'lodash-es';
+
 var clone = (function () {
   'use strict';
 
@@ -257,4 +259,4 @@ var clone = (function () {
   return clone;
 })();
 
-export default clone;
+export { cloneDeep };

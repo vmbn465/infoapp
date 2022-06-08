@@ -1,6 +1,6 @@
 'use strict';
 
-import * as utils from './../utils';
+import * as utils from '../utils';
 
 function encode(val) {
   return encodeURIComponent(val)
@@ -20,19 +20,18 @@ function encode(val) {
  * @param {object} [params] The params to be appended
  * @returns {string} The formatted url
  */
-export default function buildURL(url, params) {
-  /*eslint no-param-reassign:0*/
+export default function buildURL(url: string, params?: any) {
   if (!params) {
     return url;
   }
 
-  var serializedParams;
+  let serializedParams;
   if (utils.isURLSearchParams(params)) {
     serializedParams = params.toString();
   } else {
-    var parts = [];
+    const parts: string[] = [];
 
-    utils.forEach(params, function serialize(val, key) {
+    utils.forEach(params, function serialize(val: string, key: string) {
       if (val === null || typeof val === 'undefined') {
         return;
       }
@@ -57,7 +56,7 @@ export default function buildURL(url, params) {
   }
 
   if (serializedParams) {
-    var hashmarkIndex = url.indexOf('#');
+    const hashmarkIndex = url.indexOf('#');
     if (hashmarkIndex !== -1) {
       url = url.slice(0, hashmarkIndex);
     }

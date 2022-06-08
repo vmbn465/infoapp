@@ -1,8 +1,10 @@
 'use strict';
 
+import { cloneDeep } from 'lodash-es';
+
 // utils is a library of generic helper functions non-specific to axios
 
-var toString = Object.prototype.toString;
+const toString = Object.prototype.toString;
 
 /**
  * Determine if a value is an Array
@@ -40,7 +42,7 @@ export function isDate(val) {
  * @param {Object} val The value to test
  * @returns {boolean} True if value is a URLSearchParams object, otherwise false
  */
-export function isURLSearchParams(val) {
+export function isURLSearchParams(val: object) {
   return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
 }
 

@@ -1,3 +1,5 @@
+import { HttpRequestConfig } from '@/utils/types/http';
+
 /**
  * 默认的全局配置
  */
@@ -23,7 +25,7 @@ export default {
   // #ifdef APP-PLUS
   firstIpv4: false,
   // #endif
-  validateStatus: function validateStatus(status) {
+  validateStatus: function validateStatus(status: Number) {
     return status >= 200 && status < 300;
   },
-};
+} as HttpRequestConfig;

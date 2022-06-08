@@ -98,13 +98,16 @@ export interface HttpInterceptorManager<V, E = V> {
   ): void;
   eject(id: number): void;
 }
+
+export interface Interceptors {
+  request: HttpInterceptorManager<HttpRequestConfig, HttpRequestConfig>;
+  response: HttpInterceptorManager<HttpResponse, HttpError>;
+}
+
 export abstract class HttpRequestAbstract {
-  constructor(config?: HttpRequestConfig);
+  constructor(config?: Partial<HttpRequestConfig>);
   config: HttpRequestConfig;
-  interceptors: {
-    request: HttpInterceptorManager<HttpRequestConfig, HttpRequestConfig>;
-    response: HttpInterceptorManager<HttpResponse, HttpError>;
-  };
+  interceptors: Interceptors;
   middleware<T = any>(config: HttpRequestConfig): HttpPromise<T>;
   request<T = any>(config: HttpRequestConfig<UniApp.RequestTask>): HttpPromise<T>;
   get<T = any>(url: string, config?: HttpRequestConfig<UniApp.RequestTask>): HttpPromise<T>;

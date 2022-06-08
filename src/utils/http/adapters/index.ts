@@ -2,6 +2,7 @@ import buildURL from '../helpers/buildURL';
 import buildFullPath from '../core/buildFullPath';
 import settle from '../core/settle';
 import { isUndefined } from '../utils';
+import { HttpRequestConfig } from '@/types/http';
 
 /**
  * 返回可选值存在的配置
@@ -18,10 +19,10 @@ const mergeKeys = (keys, config2) => {
   });
   return config;
 };
-export default (config) => {
+export default (config: HttpRequestConfig) => {
   return new Promise((resolve, reject) => {
-    let fullPath = buildURL(buildFullPath(config.baseURL, config.url), config.params);
-    const _config = {
+    let fullPath = buildURL(buildFullPath(config.baseURL, config.url || ''), config.params);
+    const _config: UniApp.RequestOptions = {
       url: fullPath,
       header: config.header,
       complete: (response) => {

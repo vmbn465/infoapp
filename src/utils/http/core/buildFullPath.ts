@@ -12,7 +12,7 @@ import combineURLs from '../helpers/combineURLs';
  * @param {string} requestedURL Absolute or relative URL to combine
  * @returns {string} The combined full path
  */
-export default function buildFullPath(baseURL, requestedURL) {
+export default function buildFullPath(baseURL: string | undefined, requestedURL: string): string {
   if (baseURL && !isAbsoluteURL(requestedURL)) {
     return combineURLs(baseURL, requestedURL);
   }

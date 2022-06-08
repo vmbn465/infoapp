@@ -17,18 +17,15 @@
 
 <script setup lang="ts">
   import { reactive, ref } from 'vue';
-  import { request } from '@/utils/http/index';
+  import { defHttp } from '@/utils/http/index';
   const form = reactive({
     email: 'catch@admin.com',
     password: 'catchadmin',
   });
   const loginType = ref('');
   const submit = () => {
-    request
-      .post({
-        url: '/login',
-        data: form,
-      })
+    defHttp
+      .post('/login', form)
       .then((res: any) => {
         loginType.value = '登录成功';
         console.log(res.message);

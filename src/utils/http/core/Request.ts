@@ -15,10 +15,14 @@ import dispatchRequest from './dispatchRequest';
 import InterceptorManager from './InterceptorManager';
 import mergeConfig from './mergeConfig';
 import defaults from './defaults';
+import { cloneDeep } from 'lodash-es';
 import { isPlainObject } from '../utils';
-import clone from '../utils/clone';
+import { HttpRequestConfig, Interceptors } from '@/types/http';
 
 export default class Request {
+  private readonly config: HttpRequestConfig | undefined;
+  private readonly interceptors: Interceptors;
+
   /**
    * @param {Object} arg - 全局配置
    * @param {String} arg.baseURL - 全局根路径
@@ -33,12 +37,12 @@ export default class Request {
    * @param {Boolean} arg.firstIpv4 - 全DNS解析时优先使用ipv4。默认false。仅 App-Android 支持 (HBuilderX 2.8.0+)
    * @param {Function(statusCode):Boolean} arg.validateStatus - 全局默认的自定义验证器。默认statusCode >= 200 && statusCode < 300
    */
-  constructor(arg = {}) {
+  constructor(arg?: Partial<HttpRequestConfig>) {
     if (!isPlainObject(arg)) {
       arg = {};
       console.warn('设置全局参数必须接收一个Object');
     }
-    this.config = clone({ ...defaults, ...arg });
+    this.config = cloneDeep({ ...defaults, ...arg });
     this.interceptors = {
       request: new InterceptorManager(),
       response: new InterceptorManager(),
@@ -49,7 +53,7 @@ export default class Request {
    * @Function
    * @param {Request~setConfigCallback} f - 设置全局默认配置
    */
-  setConfig(f) {
+  setConfig(f: (_config: HttpRequestConfig) => HttpRequestConfig) {
     this.config = f(this.config);
   }
 

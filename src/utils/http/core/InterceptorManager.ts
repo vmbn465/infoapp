@@ -1,6 +1,9 @@
 'use strict';
 
-function InterceptorManager() {
+export class InterceptorManager1 {}
+
+function InterceptorManager(): void {
+  // @ts-ignore
   this.handlers = [];
 }
 
@@ -12,7 +15,7 @@ function InterceptorManager() {
  *
  * @return {Number} An ID used to remove interceptor later
  */
-InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+InterceptorManager.prototype.use = function use(fulfilled: any, rejected: any) {
   this.handlers.push({
     fulfilled: fulfilled,
     rejected: rejected,
