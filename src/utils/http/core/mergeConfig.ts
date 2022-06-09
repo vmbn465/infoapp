@@ -1,4 +1,5 @@
 import { deepMerge, isUndefined } from '../utils';
+import { HttpRequestConfig } from '@/types/http';
 
 /**
  * 合并局部配置优先的配置，如果局部有该配置项则用局部，如果全局有该配置项则用全局
@@ -7,8 +8,12 @@ import { deepMerge, isUndefined } from '../utils';
  * @param {Object} config2 - 局部配置
  * @return {{}}
  */
-const mergeKeys = (keys, globalsConfig, config2) => {
-  let config = {};
+const mergeKeys = (
+  keys: string[],
+  globalsConfig: HttpRequestConfig,
+  config2: Partial<HttpRequestConfig>,
+) => {
+  const config: Partial<HttpRequestConfig> = {};
   keys.forEach((prop) => {
     if (!isUndefined(config2[prop])) {
       config[prop] = config2[prop];
@@ -24,14 +29,15 @@ const mergeKeys = (keys, globalsConfig, config2) => {
  * @param config2 - 当前的局部配置
  * @return - 合并后的配置
  */
-export default (globalsConfig, config2 = {}) => {
+export default (globalsConfig: HttpRequestConfig, config2: Partial<HttpRequestConfig> = {}) => {
   const method = config2.method || globalsConfig.method || 'GET';
-  let config = {
+  let config: Partial<HttpRequestConfig> = {
     baseURL: globalsConfig.baseURL || '',
     method: method,
     url: config2.url || '',
     params: config2.params || {},
     custom: { ...(globalsConfig.custom || {}), ...(config2.custom || {}) },
+    // @ts-ignore
     header: deepMerge(globalsConfig.header || {}, config2.header || {}),
   };
   const defaultToConfig2Keys = ['getTask', 'validateStatus'];
@@ -47,8 +53,10 @@ export default (globalsConfig, config2 = {}) => {
     }
     // #endif
   } else if (method === 'UPLOAD') {
-    delete config.header['content-type'];
-    delete config.header['Content-Type'];
+    if (config.header) {
+      delete config.header['content-type'];
+      delete config.header['Content-Type'];
+    }
     const uploadKeys = [
       // #ifdef APP-PLUS || H5
       'files',

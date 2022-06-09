@@ -5,7 +5,9 @@
  * @param {Function} reject A function that rejects the promise.
  * @param {object} response The response.
  */
-export default function settle(resolve, reject, response) {
+import { HttpResponse } from '@/types/http';
+
+export default function settle(resolve: any, reject: any, response: HttpResponse) {
   const validateStatus = response.config.validateStatus;
   const status = response.statusCode;
   if (status && (!validateStatus || validateStatus(status))) {

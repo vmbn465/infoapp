@@ -1,12 +1,28 @@
 type AnyObject = Record<string | number | symbol, any>;
+export type HttpResponse<T = any> =
+  | HttpSuccess<T>
+  | HttpError<T>
+  | HttpDownloadResponse
+  | HttpUploadResponse<T>;
 type HttpPromise<T> = Promise<HttpResponse<T>>;
 type Tasks = UniApp.RequestTask | UniApp.UploadTask | UniApp.DownloadTask;
+type Method =
+  | 'GET'
+  | 'POST'
+  | 'PUT'
+  | 'DELETE'
+  | 'CONNECT'
+  | 'HEAD'
+  | 'OPTIONS'
+  | 'TRACE'
+  | 'UPLOAD'
+  | 'DOWNLOAD';
 export interface RequestTask {
   abort: () => void;
   offHeadersReceived: () => void;
   onHeadersReceived: () => void;
 }
-export interface HttpRequestConfig<T = Tasks> {
+export interface HttpRequestConfig<T = Tasks> extends Record<string, any> {
   /** 请求基地址 */
   baseURL?: string;
   /** 请求服务器接口地址 */
@@ -32,20 +48,12 @@ export interface HttpRequestConfig<T = Tasks> {
   /** 要上传的文件对象，仅H5（2.6.15+）支持 */
   file?: File;
 
+  /** 文要上传的件类型, 支付宝小程序，且必填 **/
+  fileType?: string;
   /** 请求头信息 */
   header?: AnyObject;
   /** 请求方式 */
-  method?:
-    | 'GET'
-    | 'POST'
-    | 'PUT'
-    | 'DELETE'
-    | 'CONNECT'
-    | 'HEAD'
-    | 'OPTIONS'
-    | 'TRACE'
-    | 'UPLOAD'
-    | 'DOWNLOAD';
+  method?: Method;
   /** 如果设为 json，会尝试对返回的数据做一次 JSON.parse */
   dataType?: string;
   /** 设置响应的数据类型，支付宝小程序不支持 */
@@ -66,7 +74,7 @@ export interface HttpRequestConfig<T = Tasks> {
   /**  全局自定义验证器 */
   validateStatus?: (statusCode: number) => boolean | void;
 }
-export interface HttpResponse<T = any> {
+export interface HttpSuccess<T = any> {
   config: HttpRequestConfig;
   statusCode: number;
   cookies: Array<string>;
@@ -80,14 +88,14 @@ export interface HttpUploadResponse<T = any> {
   data: T;
   errMsg: string;
 }
-export interface HttpDownloadResponse extends HttpResponse {
+export interface HttpDownloadResponse extends HttpSuccess {
   tempFilePath: string;
 }
-export interface HttpError {
+export interface HttpError<T = any> {
   config: HttpRequestConfig;
   statusCode?: number;
   cookies?: Array<string>;
-  data?: any;
+  data?: T;
   errMsg: string;
   header?: AnyObject;
 }
@@ -97,11 +105,15 @@ export interface HttpInterceptorManager<V, E = V> {
     onRejected?: (config: E) => Promise<E> | E,
   ): void;
   eject(id: number): void;
+  forEach(h: any): void;
 }
 
+export type InterceptorsRequest = HttpInterceptorManager<HttpRequestConfig, HttpRequestConfig>;
+export type InterceptorsResponse = HttpInterceptorManager<HttpSuccess, HttpError>;
+
 export interface Interceptors {
-  request: HttpInterceptorManager<HttpRequestConfig, HttpRequestConfig>;
-  response: HttpInterceptorManager<HttpResponse, HttpError>;
+  request: InterceptorsRequest;
+  response: InterceptorsResponse;
 }
 
 export abstract class HttpRequestAbstract {

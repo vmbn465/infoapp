@@ -1,7 +1,5 @@
 'use strict';
 
-export class InterceptorManager1 {}
-
 function InterceptorManager(): void {
   // @ts-ignore
   this.handlers = [];
@@ -28,7 +26,7 @@ InterceptorManager.prototype.use = function use(fulfilled: any, rejected: any) {
  *
  * @param {Number} id The ID that was returned by `use`
  */
-InterceptorManager.prototype.eject = function eject(id) {
+InterceptorManager.prototype.eject = function eject(id: number) {
   if (this.handlers[id]) {
     this.handlers[id] = null;
   }
@@ -42,8 +40,8 @@ InterceptorManager.prototype.eject = function eject(id) {
  *
  * @param {Function} fn The function to call for each interceptor
  */
-InterceptorManager.prototype.forEach = function forEach(fn) {
-  this.handlers.forEach((h) => {
+InterceptorManager.prototype.forEach = function forEach(fn: (h: any) => void) {
+  this.handlers.forEach((h: any) => {
     if (h !== null) {
       fn(h);
     }

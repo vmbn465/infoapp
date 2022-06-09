@@ -2,7 +2,7 @@
 
 import * as utils from '../utils';
 
-function encode(val) {
+function encode(val: string | number | boolean) {
   return encodeURIComponent(val)
     .replace(/%40/gi, '@')
     .replace(/%3A/gi, ':')
@@ -31,7 +31,7 @@ export default function buildURL(url: string, params?: any) {
   } else {
     const parts: string[] = [];
 
-    utils.forEach(params, function serialize(val: string, key: string) {
+    utils.forEach(params, function serialize(val: any, key: string) {
       if (val === null || typeof val === 'undefined') {
         return;
       }
@@ -42,7 +42,7 @@ export default function buildURL(url: string, params?: any) {
         val = [val];
       }
 
-      utils.forEach(val, function parseValue(v) {
+      utils.forEach(val, function parseValue(v: any) {
         if (utils.isDate(v)) {
           v = v.toISOString();
         } else if (utils.isObject(v)) {

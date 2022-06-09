@@ -9,6 +9,7 @@
  * github: https://github.com/lei-mu/luch-request
  * DCloud: http://ext.dcloud.net.cn/plugin?id=392
  * HBuilderX: beat-3.0.4 alpha-3.0.4
+ * 2022-06-09 改写成ts
  */
 
 import dispatchRequest from './dispatchRequest';
@@ -17,11 +18,11 @@ import mergeConfig from './mergeConfig';
 import defaults from './defaults';
 import { cloneDeep } from 'lodash-es';
 import { isPlainObject } from '../utils';
-import { HttpRequestConfig, Interceptors } from '@/types/http';
+import { HttpRequestConfig, HttpResponse, Interceptors } from '@/types/http';
 
 export default class Request {
-  private readonly config: HttpRequestConfig | undefined;
-  private readonly interceptors: Interceptors;
+  private config: HttpRequestConfig;
+  interceptors: Interceptors;
 
   /**
    * @param {Object} arg - 全局配置
@@ -44,7 +45,9 @@ export default class Request {
     }
     this.config = cloneDeep({ ...defaults, ...arg });
     this.interceptors = {
+      // @ts-ignore
       request: new InterceptorManager(),
+      // @ts-ignore
       response: new InterceptorManager(),
     };
   }
@@ -57,21 +60,24 @@ export default class Request {
     this.config = f(this.config);
   }
 
-  middleware(config) {
+  middleware<T>(config: HttpRequestConfig) {
     config = mergeConfig(this.config, config);
-    let chain = [dispatchRequest, undefined];
-    let promise = Promise.resolve(config);
+    const chain = [dispatchRequest, undefined];
+    const response: HttpResponse<T> = {
+      config: config,
+    } as HttpResponse<T>;
+    let promise = Promise.resolve(response);
 
-    this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+    this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor: any) {
       chain.unshift(interceptor.fulfilled, interceptor.rejected);
     });
 
-    this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+    this.interceptors.response.forEach(function pushResponseInterceptors(interceptor: any) {
       chain.push(interceptor.fulfilled, interceptor.rejected);
     });
 
     while (chain.length) {
-      promise = promise.then(chain.shift(), chain.shift());
+      promise = promise.then<HttpResponse<T>>(chain.shift(), chain.shift());
     }
 
     return promise;
@@ -88,20 +94,20 @@ export default class Request {
    * @prop {Object} [options.method = config.method] - 请求方法
    * @returns {Promise<unknown>}
    */
-  request(config = {}) {
-    return this.middleware(config);
+  request<T>(config = {}) {
+    return this.middleware<T>(config);
   }
 
-  get(url, options = {}) {
-    return this.middleware({
+  get<T>(url: string, options = {}) {
+    return this.middleware<T>({
       url,
       method: 'GET',
       ...options,
     });
   }
 
-  post(url, data, options = {}) {
-    return this.middleware({
+  post<T>(url: string, data: AnyObject, options: Partial<HttpRequestConfig> = {}) {
+    return this.middleware<T>({
       url,
       data,
       method: 'POST',
@@ -110,87 +116,81 @@ export default class Request {
   }
 
   // #ifndef MP-ALIPAY
-  put(url, data, options = {}) {
-    return this.middleware({
+  put<T>(url: string, data: AnyObject, options: Partial<HttpRequestConfig> = {}) {
+    return this.middleware<T>({
       url,
       data,
       method: 'PUT',
       ...options,
     });
   }
-
   // #endif
 
   // #ifdef APP-PLUS || H5 || MP-WEIXIN || MP-BAIDU
-  delete(url, data, options = {}) {
-    return this.middleware({
+  delete<T>(url: string, data: AnyObject, options: Partial<HttpRequestConfig> = {}) {
+    return this.middleware<T>({
       url,
       data,
       method: 'DELETE',
       ...options,
     });
   }
-
   // #endif
 
   // #ifdef H5 || MP-WEIXIN
-  connect(url, data, options = {}) {
-    return this.middleware({
+  connect<T>(url: string, data: AnyObject, options: Partial<HttpRequestConfig> = {}) {
+    return this.middleware<T>({
       url,
       data,
       method: 'CONNECT',
       ...options,
     });
   }
-
   // #endif
 
   // #ifdef  H5 || MP-WEIXIN || MP-BAIDU
-  head(url, data, options = {}) {
-    return this.middleware({
+  head<T>(url: string, data: AnyObject, options: Partial<HttpRequestConfig> = {}) {
+    return this.middleware<T>({
       url,
       data,
       method: 'HEAD',
       ...options,
     });
   }
-
   // #endif
 
   // #ifdef APP-PLUS || H5 || MP-WEIXIN || MP-BAIDU
-  options(url, data, options = {}) {
-    return this.middleware({
+  options<T>(url: string, data: AnyObject, options: Partial<HttpRequestConfig> = {}) {
+    return this.middleware<T>({
       url,
       data,
       method: 'OPTIONS',
       ...options,
     });
   }
-
   // #endif
 
   // #ifdef H5 || MP-WEIXIN
-  trace(url, data, options = {}) {
-    return this.middleware({
+  trace<T>(url: string, data: AnyObject, options: Partial<HttpRequestConfig> = {}) {
+    return this.middleware<T>({
       url,
       data,
       method: 'TRACE',
       ...options,
     });
   }
-
   // #endif
 
-  upload(url, config = {}) {
+  upload<T>(url: string, config: Partial<HttpRequestConfig> = {}) {
     config.url = url;
     config.method = 'UPLOAD';
-    return this.middleware(config);
+    return this.middleware<T>(config);
   }
 
-  download(url, config = {}) {
+  download<T>(url: string, config: Partial<HttpRequestConfig> = {}) {
     config.url = url;
     config.method = 'DOWNLOAD';
-    return this.middleware(config);
+    return this.middleware<T>(config);
   }
 }
 

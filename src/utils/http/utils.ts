@@ -1,7 +1,5 @@
 'use strict';
 
-import { cloneDeep, values } from 'lodash-es';
-
 // utils is a library of generic helper functions non-specific to axios
 
 const toString = Object.prototype.toString;
@@ -80,7 +78,7 @@ export function forEach(obj: any, fn: any) {
     });
   } else {
     // Iterate over object keys
-    for (let key in obj) {
+    for (const key in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, key)) {
         fn.call(null, obj[key], key, obj);
       }
@@ -102,7 +100,7 @@ export function isBoolean(val: unknown): val is boolean {
  * @param {any} obj - 检测的对象
  * @returns {boolean}
  */
-export function isPlainObject(obj: object): boolean {
+export function isPlainObject(obj: unknown): boolean {
   return Object.prototype.toString.call(obj) === '[object Object]';
 }
 
@@ -116,7 +114,7 @@ export function isPlainObject(obj: object): boolean {
  */
 
 export function deepMerge(/* obj1, obj2, obj3, ... */) {
-  let result: any = {};
+  const result: any = {};
   function assignValue(val: any, key: any) {
     if (typeof result[key] === 'object' && typeof val === 'object') {
       // @ts-ignore

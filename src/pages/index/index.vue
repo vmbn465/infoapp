@@ -18,6 +18,10 @@
   const title = ref('Hello');
   const url = import.meta.env.VITE_BASE_URL;
   console.log('url', url);
+  type Data = {
+    token: string;
+  };
+
   const jumLogin = () => {
     console.log('/pages/login/index');
 
@@ -26,21 +30,18 @@
     });
   };
 
-  import { request } from '@/utils/http/index';
+  import { defHttp } from '@/utils/http/index';
   const form = reactive({
     email: 'catch@admin.com',
     password: 'catchadmin',
   });
   const loginType = ref('');
   const submit = () => {
-    request
-      .post({
-        url: '/login',
-        data: form,
-      })
-      .then((res: any) => {
+    defHttp
+      .post<Data>('/login', form)
+      .then((res) => {
         loginType.value = '登录成功';
-        console.log(res.message);
+        console.log(res.data.token);
       })
       .catch((err: any) => {
         loginType.value = '登录失败';
