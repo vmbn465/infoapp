@@ -2,7 +2,8 @@ import { getPkgVersion, isDevMode } from '@/utils/env';
 
 // System default cache time, in seconds
 export const DEFAULT_CACHE_TIME = 60 * 60 * 24 * 7;
-const PREFIX = import.meta.env.VITE_APP_CACHE_PREFIX || 'UNI_APP_VUE3_TS';
+const PREFIX =
+  import.meta.env.VITE_APP_CACHE_PREFIX || import.meta.env.VITE_APP_TITLE || 'UNI_APP_VUE3_TS';
 export const DEFAULT_PREFIX_KEY = `${PREFIX}${getPkgVersion()}`;
 
 // aes encryption key

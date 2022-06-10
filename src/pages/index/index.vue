@@ -30,14 +30,14 @@
     });
   };
 
-  import { defHttp } from '@/utils/http/index';
+  import { request } from '@/utils/http/index';
   const form = reactive({
     email: 'catch@admin.com',
     password: 'catchadmin',
   });
   const loginType = ref('');
   const submit = () => {
-    defHttp
+    request
       .post<Data>('/login', form)
       .then((res) => {
         loginType.value = '登录成功';

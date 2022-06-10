@@ -25,7 +25,7 @@ export default {
   // #ifdef APP-PLUS
   firstIpv4: false,
   // #endif
-  validateStatus: function validateStatus(status: Number) {
+  validateStatus: function validateStatus(status: number) {
     return status >= 200 && status < 300;
   },
 } as HttpRequestConfig;

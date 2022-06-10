@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
   import { reactive, ref } from 'vue';
-  import { defHttp } from '@/utils/http/index';
+  import { request } from '@/utils/http/index';
   import { useUserStore } from '@/state/modules/user';
   const form = reactive({
     email: 'catch@admin.com',
@@ -28,18 +28,19 @@
   const token = ref<string>('');
   const userStore = useUserStore();
   const submit = () => {
-    defHttp
-      .post('/login', form)
-      .then((res: any) => {
-        loginType.value = '登录成功';
-        console.log(res);
-        userStore.setToken(res.data.token);
-        token.value = userStore.getToken;
-      })
-      .catch((err: any) => {
-        loginType.value = '登录失败';
-        console.log(err.message);
-      });
+    userStore.login(form);
+    // request
+    //   .post('/login', form)
+    //   .then((res: any) => {
+    //     loginType.value = '登录成功';
+    //     console.log(res);
+    //     userStore.setToken(res.data.token);
+    //     token.value = userStore.getToken;
+    //   })
+    //   .catch((err: any) => {
+    //     loginType.value = '登录失败';
+    //     console.log(err.message);
+    //   });
   };
 </script>
 

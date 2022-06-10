@@ -22,6 +22,11 @@ export interface RequestTask {
   offHeadersReceived: () => void;
   onHeadersReceived: () => void;
 }
+export interface CustomConfig {
+  auth?: boolean;
+  loading?: boolean;
+}
+
 export interface HttpRequestConfig<T = Tasks> extends Record<string, any> {
   /** 请求基地址 */
   baseURL?: string;
@@ -59,7 +64,7 @@ export interface HttpRequestConfig<T = Tasks> extends Record<string, any> {
   /** 设置响应的数据类型，支付宝小程序不支持 */
   responseType?: 'text' | 'arraybuffer';
   /** 自定义参数 */
-  custom?: AnyObject;
+  custom?: CustomConfig;
   /** 超时时间，仅微信小程序（2.10.0）、支付宝小程序支持 */
   timeout?: number;
   /** DNS解析时优先使用ipv4，仅 App-Android 支持 (HBuilderX 2.8.0+) */
@@ -108,7 +113,14 @@ export interface HttpInterceptorManager<V, E = V> {
   forEach(h: any): void;
 }
 
-export type InterceptorsRequest = HttpInterceptorManager<HttpRequestConfig, HttpRequestConfig>;
+export interface InterceptorsRequestConfig {
+  config: HttpRequestConfig;
+}
+
+export type InterceptorsRequest = HttpInterceptorManager<
+  InterceptorsRequestConfig,
+  InterceptorsRequestConfig
+>;
 export type InterceptorsResponse = HttpInterceptorManager<HttpSuccess, HttpError>;
 
 export interface Interceptors {
