@@ -94,11 +94,11 @@ export default class Request {
    * @prop {Object} [options.method = config.method] - 请求方法
    * @returns {Promise<unknown>}
    */
-  request<T>(config = {}) {
+  request<T>(config: Partial<HttpRequestConfig> = {}) {
     return this.middleware<T>(config);
   }
 
-  get<T>(url: string, options = {}) {
+  get<T>(url: string, options: Partial<HttpRequestConfig> = {}) {
     return this.middleware<T>({
       url,
       method: 'GET',

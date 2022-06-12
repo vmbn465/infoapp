@@ -5,8 +5,10 @@ import { assign } from 'lodash-es';
 import { error } from '@/utils/log';
 import { HttpSuccess } from '@/types/http';
 import { Toast } from '@/utils/uniApi';
+import { getEnvValue } from '@/utils/env';
+import { useAuthStore } from '@/state/modules/auth';
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = getEnvValue<string>('VITE_BASE_URL');
 const HEADER = {
   'Content-Type': 'application/json;charset=UTF-8;',
   Accept: 'application/json, text/plain, */*',
@@ -33,12 +35,14 @@ request.interceptors.request.use(
     const { config } = options;
     const token = TOKEN();
     if (config.custom?.auth) {
-      if (!token) {
+      const authStore = useAuthStore();
+      if (!authStore.isLogin) {
+        Toast('请先登录');
         // token不存在跳转到登录页
-        // return Promise.reject(options);
+        return Promise.reject(options);
       }
       config.header = assign(config.header, {
-        authorization: `Bearer ${token}`,
+        authorization: `Bearer ${authStore.getToken}`,
       });
     }
     return options;

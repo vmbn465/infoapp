@@ -9,7 +9,8 @@
         >密码:
         <input class="border border-gray-500" v-model="form.password" type="text" />
       </label>
-      <button @tap="submit">login</button>
+      <button v-if="isLogin" @tap="loginOut">login out</button>
+      <button v-else @tap="submit">login</button>
       {{ loginType }}
       <view>{{ token }}---</view>
     </view>
@@ -18,29 +19,28 @@
 
 <script setup lang="ts">
   import { reactive, ref } from 'vue';
-  import { request } from '@/utils/http/index';
-  import { useUserStore } from '@/state/modules/user';
+  import { useAuthStore } from '@/state/modules/auth';
   const form = reactive({
     email: 'catch@admin.com',
     password: 'catchadmin',
   });
   const loginType = ref('');
-  const token = ref<string>('');
-  const userStore = useUserStore();
+
+  const authStore = useAuthStore();
+
+  const token = ref<string | undefined>(authStore.getToken);
+  const isLogin = ref<boolean>(authStore.isLogin);
   const submit = () => {
-    userStore.login(form);
-    // request
-    //   .post('/login', form)
-    //   .then((res: any) => {
-    //     loginType.value = '登录成功';
-    //     console.log(res);
-    //     userStore.setToken(res.data.token);
-    //     token.value = userStore.getToken;
-    //   })
-    //   .catch((err: any) => {
-    //     loginType.value = '登录失败';
-    //     console.log(err.message);
-    //   });
+    authStore.login(form).then((res) => {
+      token.value = res.token;
+      isLogin.value = authStore.isLogin;
+    });
+  };
+  const loginOut = () => {
+    authStore.loginOut().then((res) => {
+      token.value = res.token;
+      isLogin.value = authStore.isLogin;
+    });
   };
 </script>
 

@@ -16,12 +16,22 @@ export const devMode = 'development';
 export const prodMode = 'production';
 
 /**
+ * @description: Get environment mode
+ * @returns:
+ * @example:
+ */
+export function getEnvMode(): string {
+  return isDevMode() ? devMode : prodMode;
+}
+
+/**
  * @description: Get environment variables
  * @returns:
  * @example:
  */
-export function getEnv(): string {
-  return isDevMode() ? devMode : prodMode;
+export function getEnvValue<T = any>(key: string): T {
+  // @ts-ignore
+  return import.meta.env[key];
 }
 
 /**
@@ -30,7 +40,7 @@ export function getEnv(): string {
  * @example:
  */
 export function isDevMode(): boolean {
-  return import.meta.env.VITE_DEV;
+  return getEnvValue<boolean>('VITE_DEV');
 }
 
 /**
@@ -39,5 +49,5 @@ export function isDevMode(): boolean {
  * @example:
  */
 export function isProdMode(): boolean {
-  return import.meta.env.VITE_PROD;
+  return getEnvValue<boolean>('VITE_PROD');
 }

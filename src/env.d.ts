@@ -1,7 +1,5 @@
 // / <reference types="vite/client" />
 
-import { DEFAULT_PREFIX_KEY } from '@/settings/encryptionSetting';
-
 declare module '*.vue' {
   import { DefineComponent } from 'vue';
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
