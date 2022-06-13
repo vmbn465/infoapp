@@ -1,0 +1,65 @@
+import { HOME_PAGE, LOGIN_PAGE, NAVIGATE_TYPE_LIST, NOT_FOUND_PAGE } from '@/enums/routerEnum';
+import { authRouter } from '@/utils/router/index';
+import { useAuthStore } from '@/state/modules/auth';
+import { Toast } from '@/utils/uniApi';
+
+/**
+ * 判断当前路径是否在需要验证登录的路径中
+ * @param path
+ * @return boolean
+ */
+function isIncludesAuthRouter(path: string): boolean {
+  if (!authRouter.length) return false;
+  return authRouter.includes(path) || authRouter.some((item) => path.includes(item));
+}
+
+// 跳转登录
+function jumpLogin(path: string) {
+  const _path = path.startsWith('/') ? path : `/${path}`;
+  let pathQuery = encodeURIComponent(_path);
+  uni.navigateTo({
+    url: `${LOGIN_PAGE}?redirect=${pathQuery}`,
+  });
+}
+
+/**
+ * 添加拦截器
+ * 微信小程序端uni.switchTab拦截无效,请在onShow处理
+ * 微信小程序端 <navigator>拦截无效,请使用api
+ * @param routerName
+ * @export void
+ */
+function addInterceptor(routerName: string) {
+  uni.addInterceptor(routerName, {
+    // 跳转前拦截
+    invoke: (args) => {
+      if (isIncludesAuthRouter(args.url) && args.url !== LOGIN_PAGE) {
+        const authStore = useAuthStore();
+        if (authStore.isLogin) return args;
+        jumpLogin(args.url);
+        return false;
+      }
+      return args;
+    },
+    // 成功回调拦截
+    success: (res: any) => {},
+    // 失败回调拦截
+    fail: (err: any) => {
+      if (err.errMsg.includes(`${routerName}:fail page`)) {
+        Toast('页面不存在');
+        uni.navigateTo({
+          url: `${NOT_FOUND_PAGE}?redirect=${HOME_PAGE}`,
+        });
+      }
+      return false;
+    },
+    // 完成回调拦截
+    complete: (res: any) => {},
+  });
+}
+
+export function routerInterceptor() {
+  NAVIGATE_TYPE_LIST.forEach((item) => {
+    addInterceptor(item);
+  });
+}

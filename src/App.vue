@@ -1,9 +1,11 @@
 <script setup lang="ts">
   import { onLaunch, onShow, onHide } from '@dcloudio/uni-app';
   import { useAuthStore } from '@/state/modules/auth';
+  import { setupInterceptors } from '@/utils/interceptors';
 
   onLaunch(() => {
     console.log('App Launch');
+    setupInterceptors();
   });
   onShow(() => {
     const authStore = useAuthStore();

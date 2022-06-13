@@ -9,6 +9,12 @@
     <view>
       <button @tap="jumLogin">登录</button>
     </view>
+    <view url="pages/login/index?d=43" @tap="jumLogin1" hover-class="navigator-hover">
+      <button type="default">跳转到新页面</button>
+    </view>
+    <navigator url="/pages/log/index?d=43&title='日志'" hover-class="navigator-hover">
+      <button type="default">log</button>
+    </navigator>
   </view>
 </template>
 
@@ -20,8 +26,12 @@
     token: string;
   };
 
+  const jumLogin1 = () => {
+    uni.navigateTo({
+      url: '/pages/login1/index',
+    });
+  };
   const jumLogin = () => {
-    console.log('/pages/login/index');
     uni.navigateTo({
       url: '/pages/login/index',
     });

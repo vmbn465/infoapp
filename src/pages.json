@@ -12,6 +12,18 @@
       "style": {
         "navigationBarTitleText": "登录"
       }
+    },
+    {
+      "path": "pages/log/index",
+      "style": {
+        "navigationBarTitleText": "日志"
+      }
+    },
+    {
+      "path": "pages/notFound/404",
+      "style": {
+        "navigationBarTitleText": "Not Found"
+      }
     }
   ],
   "globalStyle": {

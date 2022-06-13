@@ -67,7 +67,7 @@ request.interceptors.response.use(
   },
   (response) => {
     // 请求错误做点什么。可以使用async await 做异步操作
-    error('Request Error!');
+    // error('Request Error!');
     return Promise.reject(response);
   },
 );

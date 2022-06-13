@@ -20,6 +20,13 @@
 <script setup lang="ts">
   import { reactive, ref } from 'vue';
   import { useAuthStore } from '@/state/modules/auth';
+  import { onLoad } from '@dcloudio/uni-app';
+  const redirect = ref<string | undefined>(undefined);
+  onLoad((query) => {
+    console.log('log onLOad', query);
+    redirect.value = query.redirect || undefined;
+  });
+
   const form = reactive({
     email: 'catch@admin.com',
     password: 'catchadmin',
