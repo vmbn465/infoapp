@@ -4,7 +4,6 @@
     <view class="text-area bg-rose-500 h-30rpx p-20rpx red">
       <text class="">{{ title }}</text>
     </view>
-    <view>{{ url }} ----</view>
     <Test />
     <view>
       <button @tap="jumLogin">登录</button>
@@ -21,20 +20,21 @@
 <script setup lang="ts">
   import { ref, reactive } from 'vue';
   import Test from '@/components/test/Test.vue';
+  import { router } from '@/utils/router';
   const title = ref('Hello');
   type Data = {
     token: string;
   };
 
   const jumLogin1 = () => {
-    uni.navigateTo({
-      url: '/pages/login1/index',
+    router.push('/pages/login1/index', {
+      success: (res) => {
+        console.log('success===>', res);
+      },
     });
   };
   const jumLogin = () => {
-    uni.navigateTo({
-      url: '/pages/login/index',
-    });
+    router.push('/pages/login/index');
   };
 </script>
 

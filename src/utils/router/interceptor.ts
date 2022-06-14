@@ -1,5 +1,5 @@
 import { HOME_PAGE, LOGIN_PAGE, NAVIGATE_TYPE_LIST, NOT_FOUND_PAGE } from '@/enums/routerEnum';
-import { authRouter } from '@/utils/router/index';
+import { AUTH_PAGE, router } from '@/utils/router/index';
 import { useAuthStore } from '@/state/modules/auth';
 import { Toast } from '@/utils/uniApi';
 
@@ -8,23 +8,25 @@ import { Toast } from '@/utils/uniApi';
  * @param path
  * @return boolean
  */
-function isIncludesAuthRouter(path: string): boolean {
-  if (!authRouter.length) return false;
-  return authRouter.includes(path) || authRouter.some((item) => path.includes(item));
+export function isIncludesAuthRouter(path: string): boolean {
+  if (!AUTH_PAGE.length) return false;
+  return AUTH_PAGE.includes(path) || AUTH_PAGE.some((item) => path.includes(item));
 }
 
-// 跳转登录
-function jumpLogin(path: string) {
+/**
+ * 跳转登录
+ * @param path
+ */
+export function jumpLogin(path: string) {
   const _path = path.startsWith('/') ? path : `/${path}`;
   let pathQuery = encodeURIComponent(_path);
-  uni.navigateTo({
-    url: `${LOGIN_PAGE}?redirect=${pathQuery}`,
-  });
+  router.push(`${LOGIN_PAGE}?redirect=${pathQuery}`);
 }
 
 /**
  * 添加拦截器
- * 微信小程序端uni.switchTab拦截无效,请在onShow处理
+ * 微信小程序端uni.switchTab拦截无效, 已在api中拦截
+ * 微信小程序原生tabbar请使用onShow
  * 微信小程序端 <navigator>拦截无效,请使用api
  * @param routerName
  * @export void
