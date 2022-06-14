@@ -1,6 +1,6 @@
 import { ConfigEnv, UserConfig } from 'vite';
 import uni from '@dcloudio/vite-plugin-uni';
-import eslintPlugin from 'vite-plugin-eslint';
+// import eslintPlugin from 'vite-plugin-eslint';
 import windicss from 'vite-plugin-windicss';
 import MiniProgramTailwind from '@dcasia/mini-program-tailwind-webpack-plugin/rollup';
 import { resolve } from 'path';
@@ -15,6 +15,15 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     resolve: {
       alias: {
         '@': resolve('./src'),
+      },
+    },
+    build: {
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          // 发布时删除 console
+          drop_console: true,
+        },
       },
     },
     server: {
