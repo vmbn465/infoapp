@@ -1,5 +1,3 @@
-'use strict';
-
 import * as utils from '../utils';
 
 function encode(val: string | number | boolean) {

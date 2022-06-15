@@ -1,5 +1,3 @@
-'use strict';
-
 import isAbsoluteURL from '../helpers/isAbsoluteURL';
 import combineURLs from '../helpers/combineURLs';
 

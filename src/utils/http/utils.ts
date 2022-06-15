@@ -1,5 +1,3 @@
-'use strict';
-
 // utils is a library of generic helper functions non-specific to axios
 
 const toString = Object.prototype.toString;

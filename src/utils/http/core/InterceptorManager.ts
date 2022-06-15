@@ -1,5 +1,3 @@
-'use strict';
-
 function InterceptorManager(): void {
   // @ts-ignore
   this.handlers = [];
