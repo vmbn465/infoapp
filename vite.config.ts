@@ -22,7 +22,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       terserOptions: {
         compress: {
           // 发布时删除 console
-          drop_console: true,
+          // drop_console: true,
         },
       },
     },

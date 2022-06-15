@@ -27,11 +27,7 @@
   };
 
   const jumLogin1 = () => {
-    router.push('/pages/login1/index', {
-      success: (res) => {
-        console.log('success===>', res);
-      },
-    });
+    router.push('/pages/login1/index');
   };
   const jumLogin = () => {
     router.push('/pages/login/index');

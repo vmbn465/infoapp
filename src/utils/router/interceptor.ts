@@ -47,15 +47,14 @@ function addInterceptor(routerName: string) {
     success: (res: any) => {},
     // 失败回调拦截
     fail: (err: any) => {
+      let reg: RegExp;
       /* #ifdef MP-WEIXIN */
-      let reg = /(.*)?(fail page ")(.*)(" is not found$)/;
+      reg = /(.*)?(fail page ")(.*)(" is not found$)/;
       /* #endif */
       /* #ifndef MP-WEIXIN */
       reg = /(.*)?(fail page `)(.*)(` is not found$)/;
       /* #endif */
-      console.log(reg.test(err.errMsg));
       if (reg.test(err.errMsg)) {
-        Toast('页面不存在');
         const go = err.errMsg.replace(reg, '$3') || '';
         uni.navigateTo({
           url: `${NOT_FOUND_PAGE}?redirect=${HOME_PAGE}&go=${go}`,
