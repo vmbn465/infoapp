@@ -4,7 +4,6 @@
     <view class="text-area bg-rose-500 h-30rpx p-20rpx red">
       <text class="">{{ title }}</text>
     </view>
-    <Test />
     <view>
       <button @tap="jumLogin">登录</button>
     </view>
@@ -19,7 +18,6 @@
 
 <script setup lang="ts">
   import { ref, reactive } from 'vue';
-  import Test from '@/components/test/Test.vue';
   import { router } from '@/utils/router';
   const title = ref('Hello');
   type Data = {
