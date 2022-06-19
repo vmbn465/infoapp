@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { defineProps, defineEmits } from 'vue';
   import { buttonProps } from '@/components/BasicButton/prpos';
 
   const { disabled } = defineProps(buttonProps);
