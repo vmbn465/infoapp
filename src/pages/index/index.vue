@@ -1,37 +1,21 @@
-<template>
-  <view class="content">
-    <image class="logo" src="/static/logo.png" />
-    <view class="text-area bg-rose-500 h-30rpx p-20rpx red">
-      <text class="">{{ title }}</text>
-    </view>
-    <view>
-      <button @tap="jumLogin">登录</button>
-    </view>
-    <view url="pages/login/index?d=43" @tap="jumLogin1" hover-class="navigator-hover">
-      <button type="default">跳转到新页面</button>
-    </view>
-    <navigator url="/pages/log/index?d=43&title='日志'" hover-class="navigator-hover">
-      <button type="default">log</button>
-    </navigator>
-  </view>
-</template>
-
 <script setup lang="ts">
-  import { ref, reactive } from 'vue';
+  import BasicButton from '@/components/BasicButton/index.vue';
+  import { ref } from 'vue';
   import { router } from '@/utils/router';
-  const title = ref('Hello');
-  type Data = {
-    token: string;
-  };
-
-  const jumLogin1 = () => {
-    router.push('/pages/login1/index');
-  };
-  const jumLogin = () => {
-    router.push('/pages/login/index');
+  const title = ref('uni-app vue3 ts --Vite');
+  const handleGetStarted = () => {
+    router.pushTab('/pages/demo/index');
   };
 </script>
-
+<template>
+  <view class="content">
+    <image class="logo" src="/static/svg/LOGO.svg" />
+    <view class="text-area mb-60rpx">
+      <text class="">{{ title }}</text>
+    </view>
+    <BasicButton @click="handleGetStarted">Get Started → </BasicButton>
+  </view>
+</template>
 <style lang="scss">
   .content {
     display: flex;
@@ -43,7 +27,7 @@
   .logo {
     height: 200rpx;
     width: 200rpx;
-    margin: 200rpx auto 50rpx;
+    margin: 280rpx auto 50rpx;
   }
 
   .text-area {
