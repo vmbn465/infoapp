@@ -2,7 +2,6 @@
   import { reactive, ref } from 'vue';
   import { useAuthStore } from '@/state/modules/auth';
   import { onLoad } from '@dcloudio/uni-app';
-  import BasicInput from '@/components/BasicInput/index.vue';
   import { Toast } from '@/utils/uniApi';
   import { router } from '@/utils/router';
   const redirect = ref<string | undefined>(undefined);
@@ -16,6 +15,7 @@
   });
   const authStore = useAuthStore();
   const submit = (e: any) => {
+    console.log(e);
     authStore.login(e.detail.value).then((res) => {
       Toast('登录成功', { duration: 1500 });
       setTimeout(() => {
@@ -32,12 +32,12 @@
       <form class="form" @submit="submit">
         <label class="form-item">
           <view class="form-label">邮箱:</view>
-          <view class="form-element"><BasicInput name="email" :value="form.email" /></view>
+          <view class="form-element"><input name="email" :value="form.email" /></view>
         </label>
         <label class="form-item">
           <view class="form-label">密码:</view>
           <view class="form-element"
-            ><BasicInput type="password" name="password" :value="form.password"
+            ><input type="password" name="password" :value="form.password"
           /></view>
         </label>
         <button
