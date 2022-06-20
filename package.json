@@ -1,6 +1,6 @@
 {
-  "name": "uni-preset-vue3",
-  "version": "0.0.0",
+  "name": "vue3-Vite2-TS basic framework",
+  "version": "1.0.0",
   "scripts": {
     "dev:app": "uni -p app",
     "dev:custom": "uni -p",
