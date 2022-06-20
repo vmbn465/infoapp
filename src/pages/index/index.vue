@@ -10,7 +10,7 @@
 <template>
   <view class="content">
     <image class="logo" src="/static/svg/LOGO.svg" />
-    <view class="text-area mb-60rpx">
+    <view class="text-area">
       <text class="">{{ title }}</text>
     </view>
     <BasicButton @click="handleGetStarted">Get Started → </BasicButton>
@@ -33,6 +33,7 @@
   .text-area {
     display: flex;
     justify-content: center;
+    margin-bottom: 60rpx;
   }
 
   .title {

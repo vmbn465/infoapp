@@ -1,27 +1,3 @@
-<template>
-  <view class="max-w-4/5 mx-auto py-36rpx text-center pt-280rpx">登录</view>
-  <view class="shadow-lg max-w-4/5 mx-auto py-36rpx px-24rpx">
-    <form class="form" @submit="submit">
-      <label class="h-44px flex items-center border-0 border-b-3rpx border-solid border-blue-100">
-        <view class="min-w-96rpx">邮箱:</view>
-        <view class="flex-grow"><BasicInput name="email" :value="form.email" /></view>
-      </label>
-      <label class="h-44px flex items-center border-0 border-b-3rpx border-solid border-blue-100">
-        <view class="min-w-96rpx">密码:</view>
-        <view class="flex-grow"
-          ><BasicInput type="password" name="password" :value="form.password"
-        /></view>
-      </label>
-      <button
-        form-type="submit"
-        class="border-4rp mt-44rpx h-88rpx flex items-center justify-center border-solid border-blue-200 bg-blue-400 hover:bg-blue-500 text-xs text-light-100 hover:text-light-100"
-        hover-class="none"
-        >登录</button
-      >
-    </form>
-  </view>
-</template>
-
 <script setup lang="ts">
   import { reactive, ref } from 'vue';
   import { useAuthStore } from '@/state/modules/auth';
@@ -49,4 +25,68 @@
   };
 </script>
 
-<style lang="scss" scoped></style>
+<template>
+  <view class="container">
+    <view class="title">登录</view>
+    <view class="form-wrap">
+      <form class="form" @submit="submit">
+        <label class="form-item">
+          <view class="form-label">邮箱:</view>
+          <view class="form-element"><BasicInput name="email" :value="form.email" /></view>
+        </label>
+        <label class="form-item">
+          <view class="form-label">密码:</view>
+          <view class="form-element"
+            ><BasicInput type="password" name="password" :value="form.password"
+          /></view>
+        </label>
+        <button
+          form-type="submit"
+          class="submit-btn border-4rp mt-44rpx h-88rpx flex items-center justify-center border-solid border-blue-200 bg-blue-400 hover:bg-blue-500 text-xs text-light-100 hover:text-light-100"
+          hover-class="none"
+          >登录</button
+        >
+      </form>
+    </view>
+  </view>
+</template>
+
+<style lang="scss" scoped>
+  .container {
+    margin: 0 auto;
+    width: 80%;
+    .title {
+      padding: 320rpx 0 32rpx 0;
+      text-align: center;
+    }
+    .form-wrap {
+      padding: 20rpx 24rpx;
+      box-shadow: 16rpx 16rpx 30rpx #e5e7eb;
+      .form {
+        .form-item {
+          display: flex;
+          height: 88rpx;
+          border-bottom: 2rpx solid #dbeafe;
+          align-items: center;
+          .form-label {
+            min-width: 96rpx;
+          }
+          .form-element {
+            flex-grow: 1;
+          }
+        }
+        .submit-btn {
+          margin-top: 44rpx;
+          border: 4rpx solid #bfdbfe;
+          background-color: #60a5fa;
+          border-radius: 8rpx;
+          font-size: 28rpx;
+          color: #ffffff;
+          :hover {
+            background-color: #3b82f6;
+          }
+        }
+      }
+    }
+  }
+</style>

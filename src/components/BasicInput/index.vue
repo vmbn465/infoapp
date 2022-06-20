@@ -1,5 +1,5 @@
 <template>
-  <input :type="type" v-bind="$attrs" />
+  <input :type="type" :name="name" :value="value" />
 </template>
 
 <script lang="ts">
@@ -11,10 +11,18 @@
         type: String,
         default: 'text',
       },
+      name: {
+        type: String,
+        default: '',
+      },
+      value: {
+        type: String,
+        default: '',
+      },
     },
     setup(props) {
-      const test = 'Test';
-      return { test };
+      const _props = props;
+      return {};
     },
   });
 </script>
