@@ -16,4 +16,8 @@
     console.log('App Hide');
   });
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+  page {
+    background-color: #f2f2f2;
+  }
+</style>

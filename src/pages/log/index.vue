@@ -1,5 +1,5 @@
 <template>
-  <view>log</view>
+  <view style="line-height: 88rpx; text-align: center">登录后访问log</view>
 </template>
 
 <script lang="ts" setup>
