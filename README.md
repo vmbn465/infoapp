@@ -4,11 +4,92 @@ uni-app Vue3 Vite2 TypeScript 基础框架
 
 ## 特性
 
-- **最新技术栈**：使用 Vue3/Vite2 ,TypeScript 等前端前沿技术开发
+- **最新技术栈**：使用 Vue3/Vite2/pinia ,TypeScript 等前端前沿技术开发
 - **Eslint/Prettier**: 规范代码格式,统一编码
 - **路由拦截**: 基于uni.addInterceptor进行路由拦截
 - **请求拦截**: 核心使用 [luch-request]("https://ext.dcloud.net.cn/plugin?id=392"),支持请求和响应拦截等
 - **缓存加密**: 使用AES加密缓存,可设置区分在开发或生成环境中是否加密
+
+## 目录结构
+
+```shell
+.
+├─ src
+│   ├─assets # 静态资源目录
+│   │   └─ style
+│   │        └─main.scss # 公共样式
+│   │
+│   ├─components # 组件目录
+│   │   ├─ BasicButton
+│   │   │    ├─index.vue
+│   │   │    └─prpos.ts
+│   │   └─...
+│   │ 
+│   ├─enums # 枚举/常量
+│   │   ├─ cacheEnum.ts
+│   │   └─...
+│   │ 
+│   ├─pages # 页面
+│   │   ├─ index
+│   │   │    └─index.vue
+│   │   └─...
+│   │ 
+│   ├─services # 接口相关
+│   │   ├─ api # api  
+│   │   │    ├─auth.ts
+│   │   │    └─...
+│   │   │
+│   │   └─ model # 数据模型  
+│   │        ├─authModel.d.ts
+│   │        └─...
+│   │ 
+│   ├─settings # 设置
+│   │   └─ encryptionSetting # 加密设置  
+│   │
+│   ├─state # 状态管理模式(pinia)
+│   │   ├─ modules # 数据模块  
+│   │   │    ├─auth.ts
+│   │   │    └─...
+│   │   │
+│   │   └─ index.ts
+│   │ 
+│   ├─static # 静态文件
+│   │   ├─ images # 图片  
+│   │   │    ├─avatar.png
+│   │   │    └─...
+│   │   │
+│   │   └─ ...
+│   │   
+│   ├─types # 类型文件
+│   │   ├─ http.d.ts
+│   │   └─ ...
+│   │
+│   └─utils # 工具类
+│       ├─ catch # 缓存相关目录
+│       ├─ http  # request相关目录
+│       ├─ interceptors  # 拦截器相关目录
+│       └─ ...
+│
+├─ .env
+├─ .env.development
+├─ .env.production
+├─  .eslintignore
+├─  .eslintrc.js
+├─  .gitignore
+├─  .prettierignore
+├─  .prettierrc.js
+├─  favicon.ico
+├─  index.html
+├─  package.json
+├─  pnpm-lock.yaml
+├─  README.md
+├─  tree.txt
+├─  tsconfig.json
+└─  vite.config.ts
+
+```
+
+
 
 ## 预览
 
