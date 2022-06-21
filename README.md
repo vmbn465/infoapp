@@ -94,13 +94,13 @@ uni-app Vue3 Vite2 TypeScript 基础框架
 ## 预览
 
 - H5
-  http://uni-app.test.local.top/static/images/avatar.png
-  ![h5](http://uni-app.test.local.top/static/images/h5Qcode.png) 
+
+  ![h5](https://api-catch.ranesuangyu.top/images/20220621/364f2b47d91ae5ae82a33d33854e2540.png
+  ) 
 
 [//]: # (- 小程序&#40;暂未发布&#41;)
 
-[//]: # ()
-[//]: # (  ![小程序]&#40;http://uni-app.test.local.top/static/images/wexinQcode.jpg&#41;)
+[//]: # (  ![小程序]&#40;http://api-catch.ranesuangyu.top/images/20220621/8d4388315ef5b8630d0c0b3963d1ba6b.jpg&#41;)
 
   
 
