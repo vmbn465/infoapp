@@ -53,7 +53,7 @@ uni-app Vue3 Vite2 TypeScript 基础框架
 │   │   │
 │   │   └─ index.ts
 │   │ 
-│   ├─static # 静态文件
+│   ├─static # 静态公共文件
 │   │   ├─ images # 图片  
 │   │   │    ├─avatar.png
 │   │   │    └─...
@@ -73,19 +73,19 @@ uni-app Vue3 Vite2 TypeScript 基础框架
 ├─ .env
 ├─ .env.development
 ├─ .env.production
-├─  .eslintignore
-├─  .eslintrc.js
-├─  .gitignore
-├─  .prettierignore
-├─  .prettierrc.js
-├─  favicon.ico
-├─  index.html
-├─  package.json
-├─  pnpm-lock.yaml
-├─  README.md
-├─  tree.txt
-├─  tsconfig.json
-└─  vite.config.ts
+├─ .eslintignore
+├─ .eslintrc.js
+├─ .gitignore
+├─ .prettierignore
+├─ .prettierrc.js
+├─ favicon.ico
+├─ index.html
+├─ package.json
+├─ pnpm-lock.yaml
+├─ README.md
+├─ tree.txt
+├─ tsconfig.json
+└─ vite.config.ts
 
 ```
 
@@ -93,6 +93,16 @@ uni-app Vue3 Vite2 TypeScript 基础框架
 
 ## 预览
 
+- H5
+  http://uni-app.test.local.top/static/images/avatar.png
+  ![h5](http://uni-app.test.local.top/static/images/h5Qcode.png) 
+
+[//]: # (- 小程序&#40;暂未发布&#41;)
+
+[//]: # ()
+[//]: # (  ![小程序]&#40;http://uni-app.test.local.top/static/images/wexinQcode.jpg&#41;)
+
+  
 
 ## 安装使用
 
