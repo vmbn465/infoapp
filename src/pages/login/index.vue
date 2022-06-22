@@ -39,12 +39,7 @@
             ><input type="password" name="password" :value="form.password"
           /></view>
         </label>
-        <button
-          form-type="submit"
-          class="submit-btn border-4rp mt-44rpx h-88rpx flex items-center justify-center border-solid border-blue-200 bg-blue-400 hover:bg-blue-500 text-xs text-light-100 hover:text-light-100"
-          hover-class="none"
-          >登录</button
-        >
+        <button form-type="submit" class="submit-btn" hover-class="none">登录</button>
       </form>
     </view>
   </view>
