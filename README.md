@@ -1,6 +1,7 @@
 ## 简介
 
-**uni-app Vue3 Vite2 TypeScript 基础框架** 
+- **uni-app Vue3 Vite2 TypeScript 基础框架** 
+- cli创建的Vue3/Vite项目 与 使用HBuilderX导入插件 的包有差异,请直接访问 [开源地址](https://gitee.com/h_mo/uniapp-vue3-vite2-ts-template)
 
 
 ### 说明
