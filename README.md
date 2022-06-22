@@ -1,14 +1,23 @@
 ## 简介
 
-uni-app Vue3 Vite2 TypeScript 基础框架
+**uni-app Vue3 Vite2 TypeScript 基础框架** 
+
+
+### 说明
+- 框架完全基于Vue3 SFC `<script setup>` 写法,不支持Vue2;
+- 可用于学习与交流;
+- 目前测试H5、微信小程序通过,钉钉或支付宝小程序未通过,原因: 引入pinia在支付宝小程序中报错;
+- 其他平台暂未测试,后续会增加;
+- 如发现问题或建议可在评论区留言,会及时处理;
+- 如有需求亦可在评论区留言,或在此项目基础上增加;
 
 ## 特性
 
-- **最新技术栈**：使用 Vue3/Vite2/pinia ,TypeScript 等前端前沿技术开发
-- **Eslint/Prettier**: 规范代码格式,统一编码
-- **路由拦截**: 基于uni.addInterceptor进行路由拦截
-- **请求拦截**: 核心使用 [luch-request]("https://ext.dcloud.net.cn/plugin?id=392"),支持请求和响应拦截等
-- **缓存加密**: 使用AES加密缓存,可设置区分在开发或生成环境中是否加密
+- **最新技术栈**：使用 Vue3/Vite2/pinia ,TypeScript 等前端前沿技术开发;
+- **Eslint/Prettier**: 规范代码格式,统一编码;
+- **路由拦截**: 基于uni.addInterceptor进行路由拦截;
+- **请求拦截**: 核心使用 [luch-request]("https://ext.dcloud.net.cn/plugin?id=392"),支持请求和响应拦截等;
+- **缓存加密**: 使用AES加密缓存,可设置区分在开发或生成环境中是否加密;
 
 ## 目录结构
 
