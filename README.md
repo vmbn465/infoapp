@@ -1,7 +1,7 @@
 ## 简介
 
-- **uni-app Vue3 Vite2 TypeScript 基础框架** 
-- cli创建的Vue3/Vite项目 与 使用HBuilderX导入插件 的包有差异,请直接访问 [开源地址](https://gitee.com/h_mo/uniapp-vue3-vite2-ts-template)
+- **uni-app Vue3 Vite3 TypeScript 基础框架** 
+- cli创建的Vue3/Vite项目 与 使用HBuilderX导入插件 的包有差异,请直接访问 [开源地址](https://gitee.com/h_mo/uniapp-vue3-vite3-ts-template)
 
 
 ### 说明
@@ -14,7 +14,7 @@
 
 ## 特性
 
-- **最新技术栈**：使用 Vue3/Vite2/pinia ,TypeScript 等前端前沿技术开发;
+- **最新技术栈**：使用 Vue3/Vite3/pinia ,TypeScript 等前端前沿技术开发;
 - **Eslint/Prettier**: 规范代码格式,统一编码;
 - **路由拦截**: 基于uni.addInterceptor进行路由拦截;
 - **请求拦截**: 核心使用 [luch-request](https://ext.dcloud.net.cn/plugin?id=392),支持请求和响应拦截等;
