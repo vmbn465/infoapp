@@ -1,6 +1,6 @@
 import { ConfigEnv, UserConfig } from 'vite';
 import uni from '@dcloudio/vite-plugin-uni';
-// import eslintPlugin from 'vite-plugin-eslint';
+import eslintPlugin from 'vite-plugin-eslint';
 import { resolve } from 'path';
 import { loadEnv } from 'vite';
 
@@ -41,11 +41,11 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     },
     plugins: [
       uni(),
-      // eslintPlugin({
-      //   include: ['src/**/*.js', 'src/**/*.vue', 'src/**/*.ts'],
-      //   exclude: ['./node_modules/**'],
-      //   cache: false,
-      // }),
+      eslintPlugin({
+        include: ['src/**/*.js', 'src/**/*.vue', 'src/**/*.ts'],
+        exclude: ['./node_modules/**'],
+        cache: false,
+      }),
     ],
     css: {
       preprocessorOptions: {

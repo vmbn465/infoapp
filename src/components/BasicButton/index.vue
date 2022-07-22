@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <view class="default-btn" @tap="click"><slot /></view>
+  <view class="default-btn" @tap="click"><slot></slot></view>
 </template>
 
 <style lang="scss" scoped>

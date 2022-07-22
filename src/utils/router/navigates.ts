@@ -57,7 +57,7 @@ export class Navigates {
       const authStore = useAuthStore();
       if (!authStore.isLogin) {
         const _path = url.startsWith('/') ? url : `/${url}`;
-        let pathQuery = encodeURIComponent(_path);
+        const pathQuery = encodeURIComponent(_path);
         this.push(`${LOGIN_PAGE}?redirect=${pathQuery}`);
       }
       return;

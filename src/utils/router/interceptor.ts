@@ -1,7 +1,6 @@
 import { HOME_PAGE, LOGIN_PAGE, NAVIGATE_TYPE_LIST, NOT_FOUND_PAGE } from '@/enums/routerEnum';
 import { AUTH_PAGE, router } from '@/utils/router/index';
 import { useAuthStore } from '@/state/modules/auth';
-import { Toast } from '@/utils/uniApi';
 
 /**
  * 判断当前路径是否在需要验证登录的路径中
@@ -19,7 +18,7 @@ export function isIncludesAuthRouter(path: string): boolean {
  */
 export function jumpLogin(path: string) {
   const _path = path.startsWith('/') ? path : `/${path}`;
-  let pathQuery = encodeURIComponent(_path);
+  const pathQuery = encodeURIComponent(_path);
   router.push(`${LOGIN_PAGE}?redirect=${pathQuery}`);
 }
 
@@ -44,7 +43,7 @@ function addInterceptor(routerName: string) {
       return args;
     },
     // 成功回调拦截
-    success: (res: any) => {},
+    success: () => {},
     // 失败回调拦截
     fail: (err: any) => {
       let reg: RegExp;
@@ -63,7 +62,7 @@ function addInterceptor(routerName: string) {
       return false;
     },
     // 完成回调拦截
-    complete: (res: any) => {},
+    complete: () => {},
   });
 }
 

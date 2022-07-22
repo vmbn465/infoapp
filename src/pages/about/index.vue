@@ -25,7 +25,7 @@
   <view class="container">
     <view class="head-wrap">
       <view class="avatar">
-        <image class="img" src="/static/images/avatar.png"></image>
+        <image class="img" src="/static/images/avatar.png" />
       </view>
       <view class="desc">{{ isLogin ? '测试' : '未登入' }}</view>
     </view>
