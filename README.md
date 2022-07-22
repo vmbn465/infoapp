@@ -17,7 +17,7 @@
 - **最新技术栈**：使用 Vue3/Vite2/pinia ,TypeScript 等前端前沿技术开发;
 - **Eslint/Prettier**: 规范代码格式,统一编码;
 - **路由拦截**: 基于uni.addInterceptor进行路由拦截;
-- **请求拦截**: 核心使用 [luch-request]("https://ext.dcloud.net.cn/plugin?id=392"),支持请求和响应拦截等;
+- **请求拦截**: 核心使用 [luch-request](https://ext.dcloud.net.cn/plugin?id=392),支持请求和响应拦截等;
 - **缓存加密**: 使用AES加密缓存,可设置区分在开发或生成环境中是否加密;
 
 ## 目录结构
