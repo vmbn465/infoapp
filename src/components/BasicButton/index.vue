@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { buttonProps } from '@/components/BasicButton/prpos';
 
-  const { disabled } = defineProps(buttonProps);
+  const props = defineProps(buttonProps);
   const emits = defineEmits(['click']);
   const click = () => {
     emits('click');
@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <view class="default-btn" @tap="click"><slot></slot></view>
+  <view class="default-btn" :disabled="props.disabled" @tap="click"><slot></slot></view>
 </template>
 
 <style lang="scss" scoped>

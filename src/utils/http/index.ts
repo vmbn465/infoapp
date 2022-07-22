@@ -1,8 +1,5 @@
 import Request from './core/Request';
-import { getCache } from '@/utils/catch';
-import { TOKEN_KEY } from '@/enums/cacheEnum';
 import { assign } from 'lodash-es';
-import { error } from '@/utils/log';
 import { HttpSuccess } from '@/types/http';
 import { Toast } from '@/utils/uniApi';
 import { getEnvValue } from '@/utils/env';
@@ -13,8 +10,6 @@ const HEADER = {
   'Content-Type': 'application/json;charset=UTF-8;',
   Accept: 'application/json, text/plain, */*',
 };
-
-const TOKEN = () => getCache<string>(TOKEN_KEY) || undefined;
 
 function createRequest() {
   return new Request({
@@ -33,7 +28,6 @@ const request = createRequest();
 request.interceptors.request.use(
   (options) => {
     const { config } = options;
-    const token = TOKEN();
     if (config.custom?.auth) {
       const authStore = useAuthStore();
       if (!authStore.isLogin) {
@@ -56,9 +50,9 @@ request.interceptors.request.use(
  * 响应拦截器
  */
 request.interceptors.response.use(
-  async (response: HttpSuccess<API<any>>) => {
+  async (response: HttpSuccess<API>) => {
     const { data: resData } = response;
-    const { code, message, data } = resData;
+    const { code, message } = resData;
     if (code === 10000) {
       return resData as any;
     }

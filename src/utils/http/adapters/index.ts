@@ -33,7 +33,9 @@ export default <T>(config: HttpRequestConfig) => {
           if (typeof res.data === 'string') {
             res.data = JSON.parse(res.data);
           }
-        } catch (e) {}
+        } catch (e: any) {
+          reject(e);
+        }
         const cloneConfig = cloneDeep(config);
         cloneConfig.fullPath = fullPath;
         const response = {

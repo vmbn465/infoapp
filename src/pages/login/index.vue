@@ -15,7 +15,7 @@
   });
   const authStore = useAuthStore();
   const submit = (e: any) => {
-    authStore.login(e.detail.value).then((res) => {
+    authStore.login(e.detail.value).then(() => {
       Toast('登录成功', { duration: 1500 });
       setTimeout(() => {
         router.pushTab('/pages/about/index');

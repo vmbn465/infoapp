@@ -20,6 +20,6 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "node_modules/**/uni.d.ts"
+    "node_modules/@dcloudio/types/uni-app/uni.d.ts"
   ]
 }

@@ -15,7 +15,7 @@
 
   // 登出
   const handleLoginOut = () => {
-    authStore.loginOut().then((res) => {
+    authStore.loginOut().then(() => {
       isLogin.value = false;
     });
   };

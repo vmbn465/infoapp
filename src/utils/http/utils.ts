@@ -125,6 +125,7 @@ export function deepMerge(/* obj1, obj2, obj3, ... */) {
     }
   }
   for (let i = 0, l = arguments.length; i < l; i++) {
+    // eslint-disable-next-line prefer-rest-params
     forEach(arguments[i], assignValue);
   }
   return result;
