@@ -2,7 +2,7 @@
   import { reactive, ref } from 'vue';
   import { useAuthStore } from '@/state/modules/auth';
   import { onLoad } from '@dcloudio/uni-app';
-  import { Toast } from '@/utils/uniApi';
+  import { Toast } from '@/utils/uniapi/prompt';
   import { router } from '@/utils/router';
   const redirect = ref<string | undefined>(undefined);
   onLoad((query) => {

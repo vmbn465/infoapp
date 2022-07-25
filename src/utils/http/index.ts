@@ -1,9 +1,10 @@
 import Request from './core/Request';
 import { assign } from 'lodash-es';
 import { HttpSuccess } from '@/types/http';
-import { Toast } from '@/utils/uniApi';
+import { Toast } from '@/utils/uniapi/prompt';
 import { getEnvValue } from '@/utils/env';
 import { useAuthStore } from '@/state/modules/auth';
+import { ResultEnum } from '@/enums/httpEnum';
 
 const BASE_URL = getEnvValue<string>('VITE_BASE_URL');
 const HEADER = {
@@ -53,7 +54,7 @@ request.interceptors.response.use(
   async (response: HttpSuccess<API>) => {
     const { data: resData } = response;
     const { code, message } = resData;
-    if (code === 10000) {
+    if (code === ResultEnum.SUCCESS) {
       return resData as any;
     }
     Toast(message);
