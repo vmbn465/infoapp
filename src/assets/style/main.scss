@@ -10,19 +10,31 @@ icon,
 text,
 rich-text,
 progress,
-button,checkboxe,ditor,
-form,input,label,picker,picker-view,radio,
-slider,switch,textarea,navigator,
+button,
+checkboxe,
+ditor,
+form,
+input,
+label,
+picker,
+picker-view,
+radio,
+slider,
+switch,
+textarea,
+navigator,
 audio,
 camera,
 imagevideo,
 live-player,
 live-pusher,
-map,canvas,web-view,:before,
-:after{
+map,
+canvas,
+web-view,
+:before,
+:after {
   box-sizing: border-box;
 }
-
 
 /* 隐藏scroll-view的滚动条 */
 ::-webkit-scrollbar {
