@@ -4,7 +4,7 @@ import eslintPlugin from 'vite-plugin-eslint';
 import { resolve } from 'path';
 import { loadEnv } from 'vite';
 
-// https://vitejs.dev/config/
+// https://vitejs.cn/config/
 export default ({ mode }: ConfigEnv): UserConfig => {
   const root = process.cwd();
   const env = loadEnv(mode, root);
@@ -14,6 +14,9 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       alias: {
         '@': resolve('./src'),
       },
+    },
+    define: {
+      'process.env': {},
     },
     build: {
       minify: 'terser',
