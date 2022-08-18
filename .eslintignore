@@ -6,6 +6,7 @@ dist
 .hbuilderx
 src/manifest.json
 src/pages.json
+src/tmui/
 *.sh
 node_modules
 *.md

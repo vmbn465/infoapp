@@ -55,12 +55,12 @@ web-view,
       white-space: nowrap;
       text-overflow: ellipsis;
     } @else {
-      display: -webkit-box!important;
+      display: -webkit-box !important;
       overflow: hidden;
       text-overflow: ellipsis;
       word-break: break-all;
       -webkit-line-clamp: $i;
-      -webkit-box-orient: vertical!important;
+      -webkit-box-orient: vertical !important;
     }
   }
 }
