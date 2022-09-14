@@ -51,6 +51,7 @@
     "crypto-js": "^4.1.1",
     "echarts": "^5.3.3",
     "lodash-es": "^4.17.21",
+    "luch-request": "^3.0.8",
     "pinia": "^2.0.22",
     "vue": "^3.2.39",
     "vue-i18n": "^9.2.2"

@@ -10,7 +10,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "types": ["@dcloudio/types","src/tmui/interface.ts"],
+    "types": ["@dcloudio/types"],
     "paths": {
       "@/*":["./src/*"]
     }
@@ -19,7 +19,6 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue",
-    "node_modules/@dcloudio/types/uni-app/uni.d.ts",
+    "src/**/*.vue"
   ]
 }

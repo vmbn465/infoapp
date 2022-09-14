@@ -1,4 +1,4 @@
-import Request from './core/Request';
+import Request from 'luch-request';
 import { assign } from 'lodash-es';
 import { HttpSuccess } from '@/types/http';
 import { Toast } from '@/utils/uniapi/prompt';
@@ -28,15 +28,14 @@ const request = createRequest();
  */
 request.interceptors.request.use(
   (options) => {
-    const { config } = options;
-    if (config.custom?.auth) {
+    if (options.custom?.auth) {
       const authStore = useAuthStore();
       if (!authStore.isLogin) {
         Toast('请先登录');
         // token不存在跳转到登录页
         return Promise.reject(options);
       }
-      config.header = assign(config.header, {
+      options.header = assign(options.header, {
         authorization: `Bearer ${authStore.getToken}`,
       });
     }
