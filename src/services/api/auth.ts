@@ -9,7 +9,7 @@ const REFRESH_TOKEN = '/refresh/token';
  * @param params
  */
 export function login(params: LoginParams) {
-  return request.post<API<LoginModel>>(LOGIN, params, {
+  return request.post<LoginModel>(LOGIN, params, {
     custom: {
       auth: false,
     },
@@ -20,12 +20,12 @@ export function login(params: LoginParams) {
  * 登出
  */
 export function logout() {
-  return request.post<API>(LOGIN_OUT, {});
+  return request.post(LOGIN_OUT, {});
 }
 
 /**
  * 刷新token
  */
 export function refreshToken() {
-  return request.post<API<LoginModel>>(REFRESH_TOKEN, {});
+  return request.post<LoginModel>(REFRESH_TOKEN, {});
 }

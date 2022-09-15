@@ -1,6 +1,5 @@
 import Request from 'luch-request';
 import { assign } from 'lodash-es';
-import { HttpSuccess } from '@/types/http';
 import { Toast } from '@/utils/uniapi/prompt';
 import { getEnvValue } from '@/utils/env';
 import { useAuthStore } from '@/state/modules/auth';
@@ -50,7 +49,7 @@ request.interceptors.request.use(
  * 响应拦截器
  */
 request.interceptors.response.use(
-  async (response: HttpSuccess<API>) => {
+  async (response) => {
     const { data: resData } = response;
     const { code, message } = resData;
     if (code === ResultEnum.SUCCESS) {
