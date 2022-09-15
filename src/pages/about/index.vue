@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import BasicButton from '@/components/BasicButton/index.vue';
+  import AppProvider from '@/components/AppProvider/inedx.vue';
   import { router } from '@/utils/router';
   import { useAuthStore } from '@/state/modules/auth';
   import { ref } from 'vue';
@@ -22,19 +23,25 @@
 </script>
 
 <template>
-  <view class="container">
-    <view class="head-wrap">
-      <view class="avatar">
-        <image class="img" src="/static/images/avatar.png" />
+  <AppProvider>
+    <view class="container">
+      <view class="head-wrap">
+        <view class="avatar">
+          <image class="img" src="/static/images/avatar.png" />
+        </view>
+        <view class="desc">{{ isLogin ? '测试' : '未登入' }}</view>
       </view>
-      <view class="desc">{{ isLogin ? '测试' : '未登入' }}</view>
+      <view class="cell"
+        ><BasicButton @click="handleJump('/pages/log/index')">log</BasicButton></view
+      >
+      <view class="cell" v-if="isLogin"
+        ><BasicButton @click="handleLoginOut">登出</BasicButton></view
+      >
+      <view class="cell" v-else
+        ><BasicButton @click="handleJump('/pages/login/index')">登入</BasicButton></view
+      >
     </view>
-    <view class="cell"><BasicButton @click="handleJump('/pages/log/index')">log</BasicButton></view>
-    <view class="cell" v-if="isLogin"><BasicButton @click="handleLoginOut">登出</BasicButton></view>
-    <view class="cell" v-else
-      ><BasicButton @click="handleJump('/pages/login/index')">登入</BasicButton></view
-    >
-  </view>
+  </AppProvider>
 </template>
 
 <style lang="scss" scoped>

@@ -5,6 +5,9 @@
       "path": "pages/index/index",
       "style": {
         "navigationBarTitleText": "首页"
+      },
+      "meta": {
+        "ignoreAuth": true
       }
     },
     {
@@ -38,6 +41,28 @@
       }
     }
   ],
+  "subPackages": [{
+    "root": "pagesA",
+    "pages": [{
+      "path": "list/test1/index",
+      "style": {
+        "navigationBarTitleText": "test1"
+      }
+    },{
+      "path": "list/test2/index",
+      "style": {
+        "navigationBarTitleText": "test2"
+      }
+    }]
+  }, {
+    "root": "pagesB",
+    "pages": [{
+      "path": "detail/index",
+      "style": {
+        "navigationBarTitleText": "Detail"
+      }
+    }]
+  }],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",

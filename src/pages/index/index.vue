@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import BasicButton from '@/components/BasicButton/index.vue';
+  import AppProvider from '@/components/AppProvider/inedx.vue';
   import { ref } from 'vue';
   import { router } from '@/utils/router';
   const title = ref('uni-app vue3 ts --Vite');
@@ -8,13 +9,15 @@
   };
 </script>
 <template>
-  <view class="content">
-    <image class="logo" src="/static/svg/LOGO.svg" />
-    <view class="text-area">
-      <text class="">{{ title }}</text>
+  <AppProvider>
+    <view class="content">
+      <image class="logo" src="/static/svg/LOGO.svg" />
+      <view class="text-area">
+        <text class="">{{ title }}</text>
+      </view>
+      <BasicButton @click="handleGetStarted">Get Started → </BasicButton>
     </view>
-    <BasicButton @click="handleGetStarted">Get Started → </BasicButton>
-  </view>
+  </AppProvider>
 </template>
 <style lang="scss">
   .content {

@@ -2,10 +2,13 @@
   import { onLaunch, onShow, onHide } from '@dcloudio/uni-app';
   import { useAuthStore } from '@/state/modules/auth';
   import { setupInterceptors } from '@/utils/interceptors';
+  import { useAppStore } from '@/state/modules/app';
 
   onLaunch(() => {
     console.log('App Launch');
     setupInterceptors();
+    const appStore = useAppStore();
+    appStore.initialize();
   });
   onShow(() => {
     const authStore = useAuthStore();
