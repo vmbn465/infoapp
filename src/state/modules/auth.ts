@@ -45,6 +45,7 @@ export const useAuthStore = defineStore({
      * @description 登出
      */
     async loginOut(): Promise<any> {
+      console.log('~~loginOut请求');
       try {
         const res = await logout();
         removeCache(TOKEN_KEY);

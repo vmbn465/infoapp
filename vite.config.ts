@@ -44,11 +44,11 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     },
     plugins: [
       uni(),
-      eslintPlugin({
-        include: ['src/**/*.js', 'src/**/*.vue', 'src/**/*.ts'],
-        exclude: ['./node_modules/**'],
-        cache: false,
-      }),
+      // eslintPlugin({
+      //   include: ['src/**/*.js', 'src/**/*.vue', 'src/**/*.ts'],
+      //   exclude: ['./node_modules/**'],
+      //   cache: false,
+      // }),
     ],
     css: {
       preprocessorOptions: {

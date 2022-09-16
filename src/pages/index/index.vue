@@ -4,8 +4,9 @@
   import { ref } from 'vue';
   import { router } from '@/utils/router';
   const title = ref('uni-app vue3 ts --Vite');
+  console.log('感受到考虑到垮落法');
   const handleGetStarted = () => {
-    router.pushTab('/pages/demo/index');
+    router.pushTab('/pages/demo/index?d=str');
   };
 </script>
 <template>

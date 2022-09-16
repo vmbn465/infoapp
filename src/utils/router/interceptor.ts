@@ -1,25 +1,22 @@
 import { HOME_PAGE, LOGIN_PAGE, NAVIGATE_TYPE_LIST, NOT_FOUND_PAGE } from '@/enums/routerEnum';
 import { AUTH_PAGE, router } from '@/utils/router/index';
 import { useAuthStore } from '@/state/modules/auth';
+import { jumpLogin } from '@/utils/router/constant';
+import { useRouterStore } from '@/state/modules/router';
 
 /**
- * 判断当前路径是否在需要验证登录的路径中
+ * 忽略验证
  * @param path
  * @return boolean
  */
-export function isIncludesAuthRouter(path: string): boolean {
-  if (!AUTH_PAGE.length) return false;
-  return AUTH_PAGE.includes(path) || AUTH_PAGE.some((item) => path.includes(item));
-}
-
-/**
- * 跳转登录
- * @param path
- */
-export function jumpLogin(path: string) {
-  const _path = path.startsWith('/') ? path : `/${path}`;
-  const pathQuery = encodeURIComponent(_path);
-  router.push(`${LOGIN_PAGE}?redirect=${pathQuery}`);
+export function ignoreAuth(path: string): boolean {
+  console.log('忽略验证', path);
+  const _path = path.startsWith('/') ? path.slice(1) : path;
+  const routerStore = useRouterStore();
+  const routes = routerStore.getRoutes;
+  if (!routes) return false;
+  const route = routes.get(_path);
+  return !!route?.meta?.ignoreAuth;
 }
 
 /**
@@ -34,16 +31,21 @@ function addInterceptor(routerName: string) {
   uni.addInterceptor(routerName, {
     // 跳转前拦截
     invoke: (args) => {
-      if (isIncludesAuthRouter(args.url) && args.url !== LOGIN_PAGE) {
-        const authStore = useAuthStore();
-        if (authStore.isLogin) return args;
-        jumpLogin(args.url);
-        return false;
-      }
-      return args;
+      console.log(args, ignoreAuth(args.url));
+      if (ignoreAuth(args.url)) return args;
+      const authStore = useAuthStore();
+      if (authStore.isLogin) return args;
+      // jumpLogin(args.url);
+      return false;
     },
     // 成功回调拦截
-    success: () => {},
+    success: (args) => {
+      // console.log('回调', args);
+      // const currentPages = getCurrentPages();
+      // console.log('currentPages', currentPages);
+      // const currentRoute = currentPages[currentPages.length - 1];
+      // console.log('currentRoute', currentRoute);
+    },
     // 失败回调拦截
     fail: (err: any) => {
       let reg: RegExp;
@@ -66,8 +68,20 @@ function addInterceptor(routerName: string) {
   });
 }
 
+/**
+ * 添加路由拦截器
+ */
 export function routerInterceptor() {
   NAVIGATE_TYPE_LIST.forEach((item) => {
     addInterceptor(item);
+  });
+}
+
+/**
+ * 移除路由拦截器
+ */
+export function routerRemoveInterceptor() {
+  NAVIGATE_TYPE_LIST.forEach((item) => {
+    uni.removeInterceptor(item);
   });
 }

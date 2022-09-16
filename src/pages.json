@@ -26,6 +26,9 @@
       "path": "pages/login/index",
       "style": {
         "navigationBarTitleText": "登录"
+      },
+      "meta": {
+        "ignoreAuth": true
       }
     },
     {
@@ -38,6 +41,9 @@
       "path": "pages/notFound/404",
       "style": {
         "navigationBarTitleText": "Not Found"
+      },
+      "meta": {
+        "ignoreAuth": true
       }
     }
   ],
