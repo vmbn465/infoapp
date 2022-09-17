@@ -75,7 +75,7 @@
 │   │   └─ ...
 │   │
 │   └─utils # 工具类
-│       ├─ catch # 缓存相关目录
+│       ├─ cache # 缓存相关目录
 │       ├─ http  # request相关目录
 │       ├─ interceptors  # 拦截器相关目录
 │       └─ ...

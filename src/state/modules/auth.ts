@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { getCache, removeCache, setCache } from '@/utils/catch';
+import { getCache, removeCache, setCache } from '@/utils/cache';
 import { TOKEN_KEY } from '@/enums/cacheEnum';
 import { login } from '@/services/api/auth';
 import { logout, refreshToken } from '@/services/api/auth';
