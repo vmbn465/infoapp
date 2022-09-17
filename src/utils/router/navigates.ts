@@ -1,8 +1,7 @@
-import { LOGIN_PAGE, NAVIGATE_TYPE } from '@/enums/routerEnum';
+import { NAVIGATE_TYPE } from '@/enums/routerEnum';
 import { warn } from 'vue';
 import { deepMerge } from '@/utils';
-import { isIncludesAuthRouter } from '@/utils/router/interceptor';
-import { useAuthStore } from '@/state/modules/auth';
+import {routerBeforeEach} from '@/utils/router/interceptor';
 import { cloneDeep } from 'lodash-es';
 
 export type NavigateOptions = Partial<Omit<UniApp.NavigateToOptions, 'url'>> & { delta?: number };
@@ -53,13 +52,7 @@ export class Navigates {
   pushTab(url: string, options?: NavigateOptions) {
     // 微信小程序端uni.switchTab拦截无效处理
     /* #ifdef MP-WEIXIN */
-    if (isIncludesAuthRouter(url)) {
-      const authStore = useAuthStore();
-      if (!authStore.isLogin) {
-        const _path = url.startsWith('/') ? url : `/${url}`;
-        const pathQuery = encodeURIComponent(_path);
-        this.push(`${LOGIN_PAGE}?redirect=${pathQuery}`);
-      }
+    if (!routerBeforeEach(url)) {
       return;
     }
     /* #endif */

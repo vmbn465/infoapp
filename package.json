@@ -53,6 +53,7 @@
     "lodash-es": "^4.17.21",
     "luch-request": "^3.0.8",
     "pinia": "^2.0.22",
+    "qs": "^6.11.0",
     "vue": "^3.2.39",
     "vue-i18n": "^9.2.2"
   },
@@ -64,6 +65,7 @@
     "@types/crypto-js": "^4.1.1",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^17.0.45",
+    "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
     "autoprefixer": "^10.4.10",
