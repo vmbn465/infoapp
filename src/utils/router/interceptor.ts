@@ -1,22 +1,20 @@
-import { HOME_PAGE, LOGIN_PAGE, NAVIGATE_TYPE_LIST, NOT_FOUND_PAGE } from '@/enums/routerEnum';
-import { AUTH_PAGE, router } from '@/utils/router/index';
+import { HOME_PAGE, NAVIGATE_TYPE_LIST, NOT_FOUND_PAGE } from '@/enums/routerEnum';
 import { useAuthStore } from '@/state/modules/auth';
-import { jumpLogin } from '@/utils/router/constant';
-import { useRouterStore } from '@/state/modules/router';
+import { isIgnoreAuth, jumpLogin } from '@/utils/router/constant';
 
 /**
- * 忽略验证
+ * 路由跳转前拦截
  * @param path
  * @return boolean
  */
-export function ignoreAuth(path: string): boolean {
-  console.log('忽略验证', path);
-  const _path = path.startsWith('/') ? path.slice(1) : path;
-  const routerStore = useRouterStore();
-  const routes = routerStore.getRoutes;
-  if (!routes) return false;
-  const route = routes.get(_path);
-  return !!route?.meta?.ignoreAuth;
+
+export function routerBeforeEach(path: string): boolean {
+  const isIgnore = isIgnoreAuth(path);
+  if (isIgnore) return true;
+  const authStore = useAuthStore();
+  if (authStore.isLogin) return true;
+  jumpLogin(path);
+  return false;
 }
 
 /**
@@ -31,21 +29,11 @@ function addInterceptor(routerName: string) {
   uni.addInterceptor(routerName, {
     // 跳转前拦截
     invoke: (args) => {
-      console.log(args, ignoreAuth(args.url));
-      if (ignoreAuth(args.url)) return args;
-      const authStore = useAuthStore();
-      if (authStore.isLogin) return args;
-      // jumpLogin(args.url);
-      return false;
+      const flag = routerBeforeEach(args.url);
+      return flag ? args : false;
     },
     // 成功回调拦截
-    success: (args) => {
-      // console.log('回调', args);
-      // const currentPages = getCurrentPages();
-      // console.log('currentPages', currentPages);
-      // const currentRoute = currentPages[currentPages.length - 1];
-      // console.log('currentRoute', currentRoute);
-    },
+    success: () => {},
     // 失败回调拦截
     fail: (err: any) => {
       let reg: RegExp;
