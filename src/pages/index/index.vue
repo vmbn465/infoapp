@@ -2,9 +2,10 @@
   import BasicButton from '@/components/BasicButton/index.vue';
   import AppProvider from '@/components/AppProvider/inedx.vue';
   import { ref } from 'vue';
-  import { router } from '@/utils/router';
+  import { useRouter } from '@/hooks/router';
   const title = ref('uni-app vue3 ts --Vite');
-  console.log('感受到考虑到垮落法');
+
+  const router = useRouter();
   const handleGetStarted = () => {
     router.pushTab('/pages/demo/index?d=str');
   };

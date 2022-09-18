@@ -46,7 +46,7 @@ export class Navigates {
     this.navigate(url, options);
   }
   replaceAll(url: string, options?: NavigateOptions) {
-    this.type = NAVIGATE_TYPE.REDIRECT_TO;
+    this.type = NAVIGATE_TYPE.RE_LAUNCH;
     this.navigate(url, options);
   }
   pushTab(url: string, options?: NavigateOptions) {

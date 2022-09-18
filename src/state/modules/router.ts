@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia';
-import { Pages } from '@/types/pages';
-import { pagesMap } from '@/utils/router/pages';
+import { Route } from '@/types/router/route';
+import { pagesMap } from '@/utils/router/routes';
 
 interface routeStore {
-  routes: Map<string, Pages> | undefined;
-  currentRouter: Pages | undefined;
+  routes: Map<string, Route> | undefined;
+  currentRouter: Route | undefined;
 }
 
 export const useRouterStore = defineStore({

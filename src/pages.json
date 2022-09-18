@@ -58,11 +58,17 @@
       "path": "list/test1/index",
       "style": {
         "navigationBarTitleText": "test1"
+      },
+      "meta": {
+        "ignoreAuth": true
       }
     },{
       "path": "list/test2/index",
       "style": {
         "navigationBarTitleText": "test2"
+      },
+      "meta": {
+        "ignoreAuth": true
       }
     }]
   }, {
@@ -71,6 +77,9 @@
       "path": "detail/index",
       "style": {
         "navigationBarTitleText": "Detail"
+      },
+      "meta": {
+        "ignoreAuth": true
       }
     }]
   }],
