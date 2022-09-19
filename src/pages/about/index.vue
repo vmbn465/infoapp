@@ -1,12 +1,13 @@
 <script lang="ts" setup>
   import BasicButton from '@/components/BasicButton/index.vue';
   import AppProvider from '@/components/AppProvider/inedx.vue';
-  import { router } from '@/utils/router';
   import { useAuthStore } from '@/state/modules/auth';
   import { ref } from 'vue';
   import { onShow } from '@dcloudio/uni-app';
+  import { useRouter } from '@/hooks/router';
   const authStore = useAuthStore();
   const isLogin = ref(false);
+  const router = useRouter();
   onShow(() => {
     isLogin.value = authStore.isLogin;
   });
@@ -32,7 +33,9 @@
         <view class="desc">{{ isLogin ? '测试' : '未登入' }}</view>
       </view>
       <view class="cell"
-        ><BasicButton @click="handleJump('/pages/log/index')">log</BasicButton></view
+        ><BasicButton @click="handleJump('/pages/log/index?id=4345&title=log')"
+          >log</BasicButton
+        ></view
       >
       <view class="cell" v-if="isLogin"
         ><BasicButton @click="handleLoginOut">登出</BasicButton></view

@@ -1,6 +1,6 @@
-import { router } from '@/utils/router/index';
 import { LOGIN_PAGE } from '@/enums/routerEnum';
 import { useRouterStore } from '@/state/modules/router';
+import { useRouter } from '@/hooks/router';
 
 /**
  * 是否忽略验证
@@ -8,8 +8,7 @@ import { useRouterStore } from '@/state/modules/router';
  * @return boolean
  */
 export function isIgnoreAuth(path: string): boolean {
-  let _path = path.split('?')[0];
-  _path = _path.startsWith('/') ? _path.slice(1) : _path;
+  const _path = filterPath(path);
   const routerStore = useRouterStore();
   const routes = routerStore.getRoutes;
   if (!routes) return false;
@@ -24,5 +23,16 @@ export function isIgnoreAuth(path: string): boolean {
 export function jumpLogin(path: string) {
   const _path = path.startsWith('/') ? path : `/${path}`;
   const pathQuery = encodeURIComponent(_path);
+  const router = useRouter();
   router.push(`${LOGIN_PAGE}?redirect=${pathQuery}`);
+}
+
+/**
+ * 过滤url,获取path
+ * @param url
+ * @param prefix
+ */
+export function filterPath(url: string, prefix = '') {
+  const path = url.split('?')[0];
+  return prefix + (path.startsWith('/') ? path.substring(1) : path);
 }

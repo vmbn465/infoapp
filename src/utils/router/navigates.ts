@@ -3,6 +3,8 @@ import { warn } from 'vue';
 import { deepMerge } from '@/utils';
 import { routerBeforeEach } from '@/utils/router/interceptor';
 import { cloneDeep } from 'lodash-es';
+import { useRouterStore } from '@/state/modules/router';
+import { filterPath } from '@/utils/router/constant';
 
 export type NavigateOptions = Partial<Omit<UniApp.NavigateToOptions, 'url'>> & { delta?: number };
 
@@ -37,18 +39,42 @@ export class Navigates {
         break;
     }
   }
+
+  /**
+   * uni.navigateTo
+   * @param url
+   * @param options
+   */
   push(url: string, options?: NavigateOptions) {
     this.type = NAVIGATE_TYPE.NAVIGATE_TO;
     this.navigate(url, options);
   }
+
+  /**
+   * uni.redirectTo
+   * @param url
+   * @param options
+   */
   replace(url: string, options?: NavigateOptions) {
     this.type = NAVIGATE_TYPE.REDIRECT_TO;
     this.navigate(url, options);
   }
+
+  /**
+   * uni.reLaunch
+   * @param url
+   * @param options
+   */
   replaceAll(url: string, options?: NavigateOptions) {
     this.type = NAVIGATE_TYPE.RE_LAUNCH;
     this.navigate(url, options);
   }
+
+  /**
+   * uni.switchTab
+   * @param url
+   * @param options
+   */
   pushTab(url: string, options?: NavigateOptions) {
     // 微信小程序端uni.switchTab拦截无效处理
     /* #ifdef MP-WEIXIN */
@@ -59,8 +85,34 @@ export class Navigates {
     this.type = NAVIGATE_TYPE.SWITCH_TAB;
     this.navigate(url, options);
   }
+
+  /**
+   * uni.navigateBack
+   * @param options
+   */
   back(options?: NavigateOptions) {
     this.type = NAVIGATE_TYPE.NAVIGATE_BACK;
     this.navigate('', options);
+  }
+
+  /**
+   * 自动判断跳转页面 (navigateTo|switchTab)
+   * @param url
+   * @param options
+   */
+  go(url: string, options?: NavigateOptions & { replace?: boolean }) {
+    const path = filterPath(url);
+    const routerStore = useRouterStore();
+    const routes = routerStore.getRoutes;
+    const route = routes?.get(path);
+    if (route?.meta?.tabBar) {
+      this.pushTab(url, options);
+      return;
+    }
+    if (options?.replace) {
+      this.replace(url, options);
+      return;
+    }
+    this.push(url, options);
   }
 }

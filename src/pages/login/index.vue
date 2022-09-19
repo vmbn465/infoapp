@@ -3,11 +3,14 @@
   import { useAuthStore } from '@/state/modules/auth';
   import { onLoad } from '@dcloudio/uni-app';
   import { Toast } from '@/utils/uniapi/prompt';
-  import { router } from '@/utils/router';
+  import { useRouter } from '@/hooks/router';
   const redirect = ref<string | undefined>(undefined);
   onLoad((query) => {
-    redirect.value = query.redirect || undefined;
+    redirect.value = query.redirect ? decodeURIComponent(query.redirect) : undefined;
+    console.log('login redirect', redirect.value);
   });
+
+  const router = useRouter();
 
   const form = reactive({
     email: 'uni-app@test.com',
@@ -18,6 +21,10 @@
     authStore.login(e.detail.value).then(() => {
       Toast('登录成功', { duration: 1500 });
       setTimeout(() => {
+        if (redirect.value) {
+          router.go(redirect.value, { replace: true });
+          return;
+        }
         router.pushTab('/pages/about/index');
       }, 1500);
     });

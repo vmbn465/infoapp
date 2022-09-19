@@ -1,10 +1,11 @@
 <script lang="ts" setup>
   import { onLoad } from '@dcloudio/uni-app';
   import { ref } from 'vue';
-  import { router } from '@/utils/router';
   import BasicButton from '@/components/BasicButton/index.vue';
+  import { useRouter } from '@/hooks/router';
 
   const go = ref<string>('');
+  const router = useRouter();
   const redirect = ref<string>('');
   onLoad((query) => {
     go.value = query.go || '';
