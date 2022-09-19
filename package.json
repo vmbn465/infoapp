@@ -1,6 +1,6 @@
 {
-  "name": "vue3-Vite2-TS basic framework",
-  "version": "1.0.0",
+  "name": "uniapp_vue3_vite_ts",
+  "version": "1.0.2",
   "scripts": {
     "dev:app": "uni -p app",
     "dev:custom": "uni -p",

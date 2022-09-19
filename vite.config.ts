@@ -3,6 +3,7 @@ import uni from '@dcloudio/vite-plugin-uni';
 import eslintPlugin from 'vite-plugin-eslint';
 import { resolve } from 'path';
 import { loadEnv } from 'vite';
+import { isProdMode } from './src/utils/env';
 
 // https://vitejs.cn/config/
 export default ({ mode }: ConfigEnv): UserConfig => {
@@ -23,12 +24,14 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       terserOptions: {
         compress: {
           // 发布时删除 console
-          // drop_console: true,
+          drop_console: isProdMode(),
         },
       },
     },
     server: {
       host: true,
+      open: true,
+      port: env.VITE_PORT as any,
       proxy: {
         '/api': {
           target: env.VITE_BASE_URL,

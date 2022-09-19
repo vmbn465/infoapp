@@ -1,8 +1,8 @@
 {
-    "name" : "uni-preset-vue-ts",
+    "name" : "uniapp_vue3_vite_ts",
     "appid" : "__UNI__38BE53A",
     "description" : "",
-    "versionName" : "1.0.0",
+    "versionName" : "1.0.2",
     "versionCode" : "100",
     "transformPx" : false,
     /* 5+App特有相关 */

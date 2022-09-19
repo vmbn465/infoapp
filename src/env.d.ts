@@ -15,6 +15,7 @@ interface ImportMetaEnv {
   readonly VITE_PROD: boolean;
   readonly VITE_DEV: boolean;
   readonly VITE_APP_CACHE_PREFIX: string;
+  readonly VITE_PORT: number;
 }
 
 interface ImportMeta {
