@@ -3,10 +3,14 @@
   import AppProvider from '@/components/AppProvider/inedx.vue';
   import { ref } from 'vue';
   import { useRouter } from '@/hooks/router';
-  import { CURRENT_PLATFORM } from '@/enums/platformEnum';
+  import { CURRENT_PLATFORM, PLATFORMS } from '@/enums/platformEnum';
+  import { judgePlatform } from '@/utils/platform';
+
   const title = ref('uni-app vue3 ts --Vite');
 
   const platform = CURRENT_PLATFORM;
+
+  const isVue3 = judgePlatform(PLATFORMS.VUE3);
 
   const router = useRouter();
   const handleGetStarted = () => {
@@ -19,6 +23,9 @@
       <image class="logo" src="/static/svg/LOGO.svg" />
       <view class="text-area">
         <text class="">{{ title }}</text>
+      </view>
+      <view class="text-area">
+        <text class="">是否是Vue3: {{ isVue3 }}</text>
       </view>
       <view class="text-area">
         <text class="">当前平台: {{ platform }}</text>
