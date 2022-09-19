@@ -31,12 +31,12 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       host: true,
       proxy: {
         '/api': {
-          target: env.VITE_PROXY_BASE_URL,
+          target: env.VITE_BASE_URL,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
         '/upload': {
-          target: env.VITE_PROXY_UPLOAD_URL,
+          target: env.VITE_BASE_URL,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/upload/, ''),
         },

@@ -1,11 +1,11 @@
 import Request from 'luch-request';
 import { assign } from 'lodash-es';
 import { Toast } from '@/utils/uniapi/prompt';
-import { getEnvValue } from '@/utils/env';
+import { getBaseUrl } from '@/utils/env';
 import { useAuthStore } from '@/state/modules/auth';
 import { ResultEnum } from '@/enums/httpEnum';
 
-const BASE_URL = getEnvValue<string>('VITE_BASE_URL');
+const BASE_URL = getBaseUrl();
 const HEADER = {
   'Content-Type': 'application/json;charset=UTF-8;',
   Accept: 'application/json, text/plain, */*',

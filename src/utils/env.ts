@@ -1,6 +1,10 @@
 import pkg from '../../package.json';
+import { judgePlatform } from '@/utils/platform';
+import { PLATFORMS } from '@/enums/platformEnum';
 
-// Generate cache key according to version
+/**
+ * @description: Generate cache key according to version
+ */
 export function getPkgVersion() {
   return `${`__${pkg.version}`}__`.toUpperCase();
 }
@@ -50,4 +54,24 @@ export function isDevMode(): boolean {
  */
 export function isProdMode(): boolean {
   return getEnvValue<boolean>('VITE_PROD');
+}
+
+/**
+ * @description: Get environment VITE_BASE_URL value
+ * @returns:
+ * @example:
+ */
+export function getBaseUrl(): string {
+  if (judgePlatform(PLATFORMS.H5) && isDevMode()) return '/api';
+  return getEnvValue<string>('VITE_BASE_URL');
+}
+
+/**
+ * @description: Get environment VITE_UPLOAD_URL value
+ * @returns:
+ * @example:
+ */
+export function getUploadUrl(): string {
+  if (judgePlatform(PLATFORMS.H5) && isDevMode()) return '/upload';
+  return getEnvValue<string>('VITE_UPLOAD_URL');
 }

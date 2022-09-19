@@ -18,8 +18,8 @@
         },
         /* 模块配置 */
         "modules" : {},
-        "optimization": {
-            "subPackages": true
+        "optimization" : {
+            "subPackages" : true
         },
         /* 应用发布信息 */
         "distribute" : {
@@ -62,14 +62,14 @@
         },
         "usingComponents" : true,
         "permission" : {},
-        "optimization": {
-            "subPackages": true
+        "optimization" : {
+            "subPackages" : true
         }
     },
     "mp-alipay" : {
         "usingComponents" : true,
-        "optimization": {
-            "subPackages": true
+        "optimization" : {
+            "subPackages" : true
         }
     },
     "mp-baidu" : {
@@ -90,6 +90,17 @@
         "devServer" : {
             "https" : false
         },
-        "title" : "uniapp_vue3_vite_ts"
+        "title" : "uniapp_vue3_vite_ts",
+        "unipush" : {
+            "enable" : false
+        },
+        "sdkConfigs" : {
+            "maps" : {}
+        },
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : true
+            }
+        }
     }
 }
