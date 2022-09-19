@@ -7,7 +7,6 @@
   const redirect = ref<string | undefined>(undefined);
   onLoad((query) => {
     redirect.value = query.redirect ? decodeURIComponent(query.redirect) : undefined;
-    console.log('login redirect', redirect.value);
   });
 
   const router = useRouter();
