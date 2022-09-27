@@ -1,3 +1,6 @@
 @import 'auxiliary';
 @import 'mixin';
 @import 'flex';
+/* #ifndef H5 */
+//@import "./font_awesome/fontawesome";
+/* #endif */

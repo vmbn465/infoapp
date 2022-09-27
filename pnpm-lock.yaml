@@ -18,6 +18,7 @@ specifiers:
   '@dcloudio/uni-mp-weixin': ^3.0.0-alpha-3060220220914003
   '@dcloudio/uni-quickapp-webview': ^3.0.0-alpha-3060220220914003
   '@dcloudio/vite-plugin-uni': ^3.0.0-alpha-3060220220914003
+  '@fortawesome/fontawesome-free': ^6.2.0
   '@types/crypto-js': ^4.1.1
   '@types/lodash-es': ^4.17.6
   '@types/node': ^17.0.45
@@ -63,6 +64,7 @@ dependencies:
   '@dcloudio/uni-mp-toutiao': registry.npmmirror.com/@dcloudio/uni-mp-toutiao/3.0.0-alpha-3060220220914003_postcss@8.4.16+vue@3.2.39
   '@dcloudio/uni-mp-weixin': registry.npmmirror.com/@dcloudio/uni-mp-weixin/3.0.0-alpha-3060220220914003_postcss@8.4.16+vue@3.2.39
   '@dcloudio/uni-quickapp-webview': registry.npmmirror.com/@dcloudio/uni-quickapp-webview/3.0.0-alpha-3060220220914003_postcss@8.4.16+vue@3.2.39
+  '@fortawesome/fontawesome-free': registry.npmmirror.com/@fortawesome/fontawesome-free/6.2.0
   crypto-js: registry.npmmirror.com/crypto-js/4.1.1
   echarts: registry.npmmirror.com/echarts/5.3.3
   lodash-es: registry.npmmirror.com/lodash-es/4.17.21
@@ -1129,6 +1131,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  registry.npmmirror.com/@fortawesome/fontawesome-free/6.2.0:
+    resolution: {integrity: sha512-CNR7qRIfCwWHNN7FnKUniva94edPdyQzil/zCwk3v6k4R6rR2Fr8i4s3PM7n/lyfPA6Zfko9z5WDzFxG9SW1uQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.2.0.tgz}
+    name: '@fortawesome/fontawesome-free'
+    version: 6.2.0
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dev: false
 
   registry.npmmirror.com/@humanwhocodes/config-array/0.10.4:
     resolution: {integrity: sha512-mXAIHxZT3Vcpg83opl1wGlVZ9xydbfZO3r5YfRSH6Gpp2J/PfdBP0wbDa2sO6/qRbcalpoevVyW6A/fI6LfeMw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@humanwhocodes/config-array/-/config-array-0.10.4.tgz}
