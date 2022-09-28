@@ -20,7 +20,10 @@
 .fat,
 .#{$fa-css-prefix}-thin,
 .fad,
-.#{$fa-css-prefix}-duotone
+.#{$fa-css-prefix}-duotone,
+.fass,
+.#{$fa-css-prefix}-sharp,
+.#{$fa-css-prefix}-sharp-solid
 {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -43,7 +46,7 @@
 .fat,
 .#{$fa-css-prefix}-thin
 {
-  font-family: 'Font Awesome 6 Free';
+  font-family: 'Font Awesome 6';
 }
 
 .fab,
@@ -54,6 +57,11 @@
 .fad,
 .#{$fa-css-prefix}-duotone {
   font-family: 'Font Awesome 6 Duotone';
+}
+
+.fass,
+.#{$fa-css-prefix}-harp-solid.#{$fa-css-prefix}-solid {
+  font-family: 'Font Awesome 6 Sharp';
 }
 
 

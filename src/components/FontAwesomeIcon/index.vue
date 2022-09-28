@@ -16,8 +16,11 @@
   <view> <view class="fa-regular fa-house" />regular</view>
   <view> <view class="fa-light fa-house" />light</view>
   <view> <view class="fa-thin fa-house" />thin</view>
-  <view> <view class="fa-duotone fa-house" />duotone</view>
+  <view>
+    <view class="fa-duotone fa-house" /> <i class="fa-duotone fa-magnifying-glass"></i>duotone</view
+  >
   <view> <view class="fa-brands fa-bilibili" />brands </view>
+  <view> <view class="fass fa-user" />sharp </view>
 </template>
 <style lang="scss" scoped>
   .font-awesome-icon {
