@@ -28,8 +28,8 @@
 .fad:before,
 .#{$fa-css-prefix}-duotone:before{
   position: absolute;
-  color: var(--fa-primary-color,inherit);
-  opacity: var(--fa-primary-opacity,1);
+  color: $fa-primary-color;
+  opacity: $fa-primary-opacity;
 }
 
 .#{$fa-css-prefix}-duotone.#{$fa-css-prefix}-swap-opacity:before, 
@@ -38,9 +38,9 @@
 .fad:before, 
 .fad.#{$fa-css-prefix}-swap-opacity:before, 
 .fad:after {
-  opacity: var(--fa-secondary-opacity,.4);
+  opacity: $fa-secondary-opacity;
 }
 
 .#{$fa-css-prefix}-duotone:after, .fad:after {
-  color: var(--fa-secondary-color,inherit);
+  color: $fa-secondary-color;
 }
