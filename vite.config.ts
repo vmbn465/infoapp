@@ -29,7 +29,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     },
     server: {
       host: true,
-      open: true,
+      // open: true,
       port: env.VITE_PORT as any,
       proxy: {
         '/api': {

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import BasicButton from '@/components/BasicButton/index.vue';
   import AppProvider from '@/components/AppProvider/inedx.vue';
-  import FontAwesomeIcon from '@/horn_ui/h-icon/font-awesome-icon/index.vue';
+  import FontAwesomeIcon from '@/components/FontAwesomeIcon/index.vue';
   import { useRouter } from '@/hooks/router';
 
   const router = useRouter();

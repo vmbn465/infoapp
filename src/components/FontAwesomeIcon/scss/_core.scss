@@ -14,7 +14,14 @@
 .far,
 .#{$fa-css-prefix}-regular,
 .fab,
-.#{$fa-css-prefix}-brands {
+.#{$fa-css-prefix}-brands,
+.fal,
+.#{$fa-css-prefix}-light,
+.fat,
+.#{$fa-css-prefix}-thin,
+.fad,
+.#{$fa-css-prefix}-duotone
+{
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: var(--#{$fa-css-prefix}-display, #{$fa-display});
@@ -24,17 +31,29 @@
   text-rendering: auto;
 }
 
+//.fa, .fa-brands, .fa-classic, .fa-duotone, .fa-light, .fa-regular, .fa-sharp, .fa-sharp-solid, .fa-solid, .fa-thin, .fab, .fad, .fal, .far, .fas, .fass, .fat
+
 .fas,
 .#{$fa-css-prefix}-classic,
 .#{$fa-css-prefix}-solid,
 .far,
-.#{$fa-css-prefix}-regular {
+.#{$fa-css-prefix}-regular,
+.fal,
+.#{$fa-css-prefix}-light,
+.fat,
+.#{$fa-css-prefix}-thin
+{
   font-family: 'Font Awesome 6 Free';
 }
 
 .fab,
 .#{$fa-css-prefix}-brands {
   font-family: 'Font Awesome 6 Brands';
+}
+
+.fad,
+.#{$fa-css-prefix}-duotone {
+  font-family: 'Font Awesome 6 Duotone';
 }
 
 
