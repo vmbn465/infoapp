@@ -11,7 +11,6 @@
    */
   import { FontAwesomeIconProps } from '@/components/FontAwesomeIcon/props';
   import { computed } from 'vue';
-  import { isObject } from 'lodash-es';
 
   const props = defineProps(FontAwesomeIconProps);
 
@@ -22,24 +21,54 @@
     'fa-border': props.border,
   };
 
+  const singleBeat = props.beat && !props.fade;
+  const singleFade = !props.beat && props.fade;
+  const BeatFade = props.beat && props.fade;
+
   const iconClassObject = [
-    'fa-' + props.mode,
-    'fa-' + props.name,
+    `fa-${props.mode}`,
+    `fa-${props.name}`,
     props.frameSize ? `fa-flip-${props.frameSize}` : '',
     props.sharp ? 'fass' : '',
     props.rotate ? 'fa-rotate-by' : '',
-    props.flip ? `fa-flip-${props.flip}` : '',
-    props.beat ? `fa-beat` : '',
-    props.fade ? `fa-fade` : '',
-    props.beat && props.fade ? `fa-beat-fade` : '',
+    props.reverse ? `fa-flip-${props.reverse}` : '',
+    singleBeat ? `fa-beat` : '',
+    singleFade ? `fa-fade` : '',
+    BeatFade ? `fa-beat-fade` : '',
+    props.bounce ? 'fa-bounce' : '',
+    props.flip ? 'fa-flip' : '',
   ];
-
-  const iconStyleObject = {
-    '--fa-rotate-angle': `${props.rotate}deg`,
-    '--fa-animation-duration': `${props.duration}s`,
-    '--fa-beat-scale': `${props.scale}`,
-    '--fa-beat-opacity': `${props.opacity}`,
-  };
+  const iconStyleObject = Object.assign(
+    {
+      '--fa-animation-duration': `${props.duration}s`,
+    },
+    props.rotate ? { '--fa-rotate-angle': `${props.rotate}deg` } : {},
+    singleBeat ? { '--fa-beat-scale': `${props.scale}` } : {},
+    singleFade ? { '--fa-fade-opacity': `${props.opacity}` } : {},
+    BeatFade
+      ? { '--fa-beat-fade-scale': `${props.scale}`, '--fa-beat-fade-opacity': `${props.opacity}` }
+      : {},
+    props.bounce
+      ? {
+          '--fa-bounce-rebound': props.bounceConfig?.rebound || '-0.125em',
+          '--fa-bounce-height': props.bounceConfig?.height || '-0.5em',
+          '--fa-bounce-start-scale-x': props.bounceConfig?.startScaleX || '1.1',
+          '--fa-bounce-start-scale-y': props.bounceConfig?.startScaleY || '0.9',
+          '--fa-bounce-jump-scale-x': props.bounceConfig?.jumpScaleX || '0.9',
+          '--fa-bounce-jump-scale-y': props.bounceConfig?.jumpScaleY || '1.1',
+          '--fa-bounce-land-scale-x': props.bounceConfig?.landScaleX || '1.05',
+          '--fa-bounce-land-scale-y': props.bounceConfig?.landScaleY || '0.95',
+        }
+      : {},
+    props.flip
+      ? {
+          '--fa-flip-x': props.flipConfig?.x || '0',
+          '--fa-flip-y': props.flipConfig?.y || '1',
+          '--fa-flip-z': props.flipConfig?.z || '0',
+          '--fa-flip-angle': props.flipConfig?.angle || '-180deg',
+        }
+      : {},
+  );
 </script>
 <template>
   <view class="icon-wrap" :style="wrapStyleObject">

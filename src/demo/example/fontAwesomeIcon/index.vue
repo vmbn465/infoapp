@@ -33,29 +33,60 @@
     <view>rotate-旋转角度</view>
     <view> <FontAwesomeIcon mode="duotone" name="house" rotate="63" />duotone 63</view>
     <view> <FontAwesomeIcon mode="duotone" name="snowboarding" rotate="58" />duotone 58</view>
-    <view>flip-翻转</view>
+    <view>reverse-对称翻转</view>
     <view> <FontAwesomeIcon mode="duotone" name="snowboarding" />duotone 正常</view>
     <view>
-      <FontAwesomeIcon mode="duotone" name="snowboarding" flip="horizontal" />duotone 水平翻转
+      <FontAwesomeIcon mode="duotone" name="snowboarding" reverse="horizontal" />duotone 水平翻转
     </view>
     <view>
-      <FontAwesomeIcon mode="duotone" name="snowboarding" flip="vertical" />duotone 垂直翻转
+      <FontAwesomeIcon mode="duotone" name="snowboarding" reverse="vertical" />duotone 垂直翻转
     </view>
     <view>
-      <FontAwesomeIcon mode="duotone" name="snowboarding" flip="both" />duotone 垂直水平翻转
+      <FontAwesomeIcon mode="duotone" name="snowboarding" reverse="both" />duotone 垂直水平翻转
     </view>
-    <view>beat-跳动动画</view>
+    <view>beat-缩放动画</view>
     <FontAwesomeIcon name="circle-plus" beat />
     <FontAwesomeIcon name="heart" beat />
     <view>duration-动画持续时间</view>
     <FontAwesomeIcon name="heart" beat duration="1.5" />
-    <view>scale-动画比例</view>
+    <view>scale-缩放比例</view>
     <FontAwesomeIcon name="heart" beat duration="1.5" scale="2.0" />
     <view>fade-淡入淡出动画 </view>
     <FontAwesomeIcon name="heart" fade />
     <view>opacity-透明度值 </view>
     <FontAwesomeIcon name="heart" fade opacity="0.2" />
-    <FontAwesomeIcon name="heart" beat fade opacity="0.68" scale="3.0" />
+    <view>beat+fade-跳动+淡入淡出动画 </view>
+    <FontAwesomeIcon name="heart" beat fade opacity="0.68" duration="1.5" scale="2.0" />
+    <view>bounce-弹跳动画 </view>
+    <FontAwesomeIcon name="basketball" bounce />
+    <FontAwesomeIcon name="volleyball" bounce />
+    <FontAwesomeIcon name="frog" bounce />
+    <FontAwesomeIcon
+      name="envelope"
+      bounce
+      :bounce-config="{
+        rebound: 0,
+        startScaleX: 1,
+        startScaleY: 1,
+        jumpScaleX: 1,
+        jumpScaleY: 1,
+        landScaleX: 1,
+        landScaleY: 1,
+      }"
+    />
+    <view>flip-翻转动画</view>
+    <FontAwesomeIcon name="compact-disc" flip />
+    <FontAwesomeIcon name="camera-rotate" flip />
+    <FontAwesomeIcon name="cassette-tape" flip />
+    <FontAwesomeIcon
+      name="scroll"
+      flip
+      :flip-config="{
+        x: '1',
+        y: '0',
+      }"
+    />
+    <FontAwesomeIcon name="money-check-dollar" flip duration="3" />
   </AppProvider>
 </template>
 <style lang="scss" scoped></style>

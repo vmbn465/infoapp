@@ -68,10 +68,10 @@ export const FontAwesomeIconProps = {
     type: Number,
     default: 0,
   },
-  /** icon flip
-   * @description 翻转
+  /** icon reverse
+   * @description 对称翻转
    */
-  flip: {
+  reverse: {
     type: String,
     validator(value: string) {
       // The value must match one of these strings
@@ -80,7 +80,7 @@ export const FontAwesomeIconProps = {
   },
   /**
    * icon beat
-   * @description 跳动动画
+   * @description 缩放动画
    * @param duration Number 时间 s
    * @param scale Number 比例
    */
@@ -119,5 +119,67 @@ export const FontAwesomeIconProps = {
   opacity: {
     type: Number,
     default: 0.6,
+  },
+  /**
+   * icon bounce
+   * @description 弹跳动画
+   */
+  bounce: {
+    type: Boolean,
+    default: false,
+  },
+  /**
+   * icon bounceConfig
+   * @description 弹跳动画属性设置
+   */
+  bounceConfig: {
+    type: Object,
+    default: () => {
+      return {
+        // 设置图标在跳跃后着陆时的反弹量
+        rebound: '-0.125em',
+        // 设置图标弹跳时跳到的最大高度
+        height: '-0.5em',
+        // 设置图标开始反弹时的水平失真（“挤压”）
+        startScaleX: '1.1',
+        // 将图标的水平失真（“挤压”）设置在跳转的顶部
+        startScaleY: '0.9',
+        // 将图标的水平失真（“挤压”）设置在跳转的顶部
+        jumpScaleX: '0.9',
+        // 将图标的垂直失真（“挤压”）设置在跳转的顶部
+        jumpScaleY: '1.1',
+        // 设置跳跃后着陆时图标的水平失真（“挤压”）
+        landScaleX: '1.05',
+        // 设置跳跃后着陆时图标的垂直失真（“挤压”）
+        landScaleY: '0.95',
+      };
+    },
+  },
+  /**
+   * icon flip
+   * @description 翻转动画
+   */
+  flip: {
+    type: Boolean,
+    default: false,
+  },
+  /**
+   * icon flipConfig
+   * @description 翻转动画属性设置
+   */
+  flipConfig: {
+    type: Object,
+    default: () => {
+      return {
+        // 设置表示旋转轴的矢量的 x 坐标（0~1）
+        x: '0',
+        // 设置矢量的 y 坐标，表示旋转轴（0~1)
+        y: '1',
+        // 设置矢量的 z 坐标，表示旋转轴（0~1)
+        z: '0',
+        // 设置翻转的旋转角度。正角表示顺时针旋转，负角表示逆时针旋转。
+        angle: '-180deg',
+      };
+    },
   },
 };
