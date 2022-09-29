@@ -82,6 +82,17 @@
         "ignoreAuth": true
       }
     }]
+  },{
+    "root": "demo/example",
+    "pages": [{
+      "path": "fontAwesomeIcon/index",
+      "style": {
+        "navigationBarTitleText": "FontAwesomeIcon-Demo"
+      },
+      "meta": {
+        "ignoreAuth": true
+      }
+    }]
   }],
   "globalStyle": {
     "navigationBarTextStyle": "black",
