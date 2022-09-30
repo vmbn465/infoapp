@@ -115,6 +115,17 @@
       <FontAwesomeIcon name="arrow-right" float="right" />
       <FontAwesomeIcon name="arrow-left" float="left" />
     </view>
+    <view style="clear: both">stack-堆叠</view>
+    <FontAwesomeIcon name="arrow-right" stack>
+      <template #default="slotProps">
+        <FontAwesomeIcon name="circle" :stackChild="slotProps.stack" stack-x="1" />
+        <FontAwesomeIcon name="flag" :stackChild="slotProps.stack" stack-x="2" />
+      </template>
+    </FontAwesomeIcon>
+    <span class="fa-stack">
+      <i class="fa-solid fa-circle fa-stack-2x"></i>
+      <i class="fa-solid fa-flag fa-stack-1x fa-inverse"></i>
+    </span>
   </AppProvider>
 </template>
 <style lang="scss" scoped></style>

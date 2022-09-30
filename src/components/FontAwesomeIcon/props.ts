@@ -38,7 +38,7 @@ export const FontAwesomeIconProps = {
    * @description 大小 单位 rpx
    */
   size: {
-    type: Number,
+    type: [Number, String],
     default: '',
   },
   /**
@@ -59,7 +59,7 @@ export const FontAwesomeIconProps = {
    * @description 旋转角度
    */
   rotate: {
-    type: Number,
+    type: [Number, String],
     default: 0,
   },
   /** icon rotateFlip
@@ -85,7 +85,7 @@ export const FontAwesomeIconProps = {
    * @description 动画持续时间(所有动画使用) s
    */
   duration: {
-    type: Number,
+    type: [Number, String],
     default: 1,
   },
   /**
@@ -93,7 +93,7 @@ export const FontAwesomeIconProps = {
    * @description 动画比例(跳动动画使用)
    */
   scale: {
-    type: Number,
+    type: [Number, String],
     default: 1.25,
   },
   /**
@@ -109,7 +109,7 @@ export const FontAwesomeIconProps = {
    * @description 透明度值 (淡入淡出动画使用)
    */
   opacity: {
-    type: Number,
+    type: [Number, String],
     default: 0.6,
   },
   /**
@@ -251,7 +251,7 @@ export const FontAwesomeIconProps = {
         // 设置边框颜色
         color: '#eee',
         // 设置图标周围的填充
-        padding: '.2em .25em .15em',
+        padding: '.04em .26em',
         // 设置边框半径
         radius: '.1em',
         // 设置边框样式
@@ -276,5 +276,38 @@ export const FontAwesomeIconProps = {
   pullMargin: {
     type: String,
     default: '.3em',
+  },
+  /** icon stack
+   * @description 堆叠
+   */
+  stack: {
+    type: Boolean,
+    default: false,
+  },
+  /** icon stackX
+   * @description 堆叠层
+   * @example 1 底层 2 上层
+   */
+  stackX: {
+    type: [String, Number],
+    default: 1,
+    validator(value: number) {
+      // The value must match one of these strings
+      return ['1', '2'].includes(value.toString());
+    },
+  },
+  /** icon stackInverse
+   * @description 堆叠 图标反色
+   */
+  stackInverse: {
+    type: Boolean,
+    default: false,
+  },
+  /** icon stackChild
+   * @description 堆叠子元素
+   */
+  stackChild: {
+    type: Boolean,
+    default: false,
   },
 };

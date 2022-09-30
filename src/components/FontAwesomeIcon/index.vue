@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="FontAwesomeIcon">
   /**
    * 基于 Font Awesome Icon v6.2.0
    * solid 支持
@@ -10,17 +10,35 @@
    * duotone 支持
    */
   import { FontAwesomeIconProps } from '@/components/FontAwesomeIcon/props';
-  import { computed } from 'vue';
-
   const props = defineProps(FontAwesomeIconProps);
-  const wrapClassObject = [props.float ? `fa-pull-${props.float}` : ''];
+  defineExpose({ stack: props.stack });
+  const wrapClassObject = [
+    props.float ? `fa-pull-${props.float}` : '',
+    props.border ? 'fa-border' : '',
+    props.stack ? 'fa-stack' : '',
+    props.stackChild ? `fa-stack-${props.stackX}x` : '',
+    props.stackInverse ? 'fa-inverse' : '',
+  ];
 
-  const wrapStyleObject = {
-    color: props.color,
-    'font-size': props.size ? `${props.size}rpx` : false,
-    'background-color': props.bgColor,
-    '--fa-pull-margin': props.float ? props.pullMargin : false,
-  };
+  const wrapStyleObject = Object.assign(
+    {
+      'background-color': props.bgColor,
+    },
+    props.border
+      ? {
+          '--fa-border-color': props.borderConfig?.color || '#eee',
+          '--fa-border-padding': props.borderConfig?.padding || '.04em .26em',
+          '--fa-border-radius': props.borderConfig?.radius || '.1em',
+          '--fa-border-style': props.borderConfig?.style || 'solid',
+          '--fa-border-width': props.borderConfig?.width || '.08em',
+        }
+      : {},
+    props.float
+      ? {
+          '--fa-pull-margin': props.pullMargin,
+        }
+      : {},
+  );
 
   const singleBeat = props.beat && !props.fade;
   const singleFade = !props.beat && props.fade;
@@ -42,10 +60,11 @@
     props.spin ? 'fa-spin' : '',
     props.spinReverse ? 'fa-spin-reverse' : '',
     props.spinPulse ? 'fa-spin-pulse' : '',
-    props.border ? 'fa-border' : '',
   ];
   const iconStyleObject = Object.assign(
     {
+      color: props.color,
+      'font-size': props.size ? `${props.size}rpx` : false,
       '--fa-animation-duration': `${props.duration}s`,
     },
     props.rotate ? { '--fa-rotate-angle': `${props.rotate}deg` } : {},
@@ -81,21 +100,19 @@
           '--fa-animation-timing': props.spinTiming,
         }
       : {},
-    props.border
-      ? {
-          '--fa-border-color': props.borderConfig?.color || '#eee',
-          '--fa-border-padding': props.borderConfig?.padding || '.2em .25em .15em',
-          '--fa-border-radius': props.borderConfig?.radius || '.1em',
-          '--fa-border-style': props.borderConfig?.style || 'solid',
-          '--fa-border-width': props.borderConfig?.width || '.08em',
-        }
-      : {},
   );
 </script>
 <template>
-  <view class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
-    <text class="icon" :style="iconStyleObject" :class="iconClassObject" />
-  </view>
+  <template v-if="props.stack">
+    <view class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
+      <slot :stack="props.stack"></slot>
+    </view>
+  </template>
+  <template v-else>
+    <view class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
+      <text class="icon" :style="iconStyleObject" :class="iconClassObject" />
+    </view>
+  </template>
 </template>
 <style lang="scss" scoped>
   .icon-wrap {
