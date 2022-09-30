@@ -93,6 +93,20 @@
     <FontAwesomeIcon name="bell" shake />
     <FontAwesomeIcon name="stopwatch" shake />
     <FontAwesomeIcon name="bomb" shake />
+    <view>spin-旋转动画</view>
+    <FontAwesomeIcon name="sync" spin duration="2" />
+    <FontAwesomeIcon name="circle-notch" spin duration="1.5" />
+    <FontAwesomeIcon name="cog" spin duration="2" />
+    <FontAwesomeIcon name="cog" spin spin-reverse duration="15" />
+    <FontAwesomeIcon name="spinner" spin spin-pulse spinDelay="5s" duration="2" />
+    <FontAwesomeIcon
+      name="spinner"
+      spin
+      spin-pulse
+      spin-reverse
+      spinIterationCount="3"
+      duration="2"
+    />
   </AppProvider>
 </template>
 <style lang="scss" scoped></style>

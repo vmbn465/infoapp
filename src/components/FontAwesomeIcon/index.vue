@@ -38,6 +38,9 @@
     props.bounce ? 'fa-bounce' : '',
     props.flip ? 'fa-flip' : '',
     props.shake ? 'fa-shake' : '',
+    props.spin ? 'fa-spin' : '',
+    props.spinReverse ? 'fa-spin-reverse' : '',
+    props.spinPulse ? 'fa-spin-pulse' : '',
   ];
   const iconStyleObject = Object.assign(
     {
@@ -67,6 +70,13 @@
           '--fa-flip-y': props.flipConfig?.y || '1',
           '--fa-flip-z': props.flipConfig?.z || '0',
           '--fa-flip-angle': props.flipConfig?.angle || '-180deg',
+        }
+      : {},
+    props.spin
+      ? {
+          '--fa-animation-delay': props.spinDelay,
+          '--fa-animation-iteration-count': props.spinIterationCount,
+          '--fa-animation-timing': props.spinTiming,
         }
       : {},
   );

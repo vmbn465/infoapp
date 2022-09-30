@@ -191,4 +191,55 @@ export const FontAwesomeIconProps = {
     type: Boolean,
     default: false,
   },
+  /**
+   * icon spin
+   * @description 顺时针旋转动画
+   */
+  spin: {
+    type: [Boolean, String],
+    default: false,
+  },
+  /**
+   * icon spinReverse
+   * @description 逆时针旋转动画
+   */
+  spinReverse: {
+    type: Boolean,
+    default: false,
+  },
+  /**
+   * icon spinPulse
+   * @description 以8个节拍顺时针旋转动画
+   */
+  spinPulse: {
+    type: Boolean,
+    default: false,
+  },
+  /**
+   * icon spinDelay
+   * @description 旋转动画延迟时间
+   * @link https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction
+   */
+  spinDelay: {
+    type: String,
+    default: '0s',
+  },
+  /**
+   * icon spinIterationCount
+   * @description 旋转动画迭代次数
+   */
+  spinIterationCount: {
+    type: [String, Number],
+    default: 'infinite',
+  },
+  /**
+   * icon spinTiming
+   * @description 旋转动画在帧中的进度
+   * @example linear(默认线性), ease-in,ease-out,ease-in-out,step-start,step-end, steps(4, jump-start),cubic-bezier(0.1, -0.6, 0.2, 0);
+   * @link https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-functionhttps://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+   */
+  spinTiming: {
+    type: String,
+    default: 'linear',
+  },
 };
