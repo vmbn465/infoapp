@@ -6,6 +6,7 @@ export const FontAwesomeIconProps = {
    */
   name: {
     type: String,
+    default: 'default',
     required: true,
   },
   /** icon 风格
@@ -39,7 +40,6 @@ export const FontAwesomeIconProps = {
    */
   size: {
     type: [Number, String],
-    default: '',
   },
   /**
    * icon color
@@ -94,7 +94,7 @@ export const FontAwesomeIconProps = {
    */
   scale: {
     type: [Number, String],
-    default: 1.25,
+    default: '1.25',
   },
   /**
    * icon fade
@@ -110,7 +110,7 @@ export const FontAwesomeIconProps = {
    */
   opacity: {
     type: [Number, String],
-    default: 0.6,
+    default: '0.6',
   },
   /**
    * icon bounce
@@ -286,8 +286,8 @@ export const FontAwesomeIconProps = {
   },
   /** icon stackX
    * @description 堆叠层
-   * @example 1 底层 2 上层
-   */
+   * @example 1 (fa-stack-1x,以基本大小显示) 2(fa-stack-2x,以较大显示)
+   * */
   stackX: {
     type: [String, Number],
     default: 1,
@@ -309,5 +309,19 @@ export const FontAwesomeIconProps = {
   stackChild: {
     type: Boolean,
     default: false,
+  },
+  /** icon stackZIndex
+   * @description 堆叠子元素 层级
+   */
+  stackZIndex: {
+    type: [String, Number],
+    default: 'auto',
+  },
+  /** icon stackChild
+   * @description 堆叠子元素图标反色
+   */
+  stackInverseColor: {
+    type: String,
+    default: '#fff',
   },
 };

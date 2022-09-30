@@ -116,16 +116,66 @@
       <FontAwesomeIcon name="arrow-left" float="left" />
     </view>
     <view style="clear: both">stack-堆叠</view>
-    <FontAwesomeIcon name="arrow-right" stack>
+    <FontAwesomeIcon stack>
       <template #default="slotProps">
-        <FontAwesomeIcon name="circle" :stackChild="slotProps.stack" stack-x="1" />
-        <FontAwesomeIcon name="flag" :stackChild="slotProps.stack" stack-x="2" />
+        <FontAwesomeIcon name="circle" :stackChild="slotProps.stack" stack-x="2" />
+        <FontAwesomeIcon name="flag" :stackChild="slotProps.stack" stackInverse stack-x="1" />
       </template>
     </FontAwesomeIcon>
-    <span class="fa-stack">
-      <i class="fa-solid fa-circle fa-stack-2x"></i>
-      <i class="fa-solid fa-flag fa-stack-1x fa-inverse"></i>
-    </span>
+    <FontAwesomeIcon stack flip>
+      <template #default="slotProps">
+        <FontAwesomeIcon
+          mode="brands"
+          name="twitter"
+          :stackChild="slotProps.stack"
+          stackInverse
+          stackZIndex="2"
+          stack-x="1"
+        />
+        <FontAwesomeIcon name="square" :stackChild="slotProps.stack" stack-x="2" />
+      </template>
+    </FontAwesomeIcon>
+
+    <FontAwesomeIcon stack>
+      <template #default="slotProps">
+        <FontAwesomeIcon
+          mode="brands"
+          name="twitter"
+          :stackChild="slotProps.stack"
+          stackInverse
+          stackInverseColor="#1da1f2"
+          stackZIndex="2"
+          stack-x="1"
+        />
+        <FontAwesomeIcon name="square" :stackChild="slotProps.stack" stack-x="2" />
+      </template>
+    </FontAwesomeIcon>
+
+    <FontAwesomeIcon stack shake>
+      <template #default="slotProps">
+        <FontAwesomeIcon name="camera" :stackChild="slotProps.stack" stack-x="1" />
+        <FontAwesomeIcon
+          name="ban"
+          :stackChild="slotProps.stack"
+          stackInverseColor="Tomato"
+          stackInverse
+          stack-x="2"
+        />
+      </template>
+    </FontAwesomeIcon>
+    <FontAwesomeIcon stack rotate="45">
+      <template #default="slotProps">
+        <FontAwesomeIcon name="square" :stackChild="slotProps.stack" stack-x="2" />
+        <FontAwesomeIcon
+          name="terminal"
+          rotate="-45"
+          :stackChild="slotProps.stack"
+          stackInverseColor="Tomato"
+          stackInverse
+          stack-x="1"
+        />
+      </template>
+    </FontAwesomeIcon>
   </AppProvider>
 </template>
 <style lang="scss" scoped></style>
