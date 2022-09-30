@@ -39,6 +39,7 @@ export const FontAwesomeIconProps = {
    */
   size: {
     type: Number,
+    default: '',
   },
   /**
    * icon color
@@ -68,10 +69,10 @@ export const FontAwesomeIconProps = {
     type: Number,
     default: 0,
   },
-  /** icon reverse
-   * @description 对称翻转
+  /** icon rotateFlip
+   * @description 旋转-翻转
    */
-  reverse: {
+  rotateFlip: {
     type: String,
     validator(value: string) {
       // The value must match one of these strings
@@ -140,17 +141,17 @@ export const FontAwesomeIconProps = {
         rebound: '-0.125em',
         // 设置图标弹跳时跳到的最大高度
         height: '-0.5em',
-        // 设置图标开始反弹时的水平失真（“挤压”）
+        // 设置图标开始反弹时的水平挤压
         startScaleX: '1.1',
-        // 将图标的水平失真（“挤压”）设置在跳转的顶部
+        // 设置图标开始反弹时的垂直挤压
         startScaleY: '0.9',
-        // 将图标的水平失真（“挤压”）设置在跳转的顶部
+        // 设置图标弹跳时的水平挤压
         jumpScaleX: '0.9',
-        // 将图标的垂直失真（“挤压”）设置在跳转的顶部
+        // 设置图标弹跳时的垂直挤压
         jumpScaleY: '1.1',
-        // 设置跳跃后着陆时图标的水平失真（“挤压”）
+        // 设置图标弹跳后着陆时的水平挤压
         landScaleX: '1.05',
-        // 设置跳跃后着陆时图标的垂直失真（“挤压”）
+        // 设置图标弹跳后着陆时的垂直挤压
         landScaleY: '0.95',
       };
     },
@@ -171,15 +172,23 @@ export const FontAwesomeIconProps = {
     type: Object,
     default: () => {
       return {
-        // 设置表示旋转轴的矢量的 x 坐标（0~1）
+        // 设置旋转轴的 x 坐标（0~1）
         x: '0',
-        // 设置矢量的 y 坐标，表示旋转轴（0~1)
+        // 设置旋转轴的 y 坐标（0~1)
         y: '1',
-        // 设置矢量的 z 坐标，表示旋转轴（0~1)
+        // 设置旋转轴的 z 坐标（0~1)
         z: '0',
-        // 设置翻转的旋转角度。正角表示顺时针旋转，负角表示逆时针旋转。
+        // 设置翻转的旋转角度,正角表示顺时针旋转，负角表示逆时针旋转。
         angle: '-180deg',
       };
     },
+  },
+  /**
+   * icon shake
+   * @description 抖动动画
+   */
+  shake: {
+    type: Boolean,
+    default: false,
   },
 };

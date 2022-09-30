@@ -33,16 +33,17 @@
     <view>rotate-旋转角度</view>
     <view> <FontAwesomeIcon mode="duotone" name="house" rotate="63" />duotone 63</view>
     <view> <FontAwesomeIcon mode="duotone" name="snowboarding" rotate="58" />duotone 58</view>
-    <view>reverse-对称翻转</view>
+    <view>rotateFlip-旋转-翻转</view>
     <view> <FontAwesomeIcon mode="duotone" name="snowboarding" />duotone 正常</view>
     <view>
-      <FontAwesomeIcon mode="duotone" name="snowboarding" reverse="horizontal" />duotone 水平翻转
+      <FontAwesomeIcon mode="duotone" name="snowboarding" rotate-flip="horizontal" />
+      duotone 水平翻转
     </view>
     <view>
-      <FontAwesomeIcon mode="duotone" name="snowboarding" reverse="vertical" />duotone 垂直翻转
+      <FontAwesomeIcon mode="duotone" name="snowboarding" rotate-flip="vertical" />duotone 垂直翻转
     </view>
     <view>
-      <FontAwesomeIcon mode="duotone" name="snowboarding" reverse="both" />duotone 垂直水平翻转
+      <FontAwesomeIcon mode="duotone" name="snowboarding" rotate-flip="both" />duotone 垂直水平翻转
     </view>
     <view>beat-缩放动画</view>
     <FontAwesomeIcon name="circle-plus" beat />
@@ -87,6 +88,11 @@
       }"
     />
     <FontAwesomeIcon name="money-check-dollar" flip duration="3" />
+
+    <view>shake-抖动动画</view>
+    <FontAwesomeIcon name="bell" shake />
+    <FontAwesomeIcon name="stopwatch" shake />
+    <FontAwesomeIcon name="bomb" shake />
   </AppProvider>
 </template>
 <style lang="scss" scoped></style>

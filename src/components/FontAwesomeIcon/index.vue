@@ -16,7 +16,7 @@
 
   const wrapStyleObject = {
     color: props.color,
-    'font-size': `${props.size}rpx`,
+    'font-size': props.size ? `${props.size}rpx` : false,
     'background-color': props.bgColor,
     'fa-border': props.border,
   };
@@ -31,12 +31,13 @@
     props.frameSize ? `fa-flip-${props.frameSize}` : '',
     props.sharp ? 'fass' : '',
     props.rotate ? 'fa-rotate-by' : '',
-    props.reverse ? `fa-flip-${props.reverse}` : '',
+    props.rotateFlip ? `fa-flip-${props.rotateFlip}` : '',
     singleBeat ? `fa-beat` : '',
     singleFade ? `fa-fade` : '',
     BeatFade ? `fa-beat-fade` : '',
     props.bounce ? 'fa-bounce' : '',
     props.flip ? 'fa-flip' : '',
+    props.shake ? 'fa-shake' : '',
   ];
   const iconStyleObject = Object.assign(
     {
@@ -80,6 +81,7 @@
     display: inline-block;
     .icon {
       display: inline-block;
+      color: inherit;
     }
   }
 </style>
