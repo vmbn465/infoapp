@@ -13,12 +13,13 @@
   import { computed } from 'vue';
 
   const props = defineProps(FontAwesomeIconProps);
+  const wrapClassObject = [props.float ? `fa-pull-${props.float}` : ''];
 
   const wrapStyleObject = {
     color: props.color,
     'font-size': props.size ? `${props.size}rpx` : false,
     'background-color': props.bgColor,
-    'fa-border': props.border,
+    '--fa-pull-margin': props.float ? props.pullMargin : false,
   };
 
   const singleBeat = props.beat && !props.fade;
@@ -41,6 +42,7 @@
     props.spin ? 'fa-spin' : '',
     props.spinReverse ? 'fa-spin-reverse' : '',
     props.spinPulse ? 'fa-spin-pulse' : '',
+    props.border ? 'fa-border' : '',
   ];
   const iconStyleObject = Object.assign(
     {
@@ -79,10 +81,19 @@
           '--fa-animation-timing': props.spinTiming,
         }
       : {},
+    props.border
+      ? {
+          '--fa-border-color': props.borderConfig?.color || '#eee',
+          '--fa-border-padding': props.borderConfig?.padding || '.2em .25em .15em',
+          '--fa-border-radius': props.borderConfig?.radius || '.1em',
+          '--fa-border-style': props.borderConfig?.style || 'solid',
+          '--fa-border-width': props.borderConfig?.width || '.08em',
+        }
+      : {},
   );
 </script>
 <template>
-  <view class="icon-wrap" :style="wrapStyleObject">
+  <view class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
     <text class="icon" :style="iconStyleObject" :class="iconClassObject" />
   </view>
 </template>

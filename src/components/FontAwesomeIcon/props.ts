@@ -55,13 +55,6 @@ export const FontAwesomeIconProps = {
   bgColor: {
     type: String,
   },
-  /** icon border
-   * @description 边框
-   */
-  border: {
-    type: Boolean,
-    default: false,
-  },
   /** icon rotate
    * @description 旋转角度
    */
@@ -82,8 +75,6 @@ export const FontAwesomeIconProps = {
   /**
    * icon beat
    * @description 缩放动画
-   * @param duration Number 时间 s
-   * @param scale Number 比例
    */
   beat: {
     type: Boolean,
@@ -241,5 +232,49 @@ export const FontAwesomeIconProps = {
   spinTiming: {
     type: String,
     default: 'linear',
+  },
+  /** icon border
+   * @description 边框
+   */
+  border: {
+    type: Boolean,
+    default: false,
+  },
+  /**
+   * icon borderConfig
+   * @description 翻转动画属性设置
+   */
+  borderConfig: {
+    type: Object,
+    default: () => {
+      return {
+        // 设置边框颜色
+        color: '#eee',
+        // 设置图标周围的填充
+        padding: '.2em .25em .15em',
+        // 设置边框半径
+        radius: '.1em',
+        // 设置边框样式
+        // 可选值 solid(默认实线), dotted(点状边框),dashed(虚线),double(双线)
+        style: 'solid',
+        // 设置边框宽度
+        width: '.08em',
+      };
+    },
+  },
+  /**
+   * icon float
+   * @description 浮动定位
+   * @example:  left ,right
+   */
+  float: {
+    type: String,
+  },
+  /** icon pullMargin
+   * @description 设置图标周围的边距
+   */
+  pullMargin: {
+    type: String,
+    default: '.3em',
   },
 };

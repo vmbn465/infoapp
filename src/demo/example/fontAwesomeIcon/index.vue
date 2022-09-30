@@ -107,6 +107,14 @@
       spinIterationCount="3"
       duration="2"
     />
+    <view>border-边框</view>
+    <FontAwesomeIcon name="arrow-right" border />
+    <FontAwesomeIcon name="arrow-right" border :borderConfig="{ color: '#000' }" />
+    <view>float-浮动定位</view>
+    <view>
+      <FontAwesomeIcon name="arrow-right" float="right" />
+      <FontAwesomeIcon name="arrow-left" float="left" />
+    </view>
   </AppProvider>
 </template>
 <style lang="scss" scoped></style>
