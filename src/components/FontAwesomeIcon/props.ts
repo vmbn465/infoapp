@@ -7,7 +7,7 @@ export const FontAwesomeIconProps = {
   name: {
     type: String,
     default: 'default',
-    required: true,
+    // required: true,
   },
   /** icon 风格
    * 不同风格对应不同的css, 使用时请加载相应的css

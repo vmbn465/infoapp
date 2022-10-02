@@ -12,6 +12,10 @@
   import { FontAwesomeIconProps } from '@/components/FontAwesomeIcon/props';
   const props = defineProps(FontAwesomeIconProps);
 
+  const emit = defineEmits<{
+    (e: 'click'): void;
+  }>();
+
   const singleBeat = props.beat && !props.fade;
   const singleFade = !props.beat && props.fade;
   const BeatFade = props.beat && props.fade;
@@ -108,15 +112,19 @@
     color: props.color,
     'font-size': props.size ? `${props.size}rpx` : false,
   });
+
+  const onClick = () => {
+    emit('click');
+  };
 </script>
 <template>
   <template v-if="props.stack">
-    <view class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
+    <view @click="onClick" class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
       <slot :stack="props.stack"></slot>
     </view>
   </template>
   <template v-else>
-    <view class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
+    <view @click="onClick" class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
       <text class="icon" :style="iconStyleObject" :class="iconClassObject" />
     </view>
   </template>
