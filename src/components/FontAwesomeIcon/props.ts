@@ -324,4 +324,25 @@ export const FontAwesomeIconProps = {
     type: String,
     default: '#fff',
   },
+  /** icon counter
+   * @description 角标计数
+   */
+  counter: {
+    type: [String, Number, Boolean],
+    default: false,
+  },
+  /** icon counterMax
+   * @description 角标计数最大值
+   */
+  counterMax: {
+    type: Number,
+    default: 99,
+  },
+  /** icon counterMax
+   * @description 角标计数背景色
+   */
+  counterMgColor: {
+    type: String,
+    default: '#ff253a',
+  },
 };

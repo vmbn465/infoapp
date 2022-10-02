@@ -5,13 +5,13 @@
 <template>
   <AppProvider>
     <view>mode-不同风格</view>
-    <view> <FontAwesomeIcon name="house" />solid </view>
+    <view> <FontAwesomeIcon name="house" counter="999" />solid </view>
     <view> <FontAwesomeIcon mode="regular" name="house" />regular</view>
     <view> <FontAwesomeIcon mode="light" name="house" />light</view>
     <view> <FontAwesomeIcon mode="thin" name="house" />thin</view>
     <view> <FontAwesomeIcon mode="duotone" name="house" />duotone</view>
     <view>sharp-直角图标</view>
-    <view> <FontAwesomeIcon name="user" sharp /> sharp </view>
+    <view> <FontAwesomeIcon name="user" sharp counter="999" /> sharp </view>
 
     <view>mode(brands)-品牌logo</view>
     <view> <FontAwesomeIcon mode="brands" name="bilibili" /> bilibili </view>
@@ -136,7 +136,7 @@
       </template>
     </FontAwesomeIcon>
 
-    <FontAwesomeIcon stack>
+    <FontAwesomeIcon stack counter="999">
       <template #default="slotProps">
         <FontAwesomeIcon
           mode="brands"
