@@ -4,61 +4,71 @@
 </script>
 <template>
   <AppProvider>
-    <view>mode-不同风格</view>
-    <view> <FontAwesomeIcon name="house" counter="999" />solid </view>
+    <view class="h2"> FontAwesomeIcon 图标组件基于font awesome icon v6.20</view>
+    <view class="tip">
+      Tip: 由于字体文件太大,共7种风格图标, 7个字体文件,
+      在微信小程序中请不要引用全部字体,在组件目录index.scss中配置, 已测试: 支持H5, APP(安卓),
+      微信小程序
+    </view>
+    <view class="title">mode-不同风格,对应相应字体文件</view>
+    <view> <FontAwesomeIcon name="house" />solid (默认)</view>
     <view> <FontAwesomeIcon mode="regular" name="house" />regular</view>
     <view> <FontAwesomeIcon mode="light" name="house" />light</view>
     <view> <FontAwesomeIcon mode="thin" name="house" />thin</view>
     <view> <FontAwesomeIcon mode="duotone" name="house" />duotone</view>
-    <view>sharp-直角图标</view>
+    <view class="title">sharp-直角图标(只支持solid),对应相应字体文件</view>
     <view> <FontAwesomeIcon name="user" sharp counter="999" /> sharp </view>
 
-    <view>mode(brands)-品牌logo</view>
+    <view class="title">mode(brands)-品牌logo,对应相应字体文件</view>
     <view> <FontAwesomeIcon mode="brands" name="bilibili" /> bilibili </view>
     <view> <FontAwesomeIcon mode="brands" name="alipay" /> alipay </view>
 
-    <view>color-颜色</view>
-    <view> <FontAwesomeIcon name="house" color="Tomato" />solid </view>
-    <view> <FontAwesomeIcon mode="regular" name="house" color="Dodgerblue" />regular</view>
-    <view> <FontAwesomeIcon mode="light" name="house" color="Mediumslateblue" />light</view>
-    <view> <FontAwesomeIcon mode="brands" name="bilibili" color="Dodgerblue" /> brands </view>
+    <view class="title">color-颜色</view>
+    <view> <FontAwesomeIcon name="house" />默认 </view>
+    <view> <FontAwesomeIcon name="house" color="Tomato" />Tomato </view>
+    <view> <FontAwesomeIcon mode="regular" name="house" color="Dodgerblue" />Dodgerblue</view>
+    <view>
+      <FontAwesomeIcon mode="light" name="house" color="Mediumslateblue" />Mediumslateblue</view
+    >
+    <view> <FontAwesomeIcon mode="brands" name="bilibili" color="Dodgerblue" /> Dodgerblue </view>
 
-    <view>size-大小</view>
-    <view> <FontAwesomeIcon mode="light" name="house" size="24" />light 24rpx</view>
-    <view> <FontAwesomeIcon mode="thin" name="house" size="44" />thin 44rpx</view>
-    <view> <FontAwesomeIcon mode="duotone" name="house" size="64" />duotone 64rpx</view>
-    <view>bgColor-背景色</view>
+    <view class="title">size-大小(单位rpx)</view>
+    <view> <FontAwesomeIcon mode="light" name="house" />(默认)</view>
+    <view> <FontAwesomeIcon mode="light" name="house" size="24" />24rpx</view>
+    <view> <FontAwesomeIcon mode="thin" name="house" size="44" />44rpx</view>
+    <view> <FontAwesomeIcon mode="duotone" name="house" size="64" />64rpx</view>
+    <view class="title">bgColor-背景色</view>
     <view> <FontAwesomeIcon name="house" bg-color="DodgerBlue" />solid </view>
     <view> <FontAwesomeIcon mode="regular" name="house" bg-color="SkyBlue" />regular</view>
-    <view>rotate-旋转角度</view>
-    <view> <FontAwesomeIcon mode="duotone" name="house" rotate="63" />duotone 63</view>
-    <view> <FontAwesomeIcon mode="duotone" name="snowboarding" rotate="58" />duotone 58</view>
-    <view>rotateFlip-旋转-翻转</view>
-    <view> <FontAwesomeIcon mode="duotone" name="snowboarding" />duotone 正常</view>
+    <view class="title">rotate-旋转角度</view>
+    <view> <FontAwesomeIcon mode="duotone" name="house" rotate="63" />house 63</view>
+    <view> <FontAwesomeIcon mode="duotone" name="snowboarding" rotate="58" />snowboarding 58</view>
+    <view class="title">rotateFlip-旋转-翻转</view>
+    <view> <FontAwesomeIcon mode="duotone" name="snowboarding" />正常</view>
     <view>
       <FontAwesomeIcon mode="duotone" name="snowboarding" rotate-flip="horizontal" />
-      duotone 水平翻转
+      水平翻转
     </view>
     <view>
-      <FontAwesomeIcon mode="duotone" name="snowboarding" rotate-flip="vertical" />duotone 垂直翻转
+      <FontAwesomeIcon mode="duotone" name="snowboarding" rotate-flip="vertical" />垂直翻转
     </view>
     <view>
-      <FontAwesomeIcon mode="duotone" name="snowboarding" rotate-flip="both" />duotone 垂直水平翻转
+      <FontAwesomeIcon mode="duotone" name="snowboarding" rotate-flip="both" />垂直水平翻转
     </view>
-    <view>beat-缩放动画</view>
+    <view class="title">beat-缩放动画</view>
     <FontAwesomeIcon name="circle-plus" beat />
     <FontAwesomeIcon name="heart" beat />
-    <view>duration-动画持续时间</view>
+    <view class="title">duration-动画持续时间</view>
     <FontAwesomeIcon name="heart" beat duration="1.5" />
-    <view>scale-缩放比例</view>
+    <view class="title">scale-缩放比例</view>
     <FontAwesomeIcon name="heart" beat duration="1.5" scale="2.0" />
-    <view>fade-淡入淡出动画 </view>
+    <view class="title">fade-淡入淡出动画 </view>
     <FontAwesomeIcon name="heart" fade />
-    <view>opacity-透明度值 </view>
+    <view class="title">opacity-透明度值 </view>
     <FontAwesomeIcon name="heart" fade opacity="0.2" />
-    <view>beat+fade-跳动+淡入淡出动画 </view>
+    <view class="title">beat+fade-跳动+淡入淡出动画 </view>
     <FontAwesomeIcon name="heart" beat fade opacity="0.68" duration="1.5" scale="2.0" />
-    <view>bounce-弹跳动画 </view>
+    <view class="title">bounce-弹跳动画 </view>
     <FontAwesomeIcon name="basketball" bounce />
     <FontAwesomeIcon name="volleyball" bounce />
     <FontAwesomeIcon name="frog" bounce />
@@ -75,7 +85,7 @@
         landScaleY: 1,
       }"
     />
-    <view>flip-翻转动画</view>
+    <view class="title">flip-翻转动画</view>
     <FontAwesomeIcon name="compact-disc" flip />
     <FontAwesomeIcon name="camera-rotate" flip />
     <FontAwesomeIcon name="cassette-tape" flip />
@@ -89,11 +99,11 @@
     />
     <FontAwesomeIcon name="money-check-dollar" flip duration="3" />
 
-    <view>shake-抖动动画</view>
+    <view class="title">shake-抖动动画</view>
     <FontAwesomeIcon name="bell" shake />
     <FontAwesomeIcon name="stopwatch" shake />
     <FontAwesomeIcon name="bomb" shake />
-    <view>spin-旋转动画</view>
+    <view class="title">spin-旋转动画</view>
     <FontAwesomeIcon name="sync" spin duration="2" />
     <FontAwesomeIcon name="circle-notch" spin duration="1.5" />
     <FontAwesomeIcon name="cog" spin duration="2" />
@@ -107,15 +117,20 @@
       spinIterationCount="3"
       duration="2"
     />
-    <view>border-边框</view>
+    <view class="title">border-边框</view>
     <FontAwesomeIcon name="arrow-right" border />
     <FontAwesomeIcon name="arrow-right" border :borderConfig="{ color: '#000' }" />
-    <view>float-浮动定位</view>
+
+    <view class="title">counter-计数</view>
+    <view> <FontAwesomeIcon mode="light" name="house" counter="999" />99+</view>
+    <view> <FontAwesomeIcon mode="thin" name="house" counter="65" />65</view>
+    <view> <FontAwesomeIcon mode="duotone" name="house" counter="14" />14</view>
+    <view class="title">float-浮动定位</view>
     <view>
       <FontAwesomeIcon name="arrow-right" float="right" />
       <FontAwesomeIcon name="arrow-left" float="left" />
     </view>
-    <view style="clear: both">stack-堆叠</view>
+    <view class="title" style="clear: both">stack-堆叠</view>
     <FontAwesomeIcon stack>
       <template #default="slotProps">
         <FontAwesomeIcon name="circle" :stackChild="slotProps.stack" stack-x="2" />
@@ -178,4 +193,20 @@
     </FontAwesomeIcon>
   </AppProvider>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .h2 {
+    font-size: 32rpx;
+    font-weight: 900;
+  }
+  .tip {
+    font-size: 26rpx;
+    font-weight: 500;
+    color: #ff253a;
+  }
+  .title {
+    font-size: 28rpx;
+    font-weight: 600;
+    margin: 28rpx 0 8rpx 0;
+    color: #3b82f6;
+  }
+</style>
