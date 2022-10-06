@@ -42,9 +42,13 @@
 
   const wrapStyleObject = Object.assign(
     {
-      'background-color': props.bgColor,
       '--fa-animation-duration': `${props.duration}s`,
     },
+    props.bgColor
+      ? {
+          'background-color': props.bgColor,
+        }
+      : {},
     props.rotate ? { '--fa-rotate-angle': `${props.rotate}deg` } : {},
     singleBeat ? { '--fa-beat-scale': `${props.scale}` } : {},
     singleFade ? { '--fa-fade-opacity': `${props.opacity}` } : {},
@@ -110,10 +114,19 @@
     props.frameSize ? `fa-flip-${props.frameSize}` : '',
     props.sharp ? 'fass' : '',
   ];
-  const iconStyleObject = Object.assign({
-    color: props.color,
-    'font-size': props.size ? `${props.size}rpx` : false,
-  });
+  const iconStyleObject = Object.assign(
+    {},
+    props.color
+      ? {
+          color: props.color,
+        }
+      : {},
+    props.size
+      ? {
+          'font-size': `${props.size}rpx`,
+        }
+      : {},
+  );
 
   const counterStyleObject = {
     '--fa-counter-background-color': props.counterMgColor,
@@ -163,9 +176,7 @@
       right: -0.35em;
       text-overflow: ellipsis;
       top: 0;
-      -webkit-transform: 0.35;
       transform: scale(0.35);
-      -webkit-transform-origin: top right;
       transform-origin: top right;
     }
   }
