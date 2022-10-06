@@ -1,6 +1,15 @@
 <script lang="ts" setup>
   import AppProvider from '@/components/AppProvider/inedx.vue';
   import FontAwesomeIcon from '@/components/FontAwesomeIcon/index.vue';
+  import { ref } from 'vue';
+  import { SetClipboardData } from '@/utils/uniapi';
+
+  const iconLink = ref('https://fontawesome.com/icons');
+
+  const onCopyLink = () => {
+    SetClipboardData(iconLink.value);
+    console.log('的反馈了高考历史电饭锅');
+  };
 </script>
 <template>
   <AppProvider>
@@ -10,16 +19,23 @@
       在微信小程序中请不要引用全部字体,在组件目录index.scss中配置, 已测试: 支持H5, APP(安卓),
       微信小程序
     </view>
+    <view class="tip">
+      全部icon请查看:
+      <text class="link">{{ iconLink }}</text>
+      <FontAwesomeIcon mode="duotone" name="copy" @click="onCopyLink" />
+    </view>
     <view class="title">mode-不同风格,对应相应字体文件</view>
     <view> <FontAwesomeIcon name="house" />solid (默认)</view>
     <view> <FontAwesomeIcon mode="regular" name="house" />regular</view>
+    <view> <FontAwesomeIcon mode="light" name="grid-2" />light grid-2</view>
     <view> <FontAwesomeIcon mode="light" name="house" />light</view>
     <view> <FontAwesomeIcon mode="thin" name="house" />thin</view>
-    <view> <FontAwesomeIcon mode="duotone" name="house" />duotone</view>
-    <view class="title">sharp-直角图标(只支持solid),对应相应字体文件</view>
+    <view> <FontAwesomeIcon mode="duotone" name="trash-can-clock" />duotone trash-can-clock</view>
+    <view> <FontAwesomeIcon mode="duotone" name="house" />duotone house</view>
+    <view class="title">sharp-直角图标(只支持大部分solid),对应sharp字体文件</view>
     <view> <FontAwesomeIcon name="user" sharp counter="999" /> sharp </view>
 
-    <view class="title">mode(brands)-品牌logo,对应相应字体文件</view>
+    <view class="title">mode(brands)-品牌logo,对应brands字体文件</view>
     <view> <FontAwesomeIcon mode="brands" name="bilibili" /> bilibili </view>
     <view> <FontAwesomeIcon mode="brands" name="alipay" /> alipay </view>
 
@@ -202,6 +218,13 @@
     font-size: 26rpx;
     font-weight: 500;
     color: #ff253a;
+    .link {
+      margin-right: 16rpx;
+      &:hover {
+        opacity: 0.6;
+        text-decoration: underline;
+      }
+    }
   }
   .title {
     font-size: 28rpx;
