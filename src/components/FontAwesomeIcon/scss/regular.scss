@@ -11,7 +11,7 @@
   --#{$fa-css-prefix}-style-family-classic: $fa-style-family-regular;
   --#{$fa-css-prefix}-font-regular: normal 400 1em/1 '#{ $fa-style-family-regular }';
 }
-
+/* #ifndef MP-WEIXIN || MP-ALIPAY */
 @font-face {
   font-family: $fa-style-family-regular;
   font-style: normal;
@@ -28,6 +28,7 @@
     
   /* #endif */
   }
+/* #endif */
 
 .far,
 .#{$fa-css-prefix}-regular {

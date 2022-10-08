@@ -9,9 +9,9 @@
 
 :root, :host {
   --#{$fa-css-prefix}-style-family-classic: $fa-style-family-light;
-  --#{$fa-css-prefix}-font-light: normal 300 1em/1 '#{ $fa-style-family-light } Pro Light';
+  --#{$fa-css-prefix}-font-light: normal 300 1em/1 '#{ $fa-style-family-light }';
 }
-
+/* #ifndef MP-WEIXIN || MP-ALIPAY */
 @font-face {
   font-family: $fa-style-family-light;
   font-style: normal;
@@ -25,9 +25,9 @@
   /* #ifndef H5 */
   src:  $fa-light-300-woff2;
   //  $fa-light-300-ttf;
-  
   /* #endif */
 }
+/* #endif */
 
 .far,
 .#{$fa-css-prefix}-light {

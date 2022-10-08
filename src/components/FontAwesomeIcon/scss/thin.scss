@@ -11,7 +11,7 @@
   --#{$fa-css-prefix}-style-family-classic: $fa-style-family-thin;
   --#{$fa-css-prefix}-font-thin: normal 100 1em/1 '#{ $fa-style-family-thin }';
 }
-
+/* #ifndef MP-WEIXIN || MP-ALIPAY */
 @font-face {
   font-family: $fa-style-family-thin;
   font-style: normal;
@@ -27,6 +27,7 @@
   // $fa-thin-100-ttf;
   /* #endif */
 }
+/* #endif */
 
 .far,
 .#{$fa-css-prefix}-thin {

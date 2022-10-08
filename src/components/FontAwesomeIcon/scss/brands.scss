@@ -12,6 +12,7 @@
   --#{$fa-css-prefix}-font-brands: normal 400 1em/1 '#{ $fa-style-family-brands }';
 }
 
+/* #ifndef MP-WEIXIN || MP-ALIPAY */
 @font-face {
   font-family: $fa-style-family-brands;
   font-style: normal;
@@ -28,6 +29,7 @@
   // $fa-brands-400-ttf;
   /* #endif */
 }
+/* #endif */
 
 .fab,
 .#{$fa-css-prefix}-brands {

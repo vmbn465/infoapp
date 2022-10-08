@@ -9,9 +9,10 @@
 
 :root, :host {
   --#{$fa-css-prefix}-style-family-classic: $fa-style-family-duotone;
-  --#{$fa-css-prefix}-font-duotone: normal 900 1em/1 $fa-style-family-duotone;
+  --#{$fa-css-prefix}-font-duotone: normal 900 1em/1 '#{ $fa-style-family-duotone }';
 }
 
+/* #ifndef MP-WEIXIN || MP-ALIPAY */
 @font-face {
   font-family: $fa-style-family-duotone;
   font-style: normal;
@@ -28,6 +29,7 @@
   /* #endif */
 
 }
+/* #endif */
 
 .far,
 .#{$fa-css-prefix}-duotone {

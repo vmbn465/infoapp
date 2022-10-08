@@ -11,7 +11,7 @@
   --#{$fa-css-prefix}-style-family-sharp: $fa-style-family-sharp-solid;
   --#{$fa-css-prefix}-font-sharp-solid: normal 900 1em/1 '#{ $fa-style-family-sharp-solid }';
 }
-
+/* #ifndef MP-WEIXIN || MP-ALIPAY */
 @font-face {
   font-family: $fa-style-family-sharp-solid;
   font-style: normal;
@@ -27,6 +27,7 @@
   // $fa-sharp-solid-900-ttf;
   /* #endif */
 }
+/* #endif */
 
 .far,
 .#{$fa-css-prefix}-sharp-solid {

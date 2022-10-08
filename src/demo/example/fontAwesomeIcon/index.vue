@@ -8,7 +8,6 @@
 
   const onCopyLink = () => {
     SetClipboardData(iconLink.value);
-    console.log('的反馈了高考历史电饭锅');
   };
 </script>
 <template>
@@ -16,8 +15,13 @@
     <view class="h2"> FontAwesomeIcon 图标组件基于font awesome icon v6.20</view>
     <view class="tip">
       Tip: 由于字体文件太大,共7种风格图标, 7个字体文件,
-      在微信小程序中请不要引用全部字体,在组件目录index.scss中配置, 已测试: 支持H5, APP(安卓),
-      微信小程序
+      <!-- #ifdef MP-WEIXIN || MP-ALIPAY -->
+      微信小程序和阿里小程序动态远程加载font awesome icon 字体, 在\src\utils\fonts.ts中配置,
+      <!-- #endif -->
+      <!-- #ifndef MP-WEIXIN || MP-ALIPAY-->
+      在组件目录index.scss中配置引入字体,
+      <!-- #endif -->
+      已测试: 支持H5, APP(安卓), 微信小程序
     </view>
     <view class="tip">
       全部icon请查看:
