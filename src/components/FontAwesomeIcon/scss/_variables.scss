@@ -5,6 +5,15 @@ $fa-css-prefix          : fa !default;
 $fa-style               : 900 !default;
 $fa-style-family        : "Font Awesome 6" !default;
 
+$fa-style-family-solid : '#{ $fa-style-family } Solid';
+$fa-style-family-regular : '#{ $fa-style-family } Regular';
+$fa-style-family-light  : '#{ $fa-style-family } Light';
+$fa-style-family-thin: '#{ $fa-style-family } Thin';
+$fa-style-family-sharp-solid : '#{ $fa-style-family } Sharp Solid';
+$fa-style-family-brands : '#{ $fa-style-family } Brands Regular';
+$fa-style-family-duotone : '#{ $fa-style-family } Duotone Solid';
+
+
 $fa-display             : inline-block !default;
 
 $fa-fw-width            : fa-divide(20em, 16) !default;

@@ -1,5 +1,6 @@
 // base icon class definition
 // -------------------------
+@import 'variables';
 
 .#{$fa-css-prefix} {
   font-family: var(--#{$fa-css-prefix}-style-family, '#{$fa-style-family}');
@@ -38,30 +39,43 @@
 
 .fas,
 .#{$fa-css-prefix}-classic,
-.#{$fa-css-prefix}-solid,
+.#{$fa-css-prefix}-solid {
+  font-family: $fa-style-family-solid;
+}
 .far,
-.#{$fa-css-prefix}-regular,
+.#{$fa-css-prefix}-classic,
+.#{$fa-css-prefix}-regular{
+  font-family: $fa-style-family-regular;
+}
+
 .fal,
-.#{$fa-css-prefix}-light,
+.#{$fa-css-prefix}-classic,
+.#{$fa-css-prefix}-light{
+  font-family: $fa-style-family-light;
+}
+
+.fad,
+.#{$fa-css-prefix}-classic,
+.#{$fa-css-prefix}-duotone {
+  font-family: $fa-style-family-duotone;
+}
+
 .fat,
+.#{$fa-css-prefix}-classic,
 .#{$fa-css-prefix}-thin
 {
-  font-family: 'Font Awesome 6';
+  font-family: $fa-style-family-thin;
 }
 
 .fab,
 .#{$fa-css-prefix}-brands {
-  font-family: 'Font Awesome 6 Brands';
+  font-family: $fa-style-family-brands;
 }
 
-.fad,
-.#{$fa-css-prefix}-duotone {
-  font-family: 'Font Awesome 6 Duotone';
-}
 
 .fass,
 .#{$fa-css-prefix}-harp-solid.#{$fa-css-prefix}-solid {
-  font-family: 'Font Awesome 6 Sharp';
+  font-family: $fa-style-family-sharp-solid;
 }
 
 

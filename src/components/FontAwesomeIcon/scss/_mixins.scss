@@ -64,6 +64,42 @@
   }
 }
 
+@mixin fa-icon-light($fa-var) {
+  @extend %fa-icon;
+  @extend .fa-light;
+
+  &::before {
+    content: unquote("\"#{ $fa-var }\"");
+  }
+}
+
+@mixin fa-icon-thin($fa-var) {
+  @extend %fa-icon;
+  @extend .fa-thin;
+
+  &::before {
+    content: unquote("\"#{ $fa-var }\"");
+  }
+}
+
+@mixin fa-icon-sharp-solid($fa-var) {
+  @extend %fa-icon;
+  @extend .fa-sharp-solid;
+
+  &::before {
+    content: unquote("\"#{ $fa-var }\"");
+  }
+}
+
+@mixin fa-icon-duotone($fa-var) {
+  @extend %fa-icon;
+  @extend .fa-duotone;
+
+  &::before {
+    content: unquote("\"#{ $fa-var }\"");
+  }
+}
+
 @mixin fa-icon-brands($fa-var) {
   @extend %fa-icon;
   @extend .fa-brands;
