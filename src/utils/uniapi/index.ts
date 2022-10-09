@@ -4,34 +4,32 @@
  * @param showToast 配置是否弹出提示，默认弹出提示
  * @constructor
  */
-export const SetClipboardData = (data: string, showToast = true) => {
-  return new Promise((resolve, reject) => {
+export const SetClipboardData = (data: string, showToast = true) =>
+  new Promise((resolve, reject) => {
     uni.setClipboardData({
-      data: data,
-      showToast: showToast,
-      success: (res) => {
+      data,
+      showToast,
+      success: res => {
         resolve(res);
       },
-      fail: (err) => {
+      fail: err => {
         reject(err);
       },
     });
   });
-};
 
 /**
  * @description 获取系统剪贴板内容
  * @constructor
  */
-export const GetClipboardData = () => {
-  return new Promise((resolve, reject) => {
+export const GetClipboardData = () =>
+  new Promise((resolve, reject) => {
     uni.getClipboardData({
-      success: (res) => {
+      success: res => {
         resolve(res);
       },
-      fail: (err) => {
+      fail: err => {
         reject(err);
       },
     });
   });
-};

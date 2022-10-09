@@ -1,8 +1,7 @@
 import { defineStore } from 'pinia';
 import { getCache, removeCache, setCache } from '@/utils/cache';
 import { TOKEN_KEY } from '@/enums/cacheEnum';
-import { login } from '@/services/api/auth';
-import { logout, refreshToken } from '@/services/api/auth';
+import { login, logout, refreshToken } from '@/services/api/auth';
 
 interface AuthState {
   token?: string;
@@ -14,12 +13,8 @@ export const useAuthStore = defineStore({
     token: undefined,
   }),
   getters: {
-    getToken: (state) => {
-      return state.token;
-    },
-    isLogin: (state): boolean => {
-      return !!state.token;
-    },
+    getToken: state => state.token,
+    isLogin: (state): boolean => !!state.token,
   },
   actions: {
     initToken() {

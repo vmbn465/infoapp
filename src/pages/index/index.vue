@@ -1,8 +1,8 @@
 <script setup lang="ts">
+  import { ref } from 'vue';
   import BasicButton from '@/components/BasicButton/index.vue';
   import AppProvider from '@/components/AppProvider/inedx.vue';
   import FontAwesomeIcon from '@/components/FontAwesomeIcon/index.vue';
-  import { ref } from 'vue';
   import { useRouter } from '@/hooks/router';
   import { CURRENT_PLATFORM, PLATFORMS } from '@/enums/platformEnum';
   import { judgePlatform } from '@/utils/platform';

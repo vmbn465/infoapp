@@ -1,20 +1,25 @@
-import { NAVIGATE_TYPE } from '@/enums/routerEnum';
 import { warn } from 'vue';
+import { cloneDeep } from 'lodash-es';
+import { NAVIGATE_TYPE } from '@/enums/routerEnum';
 import { deepMerge } from '@/utils';
 import { routerBeforeEach } from '@/utils/router/interceptor';
-import { cloneDeep } from 'lodash-es';
 import { useRouterStore } from '@/state/modules/router';
 import { filterPath } from '@/utils/router/constant';
 
-export type NavigateOptions = Partial<Omit<UniApp.NavigateToOptions, 'url'>> & { delta?: number };
+export type NavigateOptions = Partial<Omit<UniApp.NavigateToOptions, 'url'>> & {
+  delta?: number;
+};
 
 export class Navigates {
   private type: string;
+
   private readonly options: NavigateOptions;
+
   constructor(type?: string, options?: NavigateOptions) {
     this.type = type || NAVIGATE_TYPE.NAVIGATE_TO;
     this.options = options || {};
   }
+
   navigate(url: string, options?: NavigateOptions) {
     const navigateOptions = deepMerge(cloneDeep(this.options), options);
     const _options = deepMerge({ url }, navigateOptions);

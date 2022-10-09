@@ -26,7 +26,7 @@ const request = createRequest();
  * 请求拦截器
  */
 request.interceptors.request.use(
-  (options) => {
+  options => {
     if (options.custom?.auth) {
       const authStore = useAuthStore();
       if (!authStore.isLogin) {
@@ -40,16 +40,14 @@ request.interceptors.request.use(
     }
     return options;
   },
-  (options) => {
-    return Promise.reject(options);
-  },
+  options => Promise.reject(options),
 );
 
 /**
  * 响应拦截器
  */
 request.interceptors.response.use(
-  async (response) => {
+  async response => {
     const { data: resData } = response;
     const { code, message } = resData;
     if (code === ResultEnum.SUCCESS) {
@@ -58,11 +56,10 @@ request.interceptors.response.use(
     Toast(message);
     return Promise.reject(resData);
   },
-  (response) => {
+  response =>
     // 请求错误做点什么。可以使用async await 做异步操作
     // error('Request Error!');
-    return Promise.reject(response);
-  },
+    Promise.reject(response),
 );
 
 export { request };

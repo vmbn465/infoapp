@@ -9,7 +9,9 @@
 </script>
 
 <template>
-  <view class="default-btn" :disabled="props.disabled" @tap="click"><slot></slot></view>
+  <view class="default-btn" :disabled="props.disabled" @tap="click">
+    <slot></slot>
+  </view>
 </template>
 
 <style lang="scss" scoped>

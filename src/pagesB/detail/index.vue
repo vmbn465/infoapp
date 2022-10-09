@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import { useRoute } from '@/hooks/router';
   import { onLoad } from '@dcloudio/uni-app';
+  import { useRoute } from '@/hooks/router';
 
   // const route = useRoute();
 

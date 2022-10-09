@@ -7,7 +7,7 @@
   const go = ref<string>('');
   const router = useRouter();
   const redirect = ref<string>('');
-  onLoad((query) => {
+  onLoad(query => {
     go.value = query.go || '';
     redirect.value = query.redirect || '';
   });

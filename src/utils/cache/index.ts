@@ -16,7 +16,11 @@ const options: Partial<CreateStorageParams> = {
 
 export const storage = createStorage(options);
 
-export function setCache(key: string, value: any, expire?: number | null): void {
+export function setCache(
+  key: string,
+  value: any,
+  expire?: number | null,
+): void {
   storage.set(key, value, expire);
 }
 

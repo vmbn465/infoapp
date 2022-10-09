@@ -9,9 +9,12 @@
  * @param options
  * @constructor
  */
-export function Toast(title: string, options?: Partial<UniApp.ShowToastOptions>) {
+export function Toast(
+  title: string,
+  options?: Partial<UniApp.ShowToastOptions>,
+) {
   uni.showToast({
-    title: title,
+    title,
     duration: 1500,
     icon: 'none',
     mask: true,
@@ -32,9 +35,12 @@ export function HideToast() {
  * @param options
  * @constructor
  */
-export function Loading(title: string, options?: Partial<UniApp.ShowLoadingOptions>) {
+export function Loading(
+  title: string,
+  options?: Partial<UniApp.ShowLoadingOptions>,
+) {
   uni.showLoading({
-    title: title,
+    title,
     mask: true,
     ...options,
   });
@@ -56,10 +62,10 @@ export function Modal(options: UniApp.ShowModalOptions) {
   return new Promise((resolve, reject) => {
     uni.showModal({
       ...options,
-      success: (res) => {
+      success: res => {
         resolve(res);
       },
-      fail: (res) => {
+      fail: res => {
         reject(res);
       },
     });
@@ -75,10 +81,10 @@ export function ActionSheet(options: UniApp.ShowActionSheetOptions) {
   return new Promise((resolve, reject) => {
     uni.showActionSheet({
       ...options,
-      success: (res) => {
+      success: res => {
         resolve(res);
       },
-      fail: (res) => {
+      fail: res => {
         reject(res);
       },
     });

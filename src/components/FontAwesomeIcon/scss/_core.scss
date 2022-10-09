@@ -24,8 +24,7 @@
 .#{$fa-css-prefix}-duotone,
 .fass,
 .#{$fa-css-prefix}-sharp,
-.#{$fa-css-prefix}-sharp-solid
-{
+.#{$fa-css-prefix}-sharp-solid {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: var(--#{$fa-css-prefix}-display, #{$fa-display});
@@ -42,13 +41,13 @@
 }
 .far,
 .#{$fa-css-prefix}-classic,
-.#{$fa-css-prefix}-regular{
+.#{$fa-css-prefix}-regular {
   font-family: $fa-style-family-regular;
 }
 
 .fal,
 .#{$fa-css-prefix}-classic,
-.#{$fa-css-prefix}-light{
+.#{$fa-css-prefix}-light {
   font-family: $fa-style-family-light;
 }
 
@@ -60,8 +59,7 @@
 
 .fat,
 .#{$fa-css-prefix}-classic,
-.#{$fa-css-prefix}-thin
-{
+.#{$fa-css-prefix}-thin {
   font-family: $fa-style-family-thin;
 }
 
@@ -70,12 +68,10 @@
   font-family: $fa-style-family-brands;
 }
 
-
 .fass,
 .#{$fa-css-prefix}-harp-solid.#{$fa-css-prefix}-solid {
   font-family: $fa-style-family-sharp-solid;
 }
-
 
 %fa-icon {
   @include fa-icon;

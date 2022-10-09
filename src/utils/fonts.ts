@@ -50,7 +50,9 @@ const fontFamilyList = [
   },
 ];
 
-function LoadFontFace(data: UniApp.LoadFontFaceOptions & { weight?: string; global?: boolean }) {
+function LoadFontFace(
+  data: UniApp.LoadFontFaceOptions & { weight?: string; global?: boolean },
+) {
   return new Promise((resolve, reject) => {
     uni.loadFontFace({
       global: true,
@@ -60,10 +62,10 @@ function LoadFontFace(data: UniApp.LoadFontFaceOptions & { weight?: string; glob
         weight: data.weight ?? 'normal',
         variant: 'normal',
       },
-      success: (res) => {
+      success: res => {
         resolve(res);
       },
-      fail: (err) => {
+      fail: err => {
         reject(err);
       },
     });
@@ -76,9 +78,9 @@ function LoadFontFace(data: UniApp.LoadFontFaceOptions & { weight?: string; glob
 export function dynamicLoadFontFace() {
   /* 实际项目中替换为自己服务器的静态资源地址
    * 微信小程序端字体链接必须是同源下的，或开启了cors支持，微信小程序的域名是servicewechat.com
-   **/
+   * */
   const DYNAMIC_LOAD_FONT_FACE_URL = `${BASE_URL}/fonts`;
-  fontFamilyList.forEach((fontFamily) => {
+  fontFamilyList.forEach(fontFamily => {
     LoadFontFace({
       ...fontFamily,
       source: `url(${DYNAMIC_LOAD_FONT_FACE_URL}${fontFamily.source})`,
@@ -86,7 +88,7 @@ export function dynamicLoadFontFace() {
       .then((res: any) => {
         console.log(fontFamily.family, res.errMsg);
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(fontFamily.family, err.errMsg);
       });
   });
@@ -96,9 +98,9 @@ export function dynamicLoadFontFace() {
  * APP本地加载字体
  */
 export function loadFontFaceFromLocal() {
-  fontFamilyList.forEach((fontFamily) => {
+  fontFamilyList.forEach(fontFamily => {
     const source = `url(${plus.io.convertLocalFileSystemURL(
-      '_www/static/fonts' + fontFamily.source,
+      `_www/static/fonts${fontFamily.source}`,
     )})`;
     LoadFontFace({
       ...fontFamily,
@@ -107,7 +109,7 @@ export function loadFontFaceFromLocal() {
       .then((res: any) => {
         console.log(fontFamily.family, res.errMsg);
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(fontFamily.family, err);
       });
   });

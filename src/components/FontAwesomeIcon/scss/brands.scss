@@ -8,9 +8,11 @@
 /* #ifndef MP-WEIXIN || MP-ALIPAY */
 @import 'fonts/fa-brands-400';
 
-:root, :host {
+:root,
+:host {
   --#{$fa-css-prefix}-style-family-brands: $fa-style-family-brands;
-  --#{$fa-css-prefix}-font-brands: normal 400 1em/1 '#{ $fa-style-family-brands }';
+  --#{$fa-css-prefix}-font-brands: normal 400 1em/1
+    '#{ $fa-style-family-brands }';
 }
 
 @font-face {
@@ -20,8 +22,8 @@
   font-display: $fa-font-display;
 
   /* #ifdef H5 */
-  src:  url("#{$fa-font-path}/fa-brands-400.woff2") format('woff2'),
-  url("#{$fa-font-path}/fa-brands-400.ttf") format('truetype');
+  src: url('#{$fa-font-path}/fa-brands-400.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-brands-400.ttf') format('truetype');
   /* #endif */
 
   /* #ifndef H5 */
@@ -37,5 +39,7 @@
 }
 
 @each $name, $icon in $fa-brand-icons {
-  .#{$fa-css-prefix}-#{$name}:before { content: unquote("\"#{ $icon }\""); }
+  .#{$fa-css-prefix}-#{$name}:before {
+    content: unquote('"#{ $icon }"');
+  }
 }

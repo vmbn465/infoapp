@@ -8,9 +8,11 @@
 /* #ifndef MP-WEIXIN || MP-ALIPAY */
 @import 'fonts/fa-duotone-900';
 
-:root, :host {
+:root,
+:host {
   --#{$fa-css-prefix}-style-family-classic: $fa-style-family-duotone;
-  --#{$fa-css-prefix}-font-duotone: normal 900 1em/1 '#{ $fa-style-family-duotone }';
+  --#{$fa-css-prefix}-font-duotone: normal 900 1em/1
+    '#{ $fa-style-family-duotone }';
 }
 
 @font-face {
@@ -19,15 +21,14 @@
   font-weight: 900;
   font-display: $fa-font-display;
   /* #ifdef H5 */
-  src:  url("#{$fa-font-path}/fa-duotone-900.woff2") format('woff2'),
-  url("#{$fa-font-path}/fa-duotone-900.ttf") format('truetype');
+  src: url('#{$fa-font-path}/fa-duotone-900.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-duotone-900.ttf') format('truetype');
   /* #endif */
 
   /* #ifndef H5 */
   src: $fa-duotone-900-woff2;
   // $fa-duotone-900-ttf;
   /* #endif */
-
 }
 /* #endif */
 
@@ -37,21 +38,22 @@
 }
 
 .fad:before,
-.#{$fa-css-prefix}-duotone:before{
+.#{$fa-css-prefix}-duotone:before {
   position: absolute;
   color: $fa-primary-color;
   opacity: $fa-primary-opacity;
 }
 
-.#{$fa-css-prefix}-duotone.#{$fa-css-prefix}-swap-opacity:before, 
-.#{$fa-css-prefix}-duotone:after, .#{$fa-css-prefix}-swap-opacity 
-.#{$fa-css-prefix}-duotone:before, .#{$fa-css-prefix}-swap-opacity 
-.fad:before, 
-.fad.#{$fa-css-prefix}-swap-opacity:before, 
+.#{$fa-css-prefix}-duotone.#{$fa-css-prefix}-swap-opacity:before,
+.#{$fa-css-prefix}-duotone:after,
+.#{$fa-css-prefix}-swap-opacity .#{$fa-css-prefix}-duotone:before,
+.#{$fa-css-prefix}-swap-opacity .fad:before,
+.fad.#{$fa-css-prefix}-swap-opacity:before,
 .fad:after {
   opacity: $fa-secondary-opacity;
 }
 
-.#{$fa-css-prefix}-duotone:after, .fad:after {
+.#{$fa-css-prefix}-duotone:after,
+.fad:after {
   color: $fa-secondary-color;
 }

@@ -15,7 +15,7 @@ export const createStorage = ({
   timeout = null,
   hasEncrypt = true,
 }: Partial<CreateStorageParams> = {}) => {
-  if (hasEncrypt && [key.length, iv.length].some((item) => item !== 16)) {
+  if (hasEncrypt && [key.length, iv.length].some(item => item !== 16)) {
     throw new Error('When hasEncrypt is true, the key or iv must be 16 bits!');
   }
 
@@ -29,8 +29,11 @@ export const createStorage = ({
    */
   class Storage {
     private prefixKey?: string;
+
     private encryption: AesEncryption;
+
     private hasEncrypt: boolean;
+
     /**
      *
      * @param {*} storage
@@ -57,7 +60,9 @@ export const createStorage = ({
         const stringData = JSON.stringify({
           value,
           time: Date.now(),
-          expire: !isNullOrUnDef(expire) ? new Date().getTime() + expire * 1000 : null,
+          expire: !isNullOrUnDef(expire)
+            ? new Date().getTime() + expire * 1000
+            : null,
         });
         const stringifyValue = this.hasEncrypt
           ? this.encryption.encryptByAES(stringData)
@@ -79,7 +84,9 @@ export const createStorage = ({
       if (!val) return def;
 
       try {
-        const decVal = this.hasEncrypt ? this.encryption.decryptByAES(val) : val;
+        const decVal = this.hasEncrypt
+          ? this.encryption.decryptByAES(val)
+          : val;
         const data = JSON.parse(decVal);
         const { value, expire } = data;
         if (isNullOrUnDef(expire) || expire < new Date().getTime()) {

@@ -1,4 +1,4 @@
-type StyleType = 'solid' | 'regular' | 'light' | 'thin' | 'duotone' | 'brands' | 'sharp';
+// type StyleType = 'solid' | 'regular' | 'light' | 'thin' | 'duotone' | 'brands' | 'sharp';
 
 export const FontAwesomeIconProps = {
   /** icon name
@@ -17,7 +17,14 @@ export const FontAwesomeIconProps = {
     default: 'solid',
     validator(value: string) {
       // The value must match one of these strings
-      return ['solid', 'regular', 'light', 'thin', 'duotone', 'brands'].includes(value);
+      return [
+        'solid',
+        'regular',
+        'light',
+        'thin',
+        'duotone',
+        'brands',
+      ].includes(value);
     },
   },
   /** icon sharp
@@ -126,26 +133,24 @@ export const FontAwesomeIconProps = {
    */
   bounceConfig: {
     type: Object,
-    default: () => {
-      return {
-        // 设置图标在跳跃后着陆时的反弹量
-        rebound: '-0.125em',
-        // 设置图标弹跳时跳到的最大高度
-        height: '-0.5em',
-        // 设置图标开始反弹时的水平挤压
-        startScaleX: '1.1',
-        // 设置图标开始反弹时的垂直挤压
-        startScaleY: '0.9',
-        // 设置图标弹跳时的水平挤压
-        jumpScaleX: '0.9',
-        // 设置图标弹跳时的垂直挤压
-        jumpScaleY: '1.1',
-        // 设置图标弹跳后着陆时的水平挤压
-        landScaleX: '1.05',
-        // 设置图标弹跳后着陆时的垂直挤压
-        landScaleY: '0.95',
-      };
-    },
+    default: () => ({
+      // 设置图标在跳跃后着陆时的反弹量
+      rebound: '-0.125em',
+      // 设置图标弹跳时跳到的最大高度
+      height: '-0.5em',
+      // 设置图标开始反弹时的水平挤压
+      startScaleX: '1.1',
+      // 设置图标开始反弹时的垂直挤压
+      startScaleY: '0.9',
+      // 设置图标弹跳时的水平挤压
+      jumpScaleX: '0.9',
+      // 设置图标弹跳时的垂直挤压
+      jumpScaleY: '1.1',
+      // 设置图标弹跳后着陆时的水平挤压
+      landScaleX: '1.05',
+      // 设置图标弹跳后着陆时的垂直挤压
+      landScaleY: '0.95',
+    }),
   },
   /**
    * icon flip
@@ -161,18 +166,16 @@ export const FontAwesomeIconProps = {
    */
   flipConfig: {
     type: Object,
-    default: () => {
-      return {
-        // 设置旋转轴的 x 坐标（0~1）
-        x: '0',
-        // 设置旋转轴的 y 坐标（0~1)
-        y: '1',
-        // 设置旋转轴的 z 坐标（0~1)
-        z: '0',
-        // 设置翻转的旋转角度,正角表示顺时针旋转，负角表示逆时针旋转。
-        angle: '-180deg',
-      };
-    },
+    default: () => ({
+      // 设置旋转轴的 x 坐标（0~1）
+      x: '0',
+      // 设置旋转轴的 y 坐标（0~1)
+      y: '1',
+      // 设置旋转轴的 z 坐标（0~1)
+      z: '0',
+      // 设置翻转的旋转角度,正角表示顺时针旋转，负角表示逆时针旋转。
+      angle: '-180deg',
+    }),
   },
   /**
    * icon shake
@@ -246,21 +249,19 @@ export const FontAwesomeIconProps = {
    */
   borderConfig: {
     type: Object,
-    default: () => {
-      return {
-        // 设置边框颜色
-        color: '#eee',
-        // 设置图标周围的填充
-        padding: '.04em .26em',
-        // 设置边框半径
-        radius: '.1em',
-        // 设置边框样式
-        // 可选值 solid(默认实线), dotted(点状边框),dashed(虚线),double(双线)
-        style: 'solid',
-        // 设置边框宽度
-        width: '.08em',
-      };
-    },
+    default: () => ({
+      // 设置边框颜色
+      color: '#eee',
+      // 设置图标周围的填充
+      padding: '.04em .26em',
+      // 设置边框半径
+      radius: '.1em',
+      // 设置边框样式
+      // 可选值 solid(默认实线), dotted(点状边框),dashed(虚线),double(双线)
+      style: 'solid',
+      // 设置边框宽度
+      width: '.08em',
+    }),
   },
   /**
    * icon float

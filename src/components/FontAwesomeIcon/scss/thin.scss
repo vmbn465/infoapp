@@ -8,7 +8,8 @@
 /* #ifndef MP-WEIXIN || MP-ALIPAY */
 @import 'fonts/fa-thin-100';
 
-:root, :host {
+:root,
+:host {
   --#{$fa-css-prefix}-style-family-classic: $fa-style-family-thin;
   --#{$fa-css-prefix}-font-thin: normal 100 1em/1 '#{ $fa-style-family-thin }';
 }
@@ -19,8 +20,8 @@
   font-weight: 100;
   font-display: $fa-font-display;
   /* #ifdef H5 */
-  src:  url("#{$fa-font-path}/fa-thin-100.woff2") format('woff2'),
-  url("#{$fa-font-path}/fa-thin-100.ttf") format('truetype');
+  src: url('#{$fa-font-path}/fa-thin-100.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-thin-100.ttf') format('truetype');
   /* #endif */
 
   /* #ifndef H5 */

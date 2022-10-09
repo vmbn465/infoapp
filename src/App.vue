@@ -9,7 +9,7 @@
 
   onLaunch(() => {
     console.log('App Launch');
-    /** 微信小程序和阿里小程序动态远程加载字体 **/
+    /** 微信小程序和阿里小程序动态远程加载字体 * */
     /* #ifdef MP-WEIXIN || MP-ALIPAY */
     dynamicLoadFontFace();
     /* #endif */

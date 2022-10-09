@@ -1,4 +1,8 @@
-import { HOME_PAGE, NAVIGATE_TYPE_LIST, NOT_FOUND_PAGE } from '@/enums/routerEnum';
+import {
+  HOME_PAGE,
+  NAVIGATE_TYPE_LIST,
+  NOT_FOUND_PAGE,
+} from '@/enums/routerEnum';
 import { useAuthStore } from '@/state/modules/auth';
 import { isIgnoreAuth, jumpLogin } from '@/utils/router/constant';
 
@@ -28,7 +32,7 @@ export function routerBeforeEach(path: string): boolean {
 function addInterceptor(routerName: string) {
   uni.addInterceptor(routerName, {
     // 跳转前拦截
-    invoke: (args) => {
+    invoke: args => {
       const flag = routerBeforeEach(args.url);
       return flag ? args : false;
     },
@@ -60,7 +64,7 @@ function addInterceptor(routerName: string) {
  * 添加路由拦截器
  */
 export function routerInterceptor() {
-  NAVIGATE_TYPE_LIST.forEach((item) => {
+  NAVIGATE_TYPE_LIST.forEach(item => {
     addInterceptor(item);
   });
 }
@@ -69,7 +73,7 @@ export function routerInterceptor() {
  * 移除路由拦截器
  */
 export function routerRemoveInterceptor() {
-  NAVIGATE_TYPE_LIST.forEach((item) => {
+  NAVIGATE_TYPE_LIST.forEach(item => {
     uni.removeInterceptor(item);
   });
 }

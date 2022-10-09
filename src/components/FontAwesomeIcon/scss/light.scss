@@ -8,7 +8,8 @@
 /* #ifndef MP-WEIXIN || MP-ALIPAY */
 @import 'fonts/fa-light-300';
 
-:root, :host {
+:root,
+:host {
   --#{$fa-css-prefix}-style-family-classic: $fa-style-family-light;
   --#{$fa-css-prefix}-font-light: normal 300 1em/1 '#{ $fa-style-family-light }';
 }
@@ -19,12 +20,12 @@
   font-weight: 300;
   font-display: $fa-font-display;
   /* #ifdef H5 */
-  src:  url("#{$fa-font-path}/fa-light-300.woff2") format('woff2'),
-  url("#{$fa-font-path}/fa-light-300.ttf") format('truetype');
+  src: url('#{$fa-font-path}/fa-light-300.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-light-300.ttf') format('truetype');
   /* #endif */
 
   /* #ifndef H5 */
-  src:  $fa-light-300-woff2;
+  src: $fa-light-300-woff2;
   //  $fa-light-300-ttf;
   /* #endif */
 }

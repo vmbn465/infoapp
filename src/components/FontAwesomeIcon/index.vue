@@ -19,7 +19,8 @@
   const singleBeat = props.beat && !props.fade;
   const singleFade = !props.beat && props.fade;
   const beatFade = props.beat && props.fade;
-  const count = props.counter > props.counterMax ? `${props.counterMax}+` : props.counter;
+  const count =
+    props.counter > props.counterMax ? `${props.counterMax}+` : props.counter;
   const wrapClassObject = [
     props.float ? `fa-pull-${props.float}` : '',
     props.border ? 'fa-border' : '',
@@ -53,7 +54,10 @@
     singleBeat ? { '--fa-beat-scale': `${props.scale}` } : {},
     singleFade ? { '--fa-fade-opacity': `${props.opacity}` } : {},
     beatFade
-      ? { '--fa-beat-fade-scale': `${props.scale}`, '--fa-beat-fade-opacity': `${props.opacity}` }
+      ? {
+          '--fa-beat-fade-scale': `${props.scale}`,
+          '--fa-beat-fade-opacity': `${props.opacity}`,
+        }
       : {},
     props.bounce
       ? {
@@ -137,14 +141,21 @@
   };
 </script>
 <template>
-  <view @click="onClick" class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
+  <view
+    @click="onClick"
+    class="icon-wrap"
+    :class="wrapClassObject"
+    :style="wrapStyleObject"
+  >
     <template v-if="props.stack">
       <slot :stack="props.stack"></slot>
     </template>
     <template v-else>
       <text class="icon" :style="iconStyleObject" :class="iconClassObject" />
     </template>
-    <text v-if="props.counter" class="counter" :style="counterStyleObject">{{ count }}</text>
+    <text v-if="props.counter" class="counter" :style="counterStyleObject">{{
+      count
+    }}</text>
   </view>
 </template>
 <style lang="scss" scoped>
