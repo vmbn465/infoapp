@@ -5,10 +5,8 @@ module.exports = {
   },
   parser: 'vue-eslint-parser',
   extends: [
-    'eslint:recommended',
-    'plugin:vue/essential',
-    'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:vue/vue3-essential',
     'prettier',
   ],
   parserOptions: {
@@ -78,7 +76,6 @@ module.exports = {
       },
     ],
     'space-before-function-paren': 'off',
-
     'vue/attributes-order': 'off',
     'vue/v-on-event-hyphenation': 'off',
     'vue/multi-word-component-names': 'off',
@@ -89,23 +86,12 @@ module.exports = {
     'vue/singleline-html-element-content-newline': 'off',
     'vue/attribute-hyphenation': 'off',
     'vue/require-default-prop': 'off',
-    'vue/html-self-closing': [
-      'error',
-      {
-        html: {
-          void: 'always',
-          normal: 'never',
-          component: 'always',
-        },
-        svg: 'always',
-        math: 'always',
-      },
-    ],
   },
   globals: {
     defineProps: 'readonly',
     defineEmits: 'readonly',
     defineExpose: 'readonly',
     withDefaults: 'readonly',
+    uni: 'readonly',
   },
 };
