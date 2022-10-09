@@ -5,6 +5,7 @@
  */
 @import 'functions';
 @import 'variables';
+/* #ifndef MP-WEIXIN || MP-ALIPAY */
 @import 'fonts/fa-solid-900';
 
 :root, :host {
@@ -12,7 +13,6 @@
   --#{$fa-css-prefix}-font-solid: normal 900 1em/1 '#{ $fa-style-family-solid  }';
 }
 
-/* #ifndef MP-WEIXIN || MP-ALIPAY */
 @font-face {
   font-family: $fa-style-family-solid ;
   font-style: normal;

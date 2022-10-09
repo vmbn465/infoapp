@@ -5,13 +5,14 @@
  */
 @import 'functions';
 @import 'variables';
+/* #ifndef MP-WEIXIN || MP-ALIPAY */
 @import 'fonts/fa-regular-400';
 
 :root, :host {
   --#{$fa-css-prefix}-style-family-classic: $fa-style-family-regular;
   --#{$fa-css-prefix}-font-regular: normal 400 1em/1 '#{ $fa-style-family-regular }';
 }
-/* #ifndef MP-WEIXIN || MP-ALIPAY */
+
 @font-face {
   font-family: $fa-style-family-regular;
   font-style: normal;

@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import BasicButton from '@/components/BasicButton/index.vue';
   import AppProvider from '@/components/AppProvider/inedx.vue';
+  import FontAwesomeIcon from '@/components/FontAwesomeIcon/index.vue';
   import { ref } from 'vue';
   import { useRouter } from '@/hooks/router';
   import { CURRENT_PLATFORM, PLATFORMS } from '@/enums/platformEnum';
@@ -14,7 +15,7 @@
 
   const router = useRouter();
   const handleGetStarted = () => {
-    router.pushTab('/pages/demo/index?d=str');
+    router.pushTab('/pages/demo/index');
   };
 </script>
 <template>
@@ -27,6 +28,7 @@
       <view class="text-area">
         <text class="">是否是Vue3: {{ isVue3 }}</text>
       </view>
+      <view> <FontAwesomeIcon name="house" />solid (默认)</view>
       <view class="text-area">
         <text class="">当前平台: {{ platform }}</text>
       </view>

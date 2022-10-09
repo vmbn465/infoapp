@@ -137,18 +137,15 @@
   };
 </script>
 <template>
-  <template v-if="props.stack">
-    <view @click="onClick" class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
+  <view @click="onClick" class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
+    <template v-if="props.stack">
       <slot :stack="props.stack"></slot>
-      <text v-if="props.counter" class="counter" :style="counterStyleObject">{{ count }}</text>
-    </view>
-  </template>
-  <template v-else>
-    <view @click="onClick" class="icon-wrap" :class="wrapClassObject" :style="wrapStyleObject">
+    </template>
+    <template v-else>
       <text class="icon" :style="iconStyleObject" :class="iconClassObject" />
-      <text v-if="props.counter" class="counter" :style="counterStyleObject">{{ count }}</text>
-    </view>
-  </template>
+    </template>
+    <text v-if="props.counter" class="counter" :style="counterStyleObject">{{ count }}</text>
+  </view>
 </template>
 <style lang="scss" scoped>
   .icon-wrap {

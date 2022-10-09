@@ -3,11 +3,13 @@
   import { useAuthStore } from '@/state/modules/auth';
   import { removeInterceptor, setupInterceptors } from '@/utils/interceptors';
   import { useRouterStore } from '@/state/modules/router';
+  /* #ifdef MP-WEIXIN || MP-ALIPAY */
   import { dynamicLoadFontFace } from '@/utils/fonts';
+  /* #endif */
 
   onLaunch(() => {
     console.log('App Launch');
-    /** 微信小程序和阿里小程序动态远程加载font awesome icon 字体 **/
+    /** 微信小程序和阿里小程序动态远程加载字体 **/
     /* #ifdef MP-WEIXIN || MP-ALIPAY */
     dynamicLoadFontFace();
     /* #endif */

@@ -16,9 +16,12 @@
     <view class="tip">
       Tip: 由于字体文件太大,共7种风格图标, 7个字体文件,
       <!-- #ifdef MP-WEIXIN || MP-ALIPAY -->
-      微信小程序和阿里小程序动态远程加载font awesome icon 字体, 在\src\utils\fonts.ts中配置,
+      微信小程序和阿里小程序动态远程加载font awesome 字体, 在\src\utils\fonts.ts中配置,
       <!-- #endif -->
-      <!-- #ifndef MP-WEIXIN || MP-ALIPAY-->
+      <!-- #ifdef APP-PLUS -->
+      APP加载font awesome 字体, 在\src\utils\fonts.ts中配置,
+      <!-- #endif -->
+      <!-- #ifndef MP-WEIXIN || MP-ALIPAY || APP-PLUS -->
       在组件目录index.scss中配置引入字体,
       <!-- #endif -->
       已测试: 支持H5, APP(安卓), 微信小程序
@@ -28,7 +31,7 @@
       <text class="link">{{ iconLink }}</text>
       <FontAwesomeIcon mode="duotone" name="copy" @click="onCopyLink" />
     </view>
-    <view class="title">mode-不同风格,对应相应字体文件</view>
+    <view class="title">mode-不同风格,对应相应字体</view>
     <view> <FontAwesomeIcon name="house" />solid (默认)</view>
     <view> <FontAwesomeIcon mode="regular" name="house" />regular</view>
     <view> <FontAwesomeIcon mode="light" name="grid-2" />light grid-2</view>
@@ -36,10 +39,10 @@
     <view> <FontAwesomeIcon mode="thin" name="house" />thin</view>
     <view> <FontAwesomeIcon mode="duotone" name="trash-can-clock" />duotone trash-can-clock</view>
     <view> <FontAwesomeIcon mode="duotone" name="house" />duotone house</view>
-    <view class="title">sharp-直角图标(只支持大部分solid),对应sharp字体文件</view>
+    <view class="title">sharp-直角图标(只支持大部分solid),对应sharp字体</view>
     <view> <FontAwesomeIcon name="user" sharp counter="999" /> sharp </view>
 
-    <view class="title">mode(brands)-品牌logo,对应brands字体文件</view>
+    <view class="title">mode(brands)-品牌logo,对应brands字体</view>
     <view> <FontAwesomeIcon mode="brands" name="bilibili" /> bilibili </view>
     <view> <FontAwesomeIcon mode="brands" name="alipay" /> alipay </view>
 

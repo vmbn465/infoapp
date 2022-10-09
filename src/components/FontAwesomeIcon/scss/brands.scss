@@ -5,6 +5,7 @@
  */
 @import 'functions';
 @import 'variables';
+/* #ifndef MP-WEIXIN || MP-ALIPAY */
 @import 'fonts/fa-brands-400';
 
 :root, :host {
@@ -12,7 +13,6 @@
   --#{$fa-css-prefix}-font-brands: normal 400 1em/1 '#{ $fa-style-family-brands }';
 }
 
-/* #ifndef MP-WEIXIN || MP-ALIPAY */
 @font-face {
   font-family: $fa-style-family-brands;
   font-style: normal;
