@@ -35,12 +35,12 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         '/api': {
           target: env.VITE_BASE_URL,
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
+          rewrite: path => path.replace(/^\/api/, ''),
         },
         '/upload': {
           target: env.VITE_BASE_URL,
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/upload/, ''),
+          rewrite: path => path.replace(/^\/upload/, ''),
         },
       },
     },
