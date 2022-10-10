@@ -18,15 +18,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     define: {
       'process.env': {},
     },
-    build: {
-      minify: 'terser',
-      terserOptions: {
-        compress: {
-          // 发布时删除 console
-          // drop_console: env.VITE_PROD as any,
-        },
-      },
-    },
     server: {
       host: true,
       // open: true,
