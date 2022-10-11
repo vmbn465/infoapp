@@ -3,34 +3,48 @@
   import AppProvider from '@/components/AppProvider/inedx.vue';
   import FontAwesomeIcon from '@/components/FontAwesomeIcon/index.vue';
   import { SetClipboardData } from '@/utils/uniapi';
+  import { useRouter } from '@/hooks/router';
 
   const iconLink = ref('https://fontawesome.com/icons');
+  const route = useRouter();
 
   const onCopyLink = () => {
     SetClipboardData(iconLink.value);
   };
+  const onOpen = () => {
+    /* #ifdef H5 */
+    window.open(iconLink.value);
+    /* #endif */
+    /* #ifndef H5 */
+    onCopyLink();
+    /* #endif */
+  };
+  const jumpCheck = () => {
+    route.push('/demo/example/fontAwesomeIcon/check');
+  };
 </script>
 <template>
   <AppProvider>
-    <view class="h2"> FontAwesomeIcon 图标组件基于font awesome icon v6.20</view>
+    <view class="h2"> FontAwesomeIcon 图标组件基于font awesome icon v6.2</view>
     <view class="tip">
-      Tip: 由于字体文件太大,共7种风格图标, 7个字体文件,
+      Tip: 共6种风格图标, 7个字体文件,
       <!-- #ifdef MP-WEIXIN || MP-ALIPAY -->
       微信小程序和阿里小程序动态远程加载font awesome 字体,
       在\src\utils\fonts.ts中配置,
       <!-- #endif -->
-      <!-- #ifdef APP-PLUS -->
-      APP加载font awesome 字体, 在\src\utils\fonts.ts中配置,
+      <!-- #ifndef MP-WEIXIN || MP-ALIPAY -->
+      H5,APP(Android)在组件目录index.scss中配置引入字体,
       <!-- #endif -->
-      <!-- #ifndef MP-WEIXIN || MP-ALIPAY || APP-PLUS -->
-      在组件目录index.scss中配置引入字体,
-      <!-- #endif -->
-      已测试: 支持H5, APP(安卓), 微信小程序
+      已测试: 支持H5, APP(Android), 微信小程序
     </view>
-    <view class="tip">
-      全部icon请查看:
-      <text class="link">{{ iconLink }}</text>
+    <view class="tip" style="color: #595858; margin-top: 10px">
+      官网:
+      <text class="link" @click="onOpen">{{ iconLink }}</text>
       <FontAwesomeIcon mode="duotone" name="copy" @click="onCopyLink" />
+    </view>
+    <view class="tip" style="color: #595858; margin-top: 10px">
+      <view>使用方法: 在官网图标库搜索查找需要的图标,Copy Icon Name</view>
+      <view class="link" @click="jumpCheck">图标不可用? Check!</view>
     </view>
     <view class="title">mode-不同风格,对应相应字体</view>
     <view> <FontAwesomeIcon name="house" />solid (默认)</view>
@@ -43,10 +57,10 @@
       trash-can-clock</view
     >
     <view> <FontAwesomeIcon mode="duotone" name="house" />duotone house</view>
-    <view class="title">sharp-直角图标(只支持大部分solid),对应sharp字体</view>
+    <view class="title">sharp-直角图标,对应sharp字体</view>
     <view> <FontAwesomeIcon name="user" sharp counter="999" /> sharp </view>
 
-    <view class="title">mode(brands)-品牌logo,对应brands字体</view>
+    <view class="title">mode(brands)-logo,对应brands字体</view>
     <view> <FontAwesomeIcon mode="brands" name="bilibili" /> bilibili </view>
     <view> <FontAwesomeIcon mode="brands" name="alipay" /> alipay </view>
 
@@ -313,6 +327,7 @@
     .link {
       margin-right: 16rpx;
       &:hover {
+        color: #315efb;
         opacity: 0.6;
         text-decoration: underline;
       }
@@ -322,6 +337,7 @@
     font-size: 28rpx;
     font-weight: 600;
     margin: 28rpx 0 8rpx 0;
-    color: #3b82f6;
+    color: #333333;
+    font-style: oblique;
   }
 </style>

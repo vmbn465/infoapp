@@ -125,14 +125,14 @@ pnpm install
 - 运行
 
 ```bash
-# 其他端请查看 webpage.json script
+# 其他端请查看 package.json script
 pnpm dev:h5
 ```
 
 - 打包
 
 ```bash
-# 其他端请查看 webpage.json script
+# 其他端请查看 package.json script
 pnpm build:h5
 ```
 

@@ -92,6 +92,14 @@
       "meta": {
         "ignoreAuth": true
       }
+    },{
+      "path": "fontAwesomeIcon/check",
+      "style": {
+        "navigationBarTitleText": "FontAwesomeIcon-Check"
+      },
+      "meta": {
+        "ignoreAuth": true
+      }
     }]
   }],
   "globalStyle": {
