@@ -17,9 +17,9 @@
     (e: 'click'): void;
   }>();
 
-  const singleBeat = ref(props.beat && !props.fade);
-  const singleFade = ref(!props.beat && props.fade);
-  const beatFade = ref(props.beat && props.fade);
+  const singleBeat = computed(() => props.beat && !props.fade);
+  const singleFade = computed(() => !props.beat && props.fade);
+  const beatFade = computed(() => props.beat && props.fade);
   const count = computed(() => {
     return props.counter > props.counterMax
       ? `${props.counterMax}+`

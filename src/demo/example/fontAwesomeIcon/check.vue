@@ -38,9 +38,6 @@
       name: '黄色',
     },
   ];
-
-  const sizes = ['24', '44', '64', '88'];
-  const rotates = [false, '45', '20', '69', '90', '180', '270', '288'];
   const rotateFlips = [
     {
       value: false,
@@ -91,7 +88,7 @@
     sharp: false,
     color: '#000000',
     size: '',
-    rotate: false,
+    rotate: '',
     rotateFlip: false,
     beat: false,
     fade: false,
@@ -102,9 +99,7 @@
   });
 
   const setAttribute = (e: any) => {
-    console.log(e);
-    const key = e.currentTarget.dataset.k;
-    const value = e.currentTarget.dataset.v;
+    const { k: key, v: value } = e.currentTarget.dataset;
     const replaces = ['mode', 'color', 'size', 'rotate', 'rotateFlip'];
     if (key in attribute) {
       if (replaces.includes(key)) {
@@ -112,7 +107,7 @@
         attribute[key] = value;
         if (key == 'mode') attribute.sharp = false;
         if (key == 'rotate') attribute.rotateFlip = false;
-        if (key == 'rotateFlip') attribute.rotate = false;
+        if (key == 'rotateFlip') attribute.rotate = '';
         return;
       }
       // @ts-ignore
@@ -122,23 +117,51 @@
       }
     }
   };
+
+  const onNumberChange = (e: any) => {
+    const { k: key, type } = e.currentTarget.dataset;
+    if (key in attribute) {
+      // @ts-ignore
+      let num = attribute[key] ? parseInt(attribute[key]) : 0;
+      switch (type) {
+        case 'minus':
+          num -= 1;
+          break;
+        case 'plus':
+          num += 1;
+          break;
+      }
+      // @ts-ignore
+      attribute[key] = num <= 0 || num > 360 ? '' : num.toString();
+    }
+  };
 </script>
 <template>
   <AppProvider>
-    <view class="title">Icon Check</view>
-    <FontAwesomeIcon
-      :name="iconName"
-      :mode="attribute.mode"
-      :sharp="attribute.sharp"
-      :color="attribute.color"
-      :size="attribute.size"
-      :rotate="attribute.rotate"
-      :rotate-flip="attribute.rotateFlip"
-    />
-    <Test :text="attribute.mode" />
+    <view class="check-icon-wrap">
+      <FontAwesomeIcon
+        :name="iconName"
+        :mode="attribute.mode"
+        :sharp="attribute.sharp"
+        :color="attribute.color"
+        :size="attribute.size"
+        :rotate="attribute.rotate"
+        :rotate-flip="attribute.rotateFlip"
+        :beat="attribute.beat"
+        :fade="attribute.fade"
+        :bounce="attribute.bounce"
+        :flip="attribute.flip"
+        :shake="attribute.shake"
+        :spin="attribute.spin"
+      />
+    </view>
     <view class="check-wrap">
       <view class="input-wrap">
-        <input placeholder="Icon Name" v-model.trim.lazy="iconName" />
+        <input
+          placeholder="Icon Name"
+          type="text"
+          v-model.trim.lazy="iconName"
+        />
       </view>
       <view class="icon-wrap">
         <FontAwesomeIcon name="circle-exclamation-check" />
@@ -192,40 +215,56 @@
           </template>
         </view>
       </view>
-      <view class="size">
-        <view>大小(size)[rpx]: </view>
-        <view class="attribute-list">
-          <template v-for="(item, index) in sizes" :key="index">
-            <view
-              class="attribute-item"
-              @click="setAttribute"
-              data-k="size"
-              :data-v="item"
-            >
-              <FontAwesomeIcon
-                mode="regular"
-                :name="attribute.size == item ? 'circle-dot' : 'circle'"
-              /><text>{{ item }}rpx</text>
-            </view>
-          </template>
+      <view class="size flex-row">
+        <view>大小(size)[rpx]:</view>
+        <view class="flex-row input-wrap">
+          <view
+            class="icon-warp minus"
+            @click="onNumberChange"
+            data-k="size"
+            data-type="minus"
+          >
+            <FontAwesomeIcon name="minus" bg-color="#C3C6D1" />
+          </view>
+          <input
+            class="attribute-input"
+            type="number"
+            v-model.trim.lazy="attribute.size"
+          />
+          <view
+            class="icon-warp plus"
+            @click="onNumberChange"
+            data-k="size"
+            data-type="plus"
+          >
+            <FontAwesomeIcon name="plus" bg-color="#C3C6D1" />
+          </view>
         </view>
       </view>
-      <view class="rotate">
+      <view class="rotate flex-row">
         <view>旋转角度(rotate)[deg]: </view>
-        <view class="attribute-list">
-          <template v-for="(item, index) in rotates" :key="index">
-            <view
-              class="attribute-item"
-              @click="setAttribute"
-              data-k="rotate"
-              :data-v="item"
-            >
-              <FontAwesomeIcon
-                mode="regular"
-                :name="attribute.rotate == item ? 'circle-dot' : 'circle'"
-              /><text>{{ index != 0 ? item + 'deg' : '正常' }}</text>
-            </view>
-          </template>
+        <view class="flex-row input-wrap">
+          <view
+            class="icon-warp minus"
+            @click="onNumberChange"
+            data-k="rotate"
+            data-type="minus"
+          >
+            <FontAwesomeIcon name="minus" bg-color="#C3C6D1" />
+          </view>
+          <input
+            class="attribute-input"
+            type="number"
+            v-model.trim.lazy="attribute.rotate"
+          />
+          <view
+            class="icon-warp plus"
+            @click="onNumberChange"
+            data-k="rotate"
+            data-type="plus"
+          >
+            <FontAwesomeIcon name="plus" bg-color="#C3C6D1" />
+          </view>
         </view>
       </view>
       <view class="color">
@@ -252,17 +291,6 @@
       <view class="animation">
         <view>动画: </view>
         <view class="attribute-list">
-          <view
-            class="attribute-item"
-            style="width: 50%"
-            @click="setAttribute"
-            data-k="sharp"
-          >
-            <FontAwesomeIcon
-              :mode="attribute.sharp ? 'solid' : 'regular'"
-              :name="attribute.sharp ? 'square-check' : 'square'"
-            /><text>直角(sharp)</text>
-          </view>
           <template v-for="(item, index) in animations" :key="index">
             <view
               class="attribute-item"
@@ -283,10 +311,19 @@
 </template>
 <style lang="scss" scoped>
   .title {
-    margin: 60rpx 0 36rpx 0;
+    margin: 20rpx 0 36rpx 0;
     text-align: center;
     font-size: 32rpx;
     font-weight: 600;
+  }
+  .check-icon-wrap {
+    height: 160rpx;
+    max-height: 200rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
   }
   .check-wrap {
     background-color: #ffffff;
@@ -309,6 +346,9 @@
     }
   }
   .attribute-wrap {
+    & > view {
+      margin-top: 16rpx;
+    }
     margin-top: 24rpx;
     .attribute-list {
       display: flex;
@@ -321,7 +361,36 @@
           margin-left: 10rpx;
         }
       }
-      .mode {
+    }
+    .attribute-input {
+      width: 96rpx;
+    }
+    .input-wrap {
+      border: 1rpx solid #c3c6d1;
+      border-radius: 16rpx;
+      //padding: 0 12rpx;
+      margin-left: 16rpx;
+      align-items: center;
+      justify-content: space-between;
+      .icon-warp {
+        background-color: #c3c6d1;
+        height: 52rpx;
+        line-height: 52rpx;
+        padding: 0 16rpx;
+        &.plus {
+          border-top-right-radius: 16rpx;
+          border-bottom-right-radius: 16rpx;
+        }
+        &.minus {
+          border-top-left-radius: 16rpx;
+          border-bottom-left-radius: 16rpx;
+        }
+      }
+      .attribute-input {
+        text-align: center;
+        flex-grow: 1;
+        height: 52rpx;
+        margin: 0 16rpx;
       }
     }
   }
