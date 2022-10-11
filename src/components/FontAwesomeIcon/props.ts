@@ -66,17 +66,20 @@ export const FontAwesomeIconProps = {
    * @description 旋转角度
    */
   rotate: {
-    type: [Number, String],
-    default: 0,
+    type: [Number, String, Boolean],
+    default: false,
   },
   /** icon rotateFlip
    * @description 旋转-翻转
    */
   rotateFlip: {
-    type: String,
+    type: [String, Boolean],
+    default: false,
     validator(value: string) {
       // The value must match one of these strings
-      return ['horizontal', 'vertical', 'both'].includes(value);
+      return ['horizontal', 'vertical', 'both', 'inherit', false].includes(
+        value,
+      );
     },
   },
   /**
