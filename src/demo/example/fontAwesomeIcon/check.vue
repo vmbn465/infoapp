@@ -1,13 +1,39 @@
 <script lang="ts" setup>
   import AppProvider from '@/components/AppProvider/inedx.vue';
   import FontAwesomeIcon from '@/components/FontAwesomeIcon/index.vue';
-  import Test from '@/components/Test/index.vue';
-  import { reactive, ref } from 'vue';
+  import { computed, reactive, ref, watch } from 'vue';
+  import { random } from 'lodash-es';
+  import {
+    brandIcons,
+    classicIcons,
+  } from '@/demo/example/fontAwesomeIcon/icons';
+  import { SetClipboardData } from '@/utils/uniapi';
+  const attribute = reactive({
+    mode: 'solid',
+    sharp: false,
+    color: '#000000',
+    size: '64',
+    rotate: '',
+    rotateFlip: false,
+    beat: false,
+    fade: false,
+    bounce: false,
+    flip: false,
+    shake: false,
+    spin: false,
+  });
+  const exampleIcons = computed<string[]>(() => {
+    return attribute.mode == 'brands' ? brandIcons : classicIcons;
+  });
+  const randomIndex = ref<number>(random(0, exampleIcons.value.length + 1));
+  const iconName = ref<string>(exampleIcons.value[randomIndex.value]);
+  const isFocus = ref(false);
 
-  const iconName = ref('house');
+  watch(randomIndex, (newValue, oldValue) => {
+    iconName.value = exampleIcons.value[newValue];
+  });
 
   const modeList = ['solid', 'regular', 'light', 'thin', 'duotone', 'brands'];
-
   const colors = [
     {
       color: '#000000',
@@ -83,20 +109,19 @@
     },
   ];
 
-  const attribute = reactive({
-    mode: 'solid',
-    sharp: false,
-    color: '#000000',
-    size: '',
-    rotate: '',
-    rotateFlip: false,
-    beat: false,
-    fade: false,
-    bounce: false,
-    flip: false,
-    shake: false,
-    spin: false,
-  });
+  watch(
+    () => attribute.mode,
+    (newValue, oldValue) => {
+      const newValueIndex = modeList.findIndex(item => item == newValue);
+      const oldValueIndex = modeList.findIndex(item => item == oldValue);
+      if (
+        (newValueIndex == 5 && oldValueIndex < 5) ||
+        (oldValueIndex == 5 && newValueIndex < 5)
+      ) {
+        onRandom();
+      }
+    },
+  );
 
   const setAttribute = (e: any) => {
     const { k: key, v: value } = e.currentTarget.dataset;
@@ -105,7 +130,9 @@
       if (replaces.includes(key)) {
         // @ts-ignore
         attribute[key] = value;
-        if (key == 'mode') attribute.sharp = false;
+        if (key == 'mode') {
+          attribute.sharp = false;
+        }
         if (key == 'rotate') attribute.rotateFlip = false;
         if (key == 'rotateFlip') attribute.rotate = '';
         return;
@@ -135,6 +162,18 @@
       attribute[key] = num <= 0 || num > 360 ? '' : num.toString();
     }
   };
+  const onRandom = () => {
+    randomIndex.value = random(0, exampleIcons.value.length + 1);
+  };
+  const onFocus = () => {
+    isFocus.value = true;
+  };
+  const onBlur = () => {
+    isFocus.value = false;
+  };
+  const copyIconName = () => {
+    SetClipboardData(iconName.value);
+  };
 </script>
 <template>
   <AppProvider>
@@ -155,21 +194,34 @@
         :spin="attribute.spin"
       />
     </view>
-    <view class="check-wrap">
+    <view class="check-wrap" :class="{ focus: isFocus }">
       <view class="input-wrap">
         <input
           placeholder="Icon Name"
           type="text"
+          @focus="onFocus"
+          @blur="onBlur"
           v-model.trim.lazy="iconName"
         />
       </view>
       <view class="icon-wrap">
-        <FontAwesomeIcon name="circle-exclamation-check" />
+        <FontAwesomeIcon
+          @click="onRandom"
+          name="shuffle"
+          mode="duotone"
+          color="#2F72EFFF"
+        />
       </view>
     </view>
     <view class="attribute-wrap">
+      <view class="attribute-list">
+        <view class="attribute-item copy" @click="copyIconName">
+          <FontAwesomeIcon name="copy" mode="duotone" />
+          <text>Copy Icon Name</text>
+        </view>
+      </view>
       <view class="mode">
-        <view>风格(mode): </view>
+        <view class="label">风格(mode): </view>
         <view class="attribute-list">
           <template v-for="(mode, index) in modeList" :key="index">
             <view
@@ -198,7 +250,7 @@
         </view>
       </view>
       <view class="color">
-        <view>颜色(color): </view>
+        <view class="label">颜色(color): </view>
         <view class="attribute-list">
           <template v-for="(item, index) in colors" :key="index">
             <view
@@ -216,7 +268,7 @@
         </view>
       </view>
       <view class="size flex-row">
-        <view>大小(size)[rpx]:</view>
+        <view class="label">大小(size)[rpx]:</view>
         <view class="flex-row input-wrap">
           <view
             class="icon-warp minus"
@@ -242,7 +294,7 @@
         </view>
       </view>
       <view class="rotate flex-row">
-        <view>旋转角度(rotate)[deg]: </view>
+        <view class="label">旋转角度(rotate)[deg]: </view>
         <view class="flex-row input-wrap">
           <view
             class="icon-warp minus"
@@ -268,7 +320,7 @@
         </view>
       </view>
       <view class="color">
-        <view>翻转(rotateFlip): </view>
+        <view class="label">翻转(rotateFlip): </view>
         <view class="attribute-list">
           <template v-for="(item, index) in rotateFlips" :key="index">
             <view
@@ -289,7 +341,7 @@
         </view>
       </view>
       <view class="animation">
-        <view>动画: </view>
+        <view class="label">动画: </view>
         <view class="attribute-list">
           <template v-for="(item, index) in animations" :key="index">
             <view
@@ -333,21 +385,34 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 36rpx;
+    box-shadow: 0rpx 0rpx 36rpx #a3adba;
+    &.focus {
+      //border: 1rpx solid #a3adba;
+    }
     .input-wrap {
       flex-grow: 1;
       input {
         height: 64rpx;
+        //outline: 1rpx solid #a3adba;
       }
     }
     .icon-wrap {
       width: 64rpx;
       text-align: right;
       font-size: 40rpx;
+      &:hover {
+        color: #ff8787;
+      }
     }
   }
   .attribute-wrap {
+    font-size: 26rpx;
     & > view {
       margin-top: 16rpx;
+      align-items: center;
+    }
+    .label {
+      font-style: oblique;
     }
     margin-top: 24rpx;
     .attribute-list {
@@ -357,8 +422,17 @@
         width: 30%;
         height: 56rpx;
         padding-left: 32rpx;
+        display: flex;
+        align-items: center;
         text {
           margin-left: 10rpx;
+        }
+        &.copy {
+          width: 50%;
+          color: #2f72efff;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

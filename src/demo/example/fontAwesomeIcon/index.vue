@@ -44,7 +44,9 @@
     </view>
     <view class="tip" style="color: #595858; margin-top: 10px">
       <view>使用方法: 在官网图标库搜索查找需要的图标,Copy Icon Name</view>
-      <view class="link" @click="jumpCheck">图标不可用? Check!</view>
+      <view class="link" @click="jumpCheck">
+        图标不可用? Check! <FontAwesomeIcon name="circle-exclamation-check" />
+      </view>
     </view>
     <view class="title">mode-不同风格,对应相应字体</view>
     <view> <FontAwesomeIcon name="house" />solid (默认)</view>
@@ -53,9 +55,9 @@
     <view> <FontAwesomeIcon mode="light" name="house" />light</view>
     <view> <FontAwesomeIcon mode="thin" name="house" />thin</view>
     <view>
-      <FontAwesomeIcon mode="duotone" name="trash-can-clock" />duotone
-      trash-can-clock</view
-    >
+      <FontAwesomeIcon mode="duotone" name="trash-can-clock" />
+      duotone trash-can-clock
+    </view>
     <view> <FontAwesomeIcon mode="duotone" name="house" />duotone house</view>
     <view class="title">sharp-直角图标,对应sharp字体</view>
     <view> <FontAwesomeIcon name="user" sharp counter="999" /> sharp </view>
