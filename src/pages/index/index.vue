@@ -33,6 +33,7 @@
         <text class="">当前平台: {{ platform }}</text>
       </view>
       <BasicButton @click="handleGetStarted">Get Started → </BasicButton>
+      <view class="text-red">大丰收的</view>
     </view>
   </AppProvider>
 </template>
