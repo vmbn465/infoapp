@@ -6,6 +6,7 @@
   import { useRouter } from '@/hooks/router';
   import { CURRENT_PLATFORM, PLATFORMS } from '@/enums/platformEnum';
   import { judgePlatform } from '@/utils/platform';
+  import Iconify from '@/components/Iconify/index.vue';
 
   const title = ref('uni-app vue3 ts --Vite');
 
@@ -33,7 +34,12 @@
         <text class="">当前平台: {{ platform }}</text>
       </view>
       <BasicButton @click="handleGetStarted">Get Started → </BasicButton>
-      <view class="text-red">大丰收的</view>
+      <view class="uno-text-red">uno css</view>
+      <Iconify icon="ant-design:login-outlined" />
+      <view
+        class="iconify m-iconify"
+        data-icon="ant-design:login-outlined"
+      ></view>
     </view>
   </AppProvider>
 </template>

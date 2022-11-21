@@ -1,3 +1,7 @@
+/*
+ * https://zhuanlan.zhihu.com/p/569976147
+ * */
+
 import presetWeapp from 'unocss-preset-weapp';
 import { defineConfig } from 'unocss';
 import {
@@ -26,6 +30,7 @@ export default defineConfig({
   presets: [
     // https://github.com/MellowCo/unocss-preset-weapp
     presetWeapp({
+      nonValuedAttribute: true,
       prefix: 'uno-',
     }),
   ],
