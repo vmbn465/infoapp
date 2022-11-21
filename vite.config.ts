@@ -40,7 +40,17 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     plugins: [
       uni(),
       Unocss(),
-      PurgeIcons(),
+      PurgeIcons({
+        content: [
+          '**/*.html',
+          '**/*.js',
+          '**/*.ts',
+          '**/*.vue',
+          '**/*.jsx',
+          '**/*.tsx',
+          '**/*.json',
+        ],
+      }),
       // eslintPlugin({
       //   include: ['src/**/*.js', 'src/**/*.vue', 'src/**/*.ts'],
       //   exclude: ['./node_modules/**'],
