@@ -71,6 +71,7 @@
     "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
+    "@unocss/preset-icons": "^0.46.5",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
@@ -87,8 +88,7 @@
     "unocss-preset-weapp": "^0.2.4",
     "unplugin-vue-components": "^0.22.11",
     "vite": "^3.2.4",
-    "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-purge-icons": "^0.9.1"
+    "vite-plugin-eslint": "^1.8.1"
   },
   "husky": {
     "hooks": {

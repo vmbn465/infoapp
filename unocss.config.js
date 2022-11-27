@@ -3,7 +3,12 @@
  * */
 
 import presetWeapp from 'unocss-preset-weapp';
-import { defineConfig, presetIcons } from 'unocss';
+import {
+  defineConfig,
+  presetIcons,
+  presetUno,
+  presetAttributify,
+} from 'unocss';
 import {
   defaultAttributes,
   defaultIgnoreNonValuedAttributes,
@@ -33,6 +38,8 @@ export default defineConfig({
       nonValuedAttribute: true,
       prefix: 'uno-',
     }),
+    presetAttributify({}),
+    presetUno(),
     presetIcons({
       scale: 1.2,
       warn: true,

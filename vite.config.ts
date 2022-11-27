@@ -4,7 +4,6 @@ import eslintPlugin from 'vite-plugin-eslint';
 import { resolve } from 'path';
 import { loadEnv } from 'vite';
 import Unocss from 'unocss/vite';
-import PurgeIcons from 'vite-plugin-purge-icons';
 
 // https://vitejs.cn/config/
 export default ({ mode }: ConfigEnv): UserConfig => {
@@ -40,17 +39,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     plugins: [
       uni(),
       Unocss(),
-      PurgeIcons({
-        content: [
-          '**/*.html',
-          '**/*.js',
-          '**/*.ts',
-          '**/*.vue',
-          '**/*.jsx',
-          '**/*.tsx',
-          '**/*.json',
-        ],
-      }),
       // eslintPlugin({
       //   include: ['src/**/*.js', 'src/**/*.vue', 'src/**/*.ts'],
       //   exclude: ['./node_modules/**'],
