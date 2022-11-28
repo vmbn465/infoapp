@@ -2,7 +2,6 @@
   import { ref } from 'vue';
   import BasicButton from '@/components/BasicButton/index.vue';
   import AppProvider from '@/components/AppProvider/inedx.vue';
-  import FontAwesomeIcon from '@/components/FontAwesomeIcon/index.vue';
   import { useRouter } from '@/hooks/router';
   import { CURRENT_PLATFORM, PLATFORMS } from '@/enums/platformEnum';
   import { judgePlatform } from '@/utils/platform';
@@ -29,12 +28,11 @@
       <view class="text-area">
         <text class="">是否是Vue3: {{ isVue3 }}</text>
       </view>
-      <view> <FontAwesomeIcon name="house" />solid (默认)</view>
       <view class="text-area">
         <text class="">当前平台: {{ platform }}</text>
       </view>
       <BasicButton @click="handleGetStarted">Get Started → </BasicButton>
-      <view class="uno-text-red">uno css</view>
+      <view class="un-text-red">uno css</view>
       <Iconify icon="ant-design:login-outlined" />
       <view
         class="iconify m-iconify"
