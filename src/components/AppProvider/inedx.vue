@@ -1,11 +1,7 @@
 <script lang="ts" setup name="AppProvider"></script>
 <template>
-  <view class="app-page safe-area-inset-bottom">
+  <view class="un-p-safe un-bg-blue-500">
     <slot></slot>
   </view>
 </template>
-<style scoped>
-  .app-page {
-    padding: 12rpx 28rpx;
-  }
-</style>
+<style lang="scss" scoped></style>
