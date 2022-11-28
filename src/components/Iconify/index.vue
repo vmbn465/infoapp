@@ -7,15 +7,11 @@
       type: String,
     },
     size: {
-      type: Number,
+      type: [Number, String],
     },
     color: {
       type: String,
     },
-  });
-
-  const iconName = computed(() => {
-    return `i-${props.icon}`;
   });
 
   const iconSize = ref<string | boolean>(
@@ -23,7 +19,9 @@
   );
   const style = computed(() => {
     return assign(
-      unref(iconSize) ? { size: props.size } : {},
+      unref(iconSize)
+        ? { width: unref(iconSize), height: unref(iconSize) }
+        : {},
       props.color ? { color: props.color } : {},
     );
   });

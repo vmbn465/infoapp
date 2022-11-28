@@ -29,13 +29,15 @@
         <text class="">是否是Vue3: {{ isVue3 }}</text>
       </view>
       <view class="text-area">
-        <text class="">当前平台: {{ platform }}</text>
+        <text class="un-text-red">当前平台: {{ platform }}</text>
       </view>
       <BasicButton @click="handleGetStarted">Get Started → </BasicButton>
       <view class="un-text-red">uno css</view>
-      <Iconify icon="i-ph-anchor-simple-thin" />
-      <Iconify icon="i-ph-airplane-thin" />
-      <Iconify icon="i-ant-design-check-circle-filled" />
+      <Iconify icon="i-ph-anchor-simple-thin" size="65" />
+      <Iconify icon="i-system-uicons-book-text" />
+      <Iconify icon="i-system-uicons-battery-full" size="65" />
+      <Iconify icon="i-system-uicons-box-add" :size="65" />
+      <Iconify icon="i-system-uicons-bell-snooze" color="red" :size="65" />
     </view>
   </AppProvider>
 </template>
