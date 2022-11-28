@@ -8,7 +8,7 @@
   };
 </script>
 <template>
-  <view> Test1 </view>
+  <view class="un-center"> Test1 </view>
   <BasicButton @click="jumpTest2">Test2 → </BasicButton>
 </template>
 <style scoped></style>

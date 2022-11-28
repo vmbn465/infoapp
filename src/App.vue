@@ -21,7 +21,5 @@
   });
 </script>
 <style lang="scss">
-  page {
-    background-color: #f2f2f2;
-  }
+  @import '@/assets/main.scss';
 </style>

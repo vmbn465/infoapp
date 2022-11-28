@@ -33,11 +33,9 @@
       </view>
       <BasicButton @click="handleGetStarted">Get Started → </BasicButton>
       <view class="un-text-red">uno css</view>
-      <Iconify icon="ant-design:login-outlined" />
-      <view
-        class="iconify m-iconify"
-        data-icon="ant-design:login-outlined"
-      ></view>
+      <Iconify icon="i-ph-anchor-simple-thin" />
+      <Iconify icon="i-ph-airplane-thin" />
+      <Iconify icon="i-ant-design-check-circle-filled" />
     </view>
   </AppProvider>
 </template>
