@@ -2,16 +2,9 @@
  * https://zhuanlan.zhihu.com/p/569976147
  * */
 
+import { defineConfig, presetAttributify, presetIcons } from 'unocss';
 import presetWeapp from 'unocss-preset-weapp';
 import {
-  defineConfig,
-  presetIcons,
-  presetUno,
-  presetAttributify,
-} from 'unocss';
-import {
-  defaultAttributes,
-  defaultIgnoreNonValuedAttributes,
   transformerAttributify,
   transformerClass,
 } from 'unocss-preset-weapp/transformer';
@@ -31,15 +24,18 @@ const transformRules = {
   ',': '-r222-',
 };
 
+const prefix = `un:`;
+
 export default defineConfig({
   presets: [
     // https://github.com/MellowCo/unocss-preset-weapp
     presetWeapp({
       nonValuedAttribute: true,
-      prefix: 'uno-',
+      prefix: prefix,
+      whRpx: true,
+      transform: true,
+      platform: 'uniapp',
     }),
-    presetAttributify({}),
-    presetUno(),
     presetIcons({
       scale: 1.2,
       warn: true,
@@ -51,14 +47,14 @@ export default defineConfig({
       center: 'flex justify-center items-center',
     },
   ],
-
-  // v0.1.14 unplugin-attributify-to-class 和 unplugin-transform-class 内置到 transformer 中
+  theme: {},
   transformers: [
     // options 见 https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerAttributify
     transformerAttributify({
+      classPrefix: prefix,
       transformRules,
+      nonValuedAttribute: true,
     }),
-
     // options 见 https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerClass
     transformerClass({
       transformRules,
