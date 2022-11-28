@@ -16,17 +16,17 @@
 
 <style lang="scss" scoped>
   .default-btn {
-    color: $uni-text-color-inverse;
+    color: #fff;
     border-width: 4rpx;
-    border-color: $nui-button-border-color;
+    border-color: #bfdbfe;
     border-style: solid;
-    border-radius: $uni-border-radius-base;
-    background-color: $nui-button-bg-color;
+    border-radius: 6rpx;
+    background-color: #60a5fa;
     padding: 12rpx 26rpx;
     display: inline-block;
-    font-size: $uni-font-size-sm;
+    font-size: 24rpx;
     &:hover {
-      background-color: $nui-button-bg-hover-color;
+      background-color: #3b82f6;
     }
   }
 </style>

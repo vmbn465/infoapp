@@ -1,5 +1,7 @@
-/*
- * https://zhuanlan.zhihu.com/p/569976147
+/**
+ * unocss defineConfig
+ * @link unocss: https://github.com/unocss/unocss
+ * @link unocss-preset-weapp: https://github.com/MellowCo/unocss-preset-weapp
  * */
 
 import { defineConfig, presetAttributify, presetIcons } from 'unocss';
@@ -24,7 +26,7 @@ const transformRules = {
   ',': '-r222-',
 };
 
-const prefix = `un:`;
+const prefix = `un-`;
 
 export default defineConfig({
   presets: [
@@ -44,7 +46,7 @@ export default defineConfig({
   shortcuts: [
     {
       'border-base': 'border border-gray-500_10',
-      center: 'flex justify-center items-center',
+      'un-center': 'un-flex un-justify-center un-items-center',
     },
   ],
   theme: {},
