@@ -26,7 +26,7 @@ const transformRules = {
   ',': '-r222-',
 };
 
-const prefix = `un-`;
+const prefix = `_u_`;
 
 export default defineConfig({
   presets: [
@@ -47,7 +47,7 @@ export default defineConfig({
   shortcuts: [
     {
       'border-base': 'border border-gray-500_10',
-      'un-center': 'un-flex un-justify-center un-items-center',
+      _u_center: '_u_flex _u_justify-center _u_items-center',
     },
   ],
   theme: {},

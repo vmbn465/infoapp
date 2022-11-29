@@ -12,7 +12,7 @@
 <template>
   <AppProvider>
     <view class="container"> 页面构建中... </view>
-    <view class="un-center">
+    <view class="_u_center">
       <BasicButton @click="jumpList1">List1 → </BasicButton>
     </view>
   </AppProvider>

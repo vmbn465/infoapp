@@ -1,6 +1,6 @@
 <script lang="ts" setup name="AppProvider"></script>
 <template>
-  <view class="un-p-safe un-bg-blue-500">
+  <view class="_u_p-safe _u_bg-blue-500">
     <slot></slot>
   </view>
 </template>
