@@ -4,7 +4,7 @@
  * @link unocss-preset-weapp: https://github.com/MellowCo/unocss-preset-weapp
  * */
 
-import { defineConfig, presetAttributify, presetIcons } from 'unocss';
+import { defineConfig, presetIcons } from 'unocss';
 import presetWeapp from 'unocss-preset-weapp';
 import {
   transformerAttributify,
@@ -37,6 +37,7 @@ export default defineConfig({
       whRpx: true,
       transform: true,
       platform: 'uniapp',
+      transformRules,
     }),
     presetIcons({
       scale: 1.2,
@@ -51,13 +52,11 @@ export default defineConfig({
   ],
   theme: {},
   transformers: [
-    // options 见 https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerAttributify
     transformerAttributify({
       classPrefix: prefix,
       transformRules,
       nonValuedAttribute: true,
     }),
-    // options 见 https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerClass
     transformerClass({
       transformRules,
     }),
