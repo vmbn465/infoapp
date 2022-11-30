@@ -47,6 +47,8 @@ export default defineConfig({
   shortcuts: [
     {
       'border-base': 'border border-gray-500_10',
+      '_u_z-tar-both': '_u_z-988',
+      '_u_head-fixed': '_u_fixed _u_top-0 _u_left-0 _u_w-full _u_z-tar-both',
       _u_center: '_u_flex _u_justify-center _u_items-center',
     },
   ],
