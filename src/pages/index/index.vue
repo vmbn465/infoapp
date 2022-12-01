@@ -17,6 +17,7 @@
   const router = useRouter();
   const handleGetStarted = () => {
     router.pushTab('/pages/demo/index');
+    // router.push('/pages/log/index?id=4345&title=log');
   };
 </script>
 <template>

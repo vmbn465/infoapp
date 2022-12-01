@@ -25,9 +25,19 @@
       props.color ? { color: props.color } : {},
     );
   });
+
+  const emit = defineEmits(['click']);
+  const onClick = () => {
+    emit('click');
+  };
 </script>
 <template>
-  <view ref="elRef" :class="['iconify', icon]" :style="style"></view>
+  <view
+    ref="elRef"
+    @click="onClick"
+    :class="['iconify', icon]"
+    :style="style"
+  ></view>
 </template>
 <style lang="scss" scoped>
   .iconify {
@@ -36,5 +46,9 @@
     height: 44rpx;
     width: 44rpx;
     color: inherit;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
   }
 </style>
