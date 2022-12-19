@@ -1,20 +1,21 @@
 ## 简介
 
-- **uni-app Vue3 Vite3 TypeScript 基础框架** 
+- **uni-app Vue3 Vite4 TypeScript 基础框架** 
 - cli创建的Vue3/Vite项目 与 使用HBuilderX导入插件 的包有差异,请直接访问 [开源地址](https://gitee.com/h_mo/uniapp-vue3-vite3-ts-template)
 
 
 ### 说明
 - 框架完全基于Vue3 SFC `<script setup>` 写法,不支持Vue2;
 - 可用于学习与交流;
-- 目前测试H5、微信小程序通过,钉钉或支付宝小程序未通过,原因: 引入pinia在支付宝小程序中报错;
+- 目前测试H5、微信小程序通过,APP(Android);
 - 其他平台暂未测试,后续会增加;
-- 如发现问题或建议可在评论区留言,会及时处理;
+- 如发现问题或建议可在评论区留言, 或提[Issues](https://gitee.com/h_mo/uniapp-vue3-vite3-ts-template/issues),会及时处理;
 - 如有需求亦可在评论区留言,或在此项目基础上增加;
 
 ## 特性
 
 - **最新技术栈**：使用 Vue3/Vite3/pinia ,TypeScript 等前端前沿技术开发;
+- **[Unocss](https://github.com/unocss/unocss)**: 原子化CSS, [iconify](https://github.com/iconify/iconify)图标
 - **Eslint/Prettier**: 规范代码格式,统一编码;
 - **路由拦截**: 基于uni.addInterceptor进行路由拦截;
 - **请求拦截**: 核心使用 [luch-request](https://ext.dcloud.net.cn/plugin?id=392),支持请求和响应拦截等;
@@ -26,8 +27,6 @@
 .
 ├─ src
 │   ├─assets # 静态资源目录
-│   │   └─ style
-│   │        └─main.scss # 公共样式
 │   │
 │   ├─components # 组件目录
 │   │   ├─ BasicButton
