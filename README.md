@@ -107,9 +107,9 @@
   ![h5](https://api-catch.ranesuangyu.top/images/20220621/364f2b47d91ae5ae82a33d33854e2540.png
   ) 
 
-[//]: # (- 小程序&#40;暂未发布&#41;)
+- 小程序(体验版-需申请体验)
 
-[//]: # (  ![小程序]&#40;http://api-catch.ranesuangyu.top/images/20220621/8d4388315ef5b8630d0c0b3963d1ba6b.jpg&#41;)
+  ![小程序](http://api-catch.ranesuangyu.top/images/20220621/8d4388315ef5b8630d0c0b3963d1ba6b.jpg)
 
   
 
