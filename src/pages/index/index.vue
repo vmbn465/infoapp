@@ -6,7 +6,6 @@
   import { CURRENT_PLATFORM, PLATFORMS } from '@/enums/platformEnum';
   import { judgePlatform } from '@/utils/platform';
   import Iconify from '@/components/Iconify/index.vue';
-  import Navbar from '@/components/Navbar/index.vue';
 
   const title = ref('uni-app vue3 ts --Vite');
 
@@ -22,7 +21,6 @@
 </script>
 <template>
   <AppProvider>
-    <Navbar />
     <view class="content">
       <image class="logo" src="/static/svg/LOGO.svg" />
       <view class="text-area">
