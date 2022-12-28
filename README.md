@@ -7,7 +7,7 @@
 ### 说明
 - 框架完全基于Vue3 SFC `<script setup>` 写法,不支持Vue2;
 - 可用于学习与交流;
-- 目前测试H5、微信小程序通过,APP(Android),支付宝小程序;
+- 目前测试H5、微信小程序,APP(Android),支付宝小程序通过;
 - 其他平台暂未测试,后续会增加;
 - 如发现问题或建议可在评论区留言, 或提[Issues](https://gitee.com/h_mo/uniapp-vue3-vite3-ts-template/issues),会及时处理;
 - 如有需求亦可在评论区留言,或在此项目基础上增加;
