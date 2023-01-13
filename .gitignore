@@ -4,3 +4,4 @@
 /.hbuilderx/
 /.eslintcache
 .pnpm-lock.yaml
+*.local
