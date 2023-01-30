@@ -1,7 +1,11 @@
-/node_modules/
-/dist/
-/.idea/
-/.hbuilderx/
-/.eslintcache
+node_modules
+dist
+.eslintcache
 .pnpm-lock.yaml
 *.local
+
+
+# Editor directories and files
+.idea
+.vscode
+.hbuilderx
