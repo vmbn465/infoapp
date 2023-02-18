@@ -1,0 +1,5 @@
+{
+	"editor.formatOnSave": true, //保存时格式化
+	"editor.detectIndentation": false,
+	"editor.tabSize": 4
+}

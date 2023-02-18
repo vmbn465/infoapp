@@ -5,7 +5,7 @@ dist
 *.local
 
 
-# Editor directories and files
+# 编辑器目录和文件
 .idea
-.vscode
 .hbuilderx
+pnpm-lock.yaml
