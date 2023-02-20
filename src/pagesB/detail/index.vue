@@ -1,3 +1,3 @@
 <script lang="ts" setup></script>
-<template> Detail </template>
+<template>Detail</template>
 <style scoped></style>

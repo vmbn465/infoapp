@@ -1,12 +1,9 @@
-import {
-  routerInterceptor,
-  routerRemoveInterceptor,
-} from '@/utils/router/interceptor';
+import { routerInterceptor, routerRemoveInterceptor } from '@/utils/router/interceptor';
 
 export function setupInterceptors() {
-  routerInterceptor();
+	routerInterceptor();
 }
 
 export function removeInterceptor() {
-  routerRemoveInterceptor();
+	routerRemoveInterceptor();
 }
