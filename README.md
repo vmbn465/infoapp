@@ -1,6 +1,17 @@
+# 🌈 uni-app Vue3 Vite4 pinia2 TypeScript 基础框架
+
+<p align="center">
+    <img src="https://img.shields.io/badge/-Vue3.2-34495e?logo=vue.js" />
+    <img src="https://img.shields.io/badge/-Vite4-646cff?logo=vite&logoColor=white" />
+    <img src="https://img.shields.io/badge/-Pinia2-yellow?logo=picpay&logoColor=white" />
+    <img src="https://img.shields.io/badge/-TypeScript4.9-blue?logo=typescript&logoColor=white" />
+    <img src="https://img.shields.io/badge/-ESLint8-4b32c3?logo=eslint&logoColor=white" />
+    <img src="https://img.shields.io/badge/-pnpm7-F69220?logo=pnpm&logoColor=white" />
+</p>
+
 ## 简介
 
-- **uni-app Vue3 Vite TypeScript 基础框架** 
+- **uni-app Vue3 Vite4 pinia2 TypeScript 基础框架** 
 - cli创建的Vue3/Vite项目 与 使用HBuilderX导入插件 的包有差异,请直接访问 [开源地址](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template)
 - 访问[uniapp插件](https://ext.dcloud.net.cn/plugin?id=8559)
 
@@ -12,6 +23,7 @@
 - 其他平台暂未测试,后续会增加;
 - 如发现问题或建议可在评论区留言, 或提[Issues](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/issues)及[PR](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/pulls),会及时处理;
 - 如有需求亦可在评论区留言,或在此项目基础上增加;
+-   [代码规范 & 详细解释 husky、prettier、eslint、lint-staged 的作用和使用](https://blog.csdn.net/cookcyq__/article/details/125457031)
 
 ## 特性
 
