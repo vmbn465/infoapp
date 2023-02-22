@@ -136,6 +136,13 @@ pnpm dev:h5
 pnpm build:h5
 ```
 
+- 更新依赖到最新（新手请忽略）
+
+```bash
+pnpm up
+# 打开HBuilder X alpha桌面程序-->点击上面的帮助-->历次更新说明-->获取最新版本号（如：3.7.2.20230217-alpha）
+npx @dcloudio/uvm 3.7.2.20230217-alpha
+```
 ## Git 贡献提交规范
 
 - 参考 [vue](https://github.com/vuejs/vue/blob/dev/.github/COMMIT_CONVENTION.md) 规范 ([Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular))
