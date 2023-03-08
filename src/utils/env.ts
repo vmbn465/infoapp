@@ -6,7 +6,7 @@ import { PLATFORMS } from '@/enums/platformEnum';
  * @description: Generate cache key according to version
  */
 export function getPkgVersion() {
-	return `${`__${pkg.version}`}__`.toUpperCase();
+    return `${`__${pkg.version}`}__`.toUpperCase();
 }
 
 /**
@@ -25,7 +25,7 @@ export const prodMode = 'production';
  * @example:
  */
 export function getEnvMode(): string {
-	return isDevMode() ? devMode : prodMode;
+    return isDevMode() ? devMode : prodMode;
 }
 
 /**
@@ -34,8 +34,8 @@ export function getEnvMode(): string {
  * @example:
  */
 export function getEnvValue<T = any>(key: string): T {
-	// @ts-ignore
-	return import.meta.env[key];
+    // @ts-ignore
+    return import.meta.env[key];
 }
 
 /**
@@ -44,7 +44,7 @@ export function getEnvValue<T = any>(key: string): T {
  * @example:
  */
 export function isDevMode(): boolean {
-	return getEnvValue<boolean>('VITE_DEV');
+    return getEnvValue<boolean>('VITE_DEV');
 }
 
 /**
@@ -53,7 +53,7 @@ export function isDevMode(): boolean {
  * @example:
  */
 export function isProdMode(): boolean {
-	return getEnvValue<boolean>('VITE_PROD');
+    return getEnvValue<boolean>('VITE_PROD');
 }
 
 /**
@@ -62,8 +62,8 @@ export function isProdMode(): boolean {
  * @example:
  */
 export function getBaseUrl(): string {
-	if (judgePlatform(PLATFORMS.H5) && isDevMode()) return '/api';
-	return getEnvValue<string>('VITE_BASE_URL');
+    if (judgePlatform(PLATFORMS.H5) && isDevMode()) return '/api';
+    return getEnvValue<string>('VITE_BASE_URL');
 }
 
 /**
@@ -72,6 +72,6 @@ export function getBaseUrl(): string {
  * @example:
  */
 export function getUploadUrl(): string {
-	if (judgePlatform(PLATFORMS.H5) && isDevMode()) return '/upload';
-	return getEnvValue<string>('VITE_UPLOAD_URL');
+    if (judgePlatform(PLATFORMS.H5) && isDevMode()) return '/upload';
+    return getEnvValue<string>('VITE_UPLOAD_URL');
 }

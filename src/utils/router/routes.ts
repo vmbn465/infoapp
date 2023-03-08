@@ -8,34 +8,34 @@ const { pages, subPackages, tabBar } = pagesJson;
 const pagesMap = new Map<string, Route>();
 
 pages.forEach((page) => {
-	pagesMap.set(page.path, page as Route);
+    pagesMap.set(page.path, page as Route);
 });
 
 if (Array.isArray(subPackages) && subPackages.length) {
-	subPackages.forEach((el) => {
-		const rootPath = el.root;
-		el.pages.forEach((page) => {
-			page.path = `${rootPath}/${page.path}`;
-			pagesMap.set(page.path, page as Route);
-		});
-	});
+    subPackages.forEach((el) => {
+        const rootPath = el.root;
+        el.pages.forEach((page) => {
+            page.path = `${rootPath}/${page.path}`;
+            pagesMap.set(page.path, page as Route);
+        });
+    });
 }
 
 if (tabBar) {
-	const tabBarList = tabBar.list;
-	if (Array.isArray(tabBarList)) {
-		tabBarList.forEach((el) => {
-			if (pagesMap.has(el.pagePath)) {
-				const page = pagesMap.get(el.pagePath);
-				const meta = page?.meta || {};
-				// @ts-ignore
-				meta.tabBar = true;
-				// @ts-ignore
-				page.meta = assign({}, meta);
-				pagesMap.set(el.pagePath, page as Route);
-			}
-		});
-	}
+    const tabBarList = tabBar.list;
+    if (Array.isArray(tabBarList)) {
+        tabBarList.forEach((el) => {
+            if (pagesMap.has(el.pagePath)) {
+                const page = pagesMap.get(el.pagePath);
+                const meta = page?.meta || {};
+                // @ts-ignore
+                meta.tabBar = true;
+                // @ts-ignore
+                page.meta = assign({}, meta);
+                pagesMap.set(el.pagePath, page as Route);
+            }
+        });
+    }
 }
 
 export { pagesMap };

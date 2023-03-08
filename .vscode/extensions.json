@@ -1,10 +1,10 @@
 {
     "recommendations": [
-      "CodeInChinese.EnglishChineseDictionary", // 翻译(英汉词典)
-      "kisstkondoros.vscode-gutter-preview", // Image 预览
-      "ritwickdey.LiveServer", // 为静态和动态页面启动具有实时重载功能的本地开发服务器
-      "antfu.unocss", // UnoCSS 原子化css
-      "esbenp.prettier-vscode", // 格式化
+        "Vue.volar", // Vue语言支持扩展
+        "Vue.vscode-typescript-vue-plugin", // 一个TS服务器插件，使TS服务器知道*.vue文件。
+        "esbenp.prettier-vscode", // 代码格式化
+        "dbaeumer.vscode-eslint", //代码质量检查
+        "antfu.unocss", // UnoCSS 原子化css
+        "mrmlnc.vscode-autoprefixer" //将less/scss/css文件自动添加浏览器兼容前缀
     ]
-  }
-  
+}

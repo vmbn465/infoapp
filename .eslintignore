@@ -1,21 +1,20 @@
-# eslint 忽略检查 (根据项目需要自行添加)
-node_modules
-dist
-.idea
-.vscode
-.hbuilderx
-src/manifest.json
-src/pages.json
-src/tmui/
-*.sh
-node_modules
-*.md
-*.woff
-*.ttf
-*.yaml
-dist
+# 忽略目录
+/dist
+/build
+/tests
+/node_modules
 /public
-/docs
-.husky
-.local
-/bin
+/src/public
+/src/static
+/src/manifest.json
+/vite.config.ts
+/unocss.config.js
+
+# node 覆盖率文件
+coverage/
+
+# 忽略文件
+**/*-min.js
+**/*.min.js
+**/*-min.css
+**/*.min.css
