@@ -4,12 +4,12 @@ import { setupStore } from '@/state';
 import 'uno.css';
 
 export function createApp() {
-	const app = createSSRApp(App);
+    const app = createSSRApp(App);
 
-	// Configure store
-	setupStore(app);
+    // Configure store
+    setupStore(app);
 
-	return {
-		app,
-	};
+    return {
+        app,
+    };
 }
