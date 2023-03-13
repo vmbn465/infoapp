@@ -43,6 +43,9 @@ module.exports = {
         'vue/singleline-html-element-content-newline': 'off', //要求在单行元素的内容之前和之后有一个换行符
         'vue/max-attributes-per-line': 'off', //执行每行的最大属性数(被 prettier 最大单行控制了暂off)
         'vue/multi-word-component-names': 'off', //要求组件名称始终为多字
+        '@typescript-eslint/ban-ts-comment': 'off', // 不允许@ts-<指令>评论或要求指令后的描述
+        '@typescript-eslint/ban-types': 'off', // 不允许某些类型
+        '@typescript-eslint/no-non-null-assertion': 'off', // 不允许使用！后缀操作符的非空断言
     },
     globals: {
         //可以定义全局中的变量的权限（只读，可读可写）

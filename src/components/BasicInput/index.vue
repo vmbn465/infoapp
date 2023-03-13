@@ -21,8 +21,8 @@ export default defineComponent({
             default: '',
         },
     },
-    setup(props) {
-        const _props = props;
+    setup(_props) {
+        // const _props = props;
         return {};
     },
 });
