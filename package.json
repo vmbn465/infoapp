@@ -30,8 +30,7 @@
         "build:quickapp-webview": "uni build -p quickapp-webview",
         "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
         "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
-        "lint": "eslint --cache --max-warnings 0  \"src/**/*.{vue,ts}\" --fix",
-        "format": "prettier --write src/",
+        "eslint": "eslint --max-warnings 0  \"src/**/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}\" --fix",
         "prepare": "husky install"
     },
     "dependencies": {
@@ -56,8 +55,7 @@
         "luch-request": "^3.0.8",
         "pinia": "^2.0.33",
         "qs": "^6.11.1",
-        "vue": "^3.2.47",
-        "vue-i18n": "^9.2.2"
+        "vue": "^3.2.47"
     },
     "devDependencies": {
         "@dcloudio/types": "^3.2.11",
@@ -75,8 +73,6 @@
         "@unocss/preset-icons": "^0.46.5",
         "autoprefixer": "^10.4.13",
         "eslint": "^8.35.0",
-        "eslint-config-prettier": "^8.7.0",
-        "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-vue": "^9.9.0",
         "husky": "^8.0.3",
         "lint-staged": "^13.1.2",
@@ -96,7 +92,7 @@
     },
     "lint-staged": {
         "*.{js,jsx,vue,ts,tsx}": [
-            "prettier --write",
+            "eslint --max-warnings 0 --fix",
             "git add"
         ]
     }
