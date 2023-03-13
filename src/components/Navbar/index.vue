@@ -70,10 +70,10 @@ const onBackHome = () => {
                     <slot name="left">
                         <view class="_u_h-full _u_flex _u_items-center">
                             <template v-if="backShow">
-                                <Iconify @click="onBack" :size="navbarLeftIconSize" :color="navbarTitleColor" icon="i-humbleicons-chevron-left" />
+                                <Iconify @click="onBack" :size="navbarLeftIconSize" :color="navbarTitleColor===true?undefined:navbarTitleColor" icon="i-humbleicons-chevron-left" />
                             </template>
                             <template v-if="backHomeShow">
-                                <Iconify @click="onBackHome" :size="navbarLeftIconSize" :color="navbarTitleColor" icon="i-iconoir-home-simple-door" />
+                                <Iconify @click="onBackHome" :size="navbarLeftIconSize" :color="navbarTitleColor===true?undefined:navbarTitleColor" icon="i-iconoir-home-simple-door" />
                             </template>
                         </view>
                     </slot>

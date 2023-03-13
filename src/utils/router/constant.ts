@@ -33,6 +33,6 @@ export function jumpLogin(path: string) {
  * @param prefix
  */
 export function filterPath(url: string, prefix = '') {
-    const path = url.split('?')[0];
+    const path = url.split('?')[0] || '';
     return prefix + (path.startsWith('/') ? path.substring(1) : path);
 }

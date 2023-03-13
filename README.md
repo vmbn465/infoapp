@@ -151,20 +151,57 @@ pnpm up
 npx @dcloudio/uvm 3.7.2.20230217-alpha
 ```
 
-## Git 贡献提交规范
+## Gitee 参与贡献
 
--   参考 [vue](https://github.com/vuejs/vue/blob/dev/.github/COMMIT_CONVENTION.md) 规范 ([Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular))
+1.  Fork 本仓库
+2.  新建 Feat_xxx 分支
+3.  提交代码
+4.  新建 Pull Request
 
-    -   `feat` 增加新功能
-    -   `fix` 修复问题/BUG
-    -   `style` 代码风格相关无影响运行结果的
-    -   `perf` 优化/性能提升
-    -   `refactor` 重构
-    -   `revert` 撤销修改
-    -   `test` 测试相关
-    -   `docs` 文档/注释
-    -   `chore` 依赖更新/脚手架配置修改等
-    -   `workflow` 工作流改进
-    -   `ci` 持续集成
-    -   `types` 类型定义文件更改
-    -   `wip` 开发中
+## [Gitee 贡献提交规范](https://www.conventionalcommits.org/zh-hans/v1.0.0/)
+
+### 提交类型
+
+| 提交类型   | 标题               | 描述                                                                                  |
+| ---------- | ------------------ | ------------------------------------------------------------------------------------- |
+| `feat`     | 特征               | 新功能、新特性                                                                        |
+| `fix`      | Bug 修复           | bug 修复                                                                              |
+| `docs`     | 文档               | 仅文档更改                                                                            |
+| `style`    | 风格               | 不影响代码含义的更改（空格、格式、缺少分号等）                                        |
+| `refactor` | 代码重构           | 重构，在不影响代码内部行为，功能下的代码修改                                          |
+| `perf`     | 性能改进           | 更改代码，以提高性能                                                                  |
+| `test`     | 测试               | 添加缺失的测试或纠正现有的测试                                                        |
+| `build`    | 构建               | 影响构建系统或外部依赖项的更改（示例范围：gulp、broccoli、npm）                       |
+| `ci`       | 持续集成           | 对我们的 CI 配置文件和脚本的更改（示例范围：Travis、Circle、BrowserStack、SauceLabs） |
+| `chore`    | 其他文件修改       | 不修改 src 或测试文件的其他更改                                                       |
+| `revert`   | 还原               | 恢复之前的提交                                                                        |
+| `release`  | 发布新版本         | \-                                                                                    |
+| `workflow` | 工作流相关文件修改 | \-                                                                                    |
+
+### 提交别名
+
+| 提交类型           | 映射到  | 标题     | 描述                       |
+| ------------------ | ------- | -------- | -------------------------- |
+| `initial`          | `feat`  | 最初的   | 初始提交                   |
+| `dependencies`     | `fix`   | 依赖项   | 更新依赖项                 |
+| `peerDependencies` | `fix`   | 对等依赖 | 更新对等依赖项             |
+| `devDependencies`  | `chore` | 开发依赖 | 更新开发依赖               |
+| `metadata`         | `fix`   | 元数据   | 更新元数据（package.json） |
+
+### 快捷别名提示
+
+1.  resolve a conflict：解决冲突
+2.  merge branch：合并分支
+3.  feat: [...] : 添加的新功能说明
+4.  fix: [...] : 修复的 bug 说明
+5.  initial project：初始化项目
+6.  style: [...] : 修改的样式范围
+7.  perf：[...] : 优化的范围
+8.  release : 发布新版本
+9.  docs: 文档修改
+10. refactor： 代码重构
+11. revert： 还原之前的版本
+12. dependencies： 依赖项修改
+13. devDependencies： 开发依赖修改
+14. review：复习，回顾
+15. strengthen: 加强，巩固

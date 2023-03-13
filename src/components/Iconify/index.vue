@@ -1,6 +1,7 @@
 <script lang="ts" setup name="Iconify">
 import { computed, ref, unref } from 'vue';
 import { assign } from 'lodash-es';
+import { isBoolean } from '@/utils/is';
 
 const props = defineProps({
     icon: {
@@ -15,8 +16,9 @@ const props = defineProps({
 });
 
 const iconSize = ref<string | boolean>(props.size ? `${props.size}rpx` : false);
-const style = computed(() => {
-    return assign(unref(iconSize) ? { width: unref(iconSize), height: unref(iconSize) } : {}, props.color ? { color: props.color } : {});
+let style = computed(() => {
+    let ISize = unref(iconSize);
+    return assign({ width: isBoolean(ISize) ? '' : ISize, height: isBoolean(ISize) ? '' : ISize }, { color: props.color });
 });
 
 const emit = defineEmits(['click']);
