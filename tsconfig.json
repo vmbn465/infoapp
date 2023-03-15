@@ -14,7 +14,7 @@
         "removeComments": true, // 删除注释
         "paths": { "@/*": ["./src/*"] }, //指定一组条目，它们将导入重新映射到其他查找位置
         "pretty": true, // 在输出中启用颜色和格式，使编译器错误更容易阅读
-        "newLine": "lf", // 设置发出文件的换行符
+        "newLine": "crlf", // 设置发出文件的换行符
         // "sourceMap": true, //为发出的JavaScript文件创建源映射文件。
         // "declaration": true, // 从项目中的TypeScript和JavaScript文件生成.d.ts文件
         // "declarationMap": true, // 为d.ts文件创建源地图

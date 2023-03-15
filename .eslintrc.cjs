@@ -27,7 +27,7 @@ module.exports = {
         indent: ['error', 4, { SwitchCase: 1 }], //代码缩进2个空格
         semi: ['error', 'always'], //行尾需要有分号
         quotes: ['error', 'single'], //强制使用一致的反勾号、双引号或单引号
-        'linebreak-style': ['error', 'unix'], //强制使用一致的换行风格,"unix"：\n 表示 LF , "windows"：\r\n 表示 CRLF
+        'linebreak-style': ['error', 'windows'], //强制使用一致的换行风格,"unix"：\n 表示 LF , "windows"：\r\n 表示 CRLF
         eqeqeq: ['error', 'always', { null: 'ignore' }], //比较时强制使用 === 或者 !==,但对null作比较时可以不用全等
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': [
@@ -43,6 +43,8 @@ module.exports = {
         'vue/singleline-html-element-content-newline': 'off', //要求在单行元素的内容之前和之后有一个换行符
         'vue/max-attributes-per-line': 'off', //执行每行的最大属性数(被 prettier 最大单行控制了暂off)
         'vue/multi-word-component-names': 'off', //要求组件名称始终为多字
+        'vue/html-self-closing': 'off', //执行自我封闭式
+        'no-undef': 'off', //禁用未声明的变量，除非它们在 /*global */ 注释中被提到
         '@typescript-eslint/ban-ts-comment': 'off', // 不允许@ts-<指令>评论或要求指令后的描述
         '@typescript-eslint/ban-types': 'off', // 不允许某些类型
         '@typescript-eslint/no-non-null-assertion': 'off', // 不允许使用！后缀操作符的非空断言
