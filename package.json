@@ -30,7 +30,10 @@
         "build:quickapp-webview": "uni build -p quickapp-webview",
         "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
         "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
-        "eslint": "eslint --max-warnings 0  \"src/**/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}\" --fix",
+        "lint": "pnpm lint:format & pnpm lint:eslint",
+        "lint:eslint": "eslint --max-warnings 0 --fix --ext .js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue ./src",
+        "lint:format": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,vue,html,md}\"",
+        "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.cjs",
         "prepare": "husky install"
     },
     "dependencies": {
@@ -58,6 +61,8 @@
         "vue": "^3.2.47"
     },
     "devDependencies": {
+        "@commitlint/cli": "^17.4.4",
+        "@commitlint/config-conventional": "^17.4.4",
         "@dcloudio/types": "^3.2.11",
         "@dcloudio/uni-automator": "3.0.0-alpha-3070620230227001",
         "@dcloudio/uni-cli-shared": "3.0.0-alpha-3070620230227001",
@@ -75,8 +80,7 @@
         "eslint": "^8.35.0",
         "eslint-plugin-vue": "^9.9.0",
         "husky": "^8.0.3",
-        "lint-staged": "^13.1.2",
-        "mrm": "^4.1.13",
+        "lint-staged": "^13.2.0",
         "postcss": "^8.4.21",
         "prettier": "^2.8.4",
         "sass": "^1.58.3",
@@ -84,16 +88,5 @@
         "unocss": "^0.46.5",
         "unocss-preset-weapp": "^0.2.5",
         "vite": "^4.1.4"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.{js,jsx,vue,ts,tsx}": [
-            "eslint --max-warnings 0 --fix",
-            "git add"
-        ]
     }
 }

@@ -40,7 +40,7 @@ request.interceptors.request.use(
         }
         return options;
     },
-    (options) => Promise.reject(options),
+    (options) => Promise.reject(options)
 );
 
 /**
@@ -59,7 +59,7 @@ request.interceptors.response.use(
     (response) =>
         // 请求错误做点什么。可以使用async await 做异步操作
         // error('Request Error!');
-        Promise.reject(response),
+        Promise.reject(response)
 );
 
 export { request };
