@@ -1,5 +1,5 @@
 {
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.*", "vitest.config.*", "cypress.config.*"], // 指定要包含在编译中的文件匹配列表
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.*"], // 指定要包含在编译中的文件匹配列表
     "exclude": [], // 指定要从编译中排除的文件列表
     "compilerOptions": {
         "baseUrl": "./", // 指定基目录以解析非相对模块名
@@ -14,7 +14,7 @@
         "removeComments": true, // 删除注释
         "paths": { "@/*": ["./src/*"] }, //指定一组条目，它们将导入重新映射到其他查找位置
         "pretty": true, // 在输出中启用颜色和格式，使编译器错误更容易阅读
-        "newLine": "lf", // 设置发出文件的换行符
+        "newLine": "crlf", // 设置发出文件的换行符
         // "sourceMap": true, //为发出的JavaScript文件创建源映射文件。
         // "declaration": true, // 从项目中的TypeScript和JavaScript文件生成.d.ts文件
         // "declarationMap": true, // 为d.ts文件创建源地图

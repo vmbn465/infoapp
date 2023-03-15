@@ -13,7 +13,7 @@
         "source.fixAll.eslint": true,
         "source.fixAll.stylelint": true
     },
-    "files.eol": "\n",
+    "files.eol": "auto",
     "eslint.enable": true,
 
     //////////////////////////////////////////////////////////////////
@@ -23,6 +23,7 @@
     "prettier.semi": true,
     "prettier.tabWidth": 4,
     "prettier.printWidth": 160,
+    "prettier.endOfLine": "auto",
     "prettier.singleQuote": true,
-    "prettier.ignorePath": "./.vscode/prettierignore"
+    "prettier.ignorePath": ".prettierignore"
 }
