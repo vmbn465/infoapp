@@ -12,8 +12,6 @@ interface ImportMetaEnv {
     readonly VITE_APP_TITLE: string;
     readonly VITE_BASE_URL: string;
     readonly VITE_UPLOAD_URL: string;
-    readonly VITE_PROD: boolean;
-    readonly VITE_DEV: boolean;
     readonly VITE_APP_CACHE_PREFIX: string;
     readonly VITE_PORT: number;
 }

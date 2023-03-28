@@ -25,7 +25,7 @@ export const prodMode = 'production';
  * @example:
  */
 export function getEnvMode(): string {
-    return isDevMode() ? devMode : prodMode;
+    return getEnvValue('VITE_ENV');
 }
 
 /**
@@ -33,9 +33,8 @@ export function getEnvMode(): string {
  * @returns:
  * @example:
  */
-export function getEnvValue<T = any>(key: string): T {
-    // @ts-ignore
-    return import.meta.env[key];
+export function getEnvValue<T = string>(key: keyof ImportMetaEnv): T {
+    return import.meta.env[key] as unknown as T;
 }
 
 /**
@@ -44,7 +43,7 @@ export function getEnvValue<T = any>(key: string): T {
  * @example:
  */
 export function isDevMode(): boolean {
-    return getEnvValue<boolean>('VITE_DEV');
+    return getEnvMode() === devMode;
 }
 
 /**
@@ -53,7 +52,7 @@ export function isDevMode(): boolean {
  * @example:
  */
 export function isProdMode(): boolean {
-    return getEnvValue<boolean>('VITE_PROD');
+    return getEnvMode() === prodMode;
 }
 
 /**
