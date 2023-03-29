@@ -4,6 +4,8 @@ import { onLoad } from '@dcloudio/uni-app';
 import { useAuthStore } from '@/state/modules/auth';
 import { Toast } from '@/utils/uniapi/prompt';
 import { useRouter } from '@/hooks/router';
+import { useRequest } from 'alova';
+import { login } from '@/services/api/auth';
 
 const redirect = ref<string | undefined>(undefined);
 onLoad((query) => {
@@ -17,9 +19,11 @@ const form = reactive({
     password: 'Vue3_Ts_Vite',
 });
 const authStore = useAuthStore();
+const { send: sendLogin } = useRequest(login, { immediate: false });
 const submit = (e: any) => {
-    authStore.login(e.detail.value).then(() => {
+    sendLogin(e.detail.value).then((res) => {
         Toast('登录成功', { duration: 1500 });
+        authStore.setToken(res.token);
         setTimeout(() => {
             if (redirect.value) {
                 router.go(redirect.value, { replace: true });
