@@ -1,65 +1,79 @@
-import Request from 'luch-request';
-import { assign } from 'lodash-es';
-import { Toast } from '@/utils/uniapi/prompt';
+import { createAlova } from 'alova';
+import AdapterUniapp from '@alova/adapter-uniapp';
 import { getBaseUrl } from '@/utils/env';
+import { mockAdapter } from '@/mock';
+import { assign } from 'lodash-es';
 import { useAuthStore } from '@/state/modules/auth';
-import { ResultEnum } from '@/enums/httpEnum';
+import { checkStatus } from '@/utils/http/checkStatus';
+import { ContentTypeEnum, ResultEnum } from '@/enums/httpEnum';
+import { Toast } from '@/utils/uniapi/prompt';
+import { API } from '@/services/model/baseModel';
 
 const BASE_URL = getBaseUrl();
+
 const HEADER = {
-    'Content-Type': 'application/json;charset=UTF-8;',
+    'Content-Type': ContentTypeEnum.JSON,
     Accept: 'application/json, text/plain, */*',
 };
 
-function createRequest() {
-    return new Request({
-        baseURL: BASE_URL,
-        header: HEADER,
-        custom: {
-            auth: true,
-        },
-    });
-}
-
-const request = createRequest();
+// @ts-ignore
 /**
- * 请求拦截器
+ * alova 请求实例
+ * @link https://github.com/alovajs/alova
  */
-request.interceptors.request.use(
-    (options) => {
-        if (options.custom?.auth) {
-            const authStore = useAuthStore();
-            if (!authStore.isLogin) {
-                Toast('请先登录');
-                // token不存在跳转到登录页
-                return Promise.reject(options);
+const alovaInstance = createAlova({
+    baseURL: BASE_URL,
+    ...AdapterUniapp({
+        mockRequest: mockAdapter,
+    }),
+    timeout: 5000,
+    beforeRequest: (method) => {
+        const authStore = useAuthStore();
+        method.config.headers = assign(method.config.headers, HEADER, authStore.getAuthorization);
+    },
+    responsed: {
+        /**
+         * 请求成功的拦截器
+         * 第二个参数为当前请求的method实例，你可以用它同步请求前后的配置信息
+         * @param response
+         * @param method
+         */
+        onSuccess: async (response, method) => {
+            const { config } = method;
+            const { enableDownload, enableUpload } = config;
+            // @ts-ignore
+            const { statusCode, data: rawData } = response;
+            const { code, message, data } = rawData as API;
+            if (statusCode === 200) {
+                if (enableDownload) {
+                    // 下载处理
+                    return rawData;
+                }
+                if (enableUpload) {
+                    // 上传处理
+                    return rawData;
+                }
+                if (code === ResultEnum.SUCCESS) {
+                    return data as any;
+                }
+                message && Toast(message);
+                return Promise.reject(rawData);
             }
-            options.header = assign(options.header, {
-                authorization: `Bearer ${authStore.getToken}`,
-            });
-        }
-        return options;
-    },
-    (options) => Promise.reject(options)
-);
+            checkStatus(statusCode, message || '');
+            return Promise.reject(rawData);
+        },
 
-/**
- * 响应拦截器
- */
-request.interceptors.response.use(
-    async (response) => {
-        const { data: resData } = response;
-        const { code, message } = resData;
-        if (code === ResultEnum.SUCCESS) {
-            return resData as any;
-        }
-        Toast(message);
-        return Promise.reject(resData);
+        /**
+         * 请求失败的拦截器，请求错误时将会进入该拦截器。
+         * 第二个参数为当前请求的method实例，你可以用它同步请求前后的配置信息
+         * @param err
+         * @param method
+         */
+        onError: (err, method) => {
+            // error('Request Error!');
+            return Promise.reject({ err, method });
+        },
     },
-    (response) =>
-        // 请求错误做点什么。可以使用async await 做异步操作
-        // error('Request Error!');
-        Promise.reject(response)
-);
+});
 
-export { request };
+export const request = alovaInstance;

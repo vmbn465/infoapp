@@ -37,6 +37,8 @@
         "prepare": "husky install"
     },
     "dependencies": {
+        "@alova/adapter-uniapp": "^1.1.1",
+        "@alova/mock": "^1.2.2",
         "@dcloudio/uni-app": "3.0.0-alpha-3071220230324001",
         "@dcloudio/uni-app-plus": "3.0.0-alpha-3071220230324001",
         "@dcloudio/uni-components": "3.0.0-alpha-3071220230324001",
@@ -52,10 +54,10 @@
         "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-3071220230324001",
         "@fortawesome/fontawesome-free": "^6.4.0",
         "@iconify/iconify": "^3.1.0",
+        "alova": "^2.0.9",
         "crypto-js": "^4.1.1",
         "echarts": "^5.4.2",
         "lodash-es": "^4.17.21",
-        "luch-request": "^3.0.8",
         "pinia": "^2.0.33",
         "qs": "^6.11.1",
         "vue": "^3.2.47"

@@ -61,7 +61,6 @@ export function isProdMode(): boolean {
  * @example:
  */
 export function getBaseUrl(): string {
-    if (judgePlatform(PLATFORMS.H5) && isDevMode()) return '/api';
     return getEnvValue<string>('VITE_BASE_URL');
 }
 
