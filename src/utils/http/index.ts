@@ -16,7 +16,6 @@ const HEADER = {
     Accept: 'application/json, text/plain, */*',
 };
 
-// @ts-ignore
 /**
  * alova 请求实例
  * @link https://github.com/alovajs/alova

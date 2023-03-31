@@ -74,7 +74,7 @@
             "subPackages" : true
         },
         "lazyCodeLoading" : "requiredComponents",
-		"style": "v2"
+        "style" : "v2"
     },
     "mp-alipay" : {
         "usingComponents" : true,
