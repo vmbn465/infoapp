@@ -26,7 +26,7 @@ const submit = (e: any) => {
         authStore.setToken(res.token);
         setTimeout(() => {
             if (redirect.value) {
-                router.go(redirect.value, { replace: true });
+                router.go(redirect.value!, { replace: true });
                 return;
             }
             router.pushTab('/pages/about/index');

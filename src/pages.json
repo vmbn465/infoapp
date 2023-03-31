@@ -3,8 +3,7 @@
         {
             "path": "pages/index/index",
             "style": {
-                "navigationBarTitleText": "首页",
-                "navigationStyle": "custom"
+                "navigationBarTitleText": "Home"
             },
             "meta": {
                 "ignoreAuth": true
@@ -96,8 +95,8 @@
     "globalStyle": {
         "navigationBarTextStyle": "black",
         "navigationBarTitleText": "uni-app",
-        "navigationBarBackgroundColor": "#262833",
-        "backgroundColor": "#F8F8F8",
+        "navigationBarBackgroundColor": "#F2F2F2",
+        "backgroundColor": "#F2F2F2",
         "navigationStyle": "default",
         "renderingMode": "seperated",
         "pageOrientation": "portrait"
@@ -105,7 +104,7 @@
     "tabBar": {
         "color": "#474747",
         "selectedColor": "#9BC6FC",
-        "backgroundColor": "#FFFFFF",
+        "backgroundColor": "#F2F2F2",
         "list": [
             {
                 "pagePath": "pages/index/index",

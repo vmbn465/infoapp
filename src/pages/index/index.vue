@@ -6,8 +6,11 @@ import { useRouter } from '@/hooks/router';
 import { CURRENT_PLATFORM, PLATFORMS } from '@/enums/platformEnum';
 import { judgePlatform } from '@/utils/platform';
 import Iconify from '@/components/Iconify/index.vue';
+import { getEnvValue } from '@/utils/env';
 
-const title = ref('uni-app vue3 ts --Vite');
+const appTitle = getEnvValue<string>('VITE_APP_TITLE');
+
+const title = ref(appTitle);
 
 const platform = CURRENT_PLATFORM;
 
