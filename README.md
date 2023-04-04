@@ -1,12 +1,27 @@
 # 🌈 uni-app Vue3 Vite4 pinia2 TypeScript 基础框架
 
 <p align="center">
-    <img src="https://img.shields.io/badge/-Vue3.2-34495e?logo=vue.js" />
-    <img src="https://img.shields.io/badge/-Vite4-646cff?logo=vite&logoColor=white" />
-    <img src="https://img.shields.io/badge/-Pinia2-yellow?logo=picpay&logoColor=white" />
-    <img src="https://img.shields.io/badge/-TypeScript4.9-blue?logo=typescript&logoColor=white" />
-    <img src="https://img.shields.io/badge/-ESLint8-4b32c3?logo=eslint&logoColor=white" />
-    <img src="https://img.shields.io/badge/-pnpm7-F69220?logo=pnpm&logoColor=white" />
+    <a href="https://cn.vuejs.org/" target="_blank">
+        <img src="https://img.shields.io/badge/-Vue3.2-34495e?logo=vue.js" />
+    </a>
+    <a href="https://pinia.vuejs.org/zh/" target="_blank">
+        <img src="https://img.shields.io/badge/-Vite4-646cff?logo=vite&logoColor=white" />
+    </a>
+    <a href="https://www.typescriptlang.org/zh/" target="_blank">
+        <img src="https://img.shields.io/badge/-TypeScript5.0-blue?logo=typescript&logoColor=white" />
+    </a>
+    <a href="https://eslint.org/" target="_blank">
+        <img src="https://img.shields.io/badge/-ESLint8-4b32c3?logo=eslint&logoColor=white" />
+    </a>
+    <a href="https://pnpm.io/" target="_blank">
+        <img src="https://img.shields.io/badge/-pnpm8-F69220?logo=pnpm&logoColor=white" />
+    </a>
+    <a href="https://unocss.dev/" target="_blank">
+        <img src="https://img.shields.io/badge/-UnoCss-4d4d4d?logo=unocss" />
+    </a>
+    <a href="https://iconify.design/" target="_blank">
+        <img src="https://img.shields.io/badge/-Iconify-1769aa?logo=Iconify" />
+    </a>
 </p>
 
 ## 简介
@@ -206,3 +221,6 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 13. devDependencies： 开发依赖修改
 14. review：复习，回顾
 15. strengthen: 加强，巩固
+
+-   cli 创建的 Vue3/Vite 项目 与 使用 HBuilderX 导入插件 的包有差异,请直接访问 开源地址
+-
