@@ -47,7 +47,7 @@
 -   **Eslint/Prettier**: 规范代码格式,统一编码;
 -   **路由拦截**: 基于 uni.addInterceptor 进行路由拦截;
 -   **请求拦截**: 使用[alova 请求](https://github.com/alovajs/alova),支持请求和响应拦截等;
--   **mock 数据**: 配合 alova 请求的[@alova/mock](https://github.com/alovajs/mock)，模拟 api 请求;
+-   **Mock 数据**: 配合 alova 请求的[@alova/mock](https://github.com/alovajs/mock)，模拟 api 请求(App 不支持);
 -   **缓存加密**: 支持 AES 加密缓存,可设置区分在开发或生成环境中是否加密;
 
 ## 目录结构
