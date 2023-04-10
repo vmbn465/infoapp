@@ -34,7 +34,8 @@ export function getEnvMode(): string {
  * @example:
  */
 export function getEnvValue<T = string>(key: keyof ImportMetaEnv): T {
-    return import.meta.env[key] as unknown as T;
+    const envValue = import.meta.env[key];
+    return (envValue === 'true' ? true : envValue === 'false' ? false : envValue) as unknown as T;
 }
 
 /**
@@ -53,6 +54,15 @@ export function isDevMode(): boolean {
  */
 export function isProdMode(): boolean {
     return getEnvMode() === prodMode;
+}
+
+/**
+ * @description: Whether to use mock data
+ * @returns:
+ * @example:
+ */
+export function isUseMock(): boolean {
+    return getEnvValue('VITE_USE_MOCK');
 }
 
 /**

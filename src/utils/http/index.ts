@@ -1,6 +1,6 @@
 import { createAlova } from 'alova';
 import AdapterUniapp from '@alova/adapter-uniapp';
-import { getBaseUrl, isDevMode } from '@/utils/env';
+import { getBaseUrl, isUseMock } from '@/utils/env';
 import { mockAdapter } from '@/mock';
 import { assign } from 'lodash-es';
 import { useAuthStore } from '@/state/modules/auth';
@@ -23,7 +23,9 @@ const HEADER = {
 const alovaInstance = createAlova({
     baseURL: BASE_URL,
     ...AdapterUniapp({
-        mockRequest: isDevMode() ? mockAdapter : undefined,
+        /* #ifndef APP-PLUS */
+        mockRequest: isUseMock() ? mockAdapter : undefined, // APP 平台无法使用mock
+        /* #endif */
     }),
     timeout: 5000,
     beforeRequest: (method) => {
