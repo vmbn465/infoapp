@@ -22,6 +22,15 @@
     <a href="https://iconify.design/" target="_blank">
         <img src="https://img.shields.io/badge/-Iconify-1769aa?logo=Iconify" />
     </a>
+    <a href="https://gitee.com/h_mo/uniapp-vue3-vite-ts-template" target="_blank">
+    	<img src="https://svg.hamm.cn/gitee.svg?type=star&user=h_mo&project=uniapp-vue3-vite-ts-template"/>
+    </a>
+    <a href="https://gitee.com/h_mo/uniapp-vue3-vite-ts-template" target="_blank">
+    	<img src="https://svg.hamm.cn/gitee.svg?type=fork&user=h_mo&project=uniapp-vue3-vite-ts-template"/>
+    </a>
+    <a href="https://ext.dcloud.net.cn/plugin?id=8559" target="_blank">
+        <img src="https://svg.hamm.cn/badge.svg?key=Platform&value=uni-app"/>
+    </a>
 </p>
 
 ## 简介
