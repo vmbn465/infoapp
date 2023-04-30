@@ -60,6 +60,7 @@
         "lodash-es": "^4.17.21",
         "pinia": "^2.0.35",
         "qs": "^6.11.1",
+        "uni-read-pages-vite": "^0.0.5",
         "vue": "^3.2.47"
     },
     "devDependencies": {
@@ -87,6 +88,7 @@
         "prettier": "^2.8.8",
         "sass": "^1.62.1",
         "typescript": "^5.0.4",
+        "uni-mini-router": "^0.0.7",
         "unocss": "^0.46.5",
         "unocss-preset-weapp": "^0.2.5",
         "vite": "^4.3.2",

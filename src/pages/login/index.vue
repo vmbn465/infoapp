@@ -3,7 +3,7 @@ import { reactive, ref } from 'vue';
 import { onLoad } from '@dcloudio/uni-app';
 import { useAuthStore } from '@/state/modules/auth';
 import { Toast } from '@/utils/uniapi/prompt';
-import { useRouter } from '@/hooks/router';
+import { useRouter } from 'uni-mini-router';
 import { useRequest } from 'alova';
 import { login } from '@/services/api/auth';
 
@@ -25,11 +25,11 @@ const submit = (e: any) => {
         Toast('登录成功', { duration: 1500 });
         authStore.setToken(res.token);
         setTimeout(() => {
-            if (redirect.value) {
-                router.go(redirect.value!, { replace: true });
-                return;
-            }
-            router.pushTab('/pages/about/index');
+            // if (redirect.value) {
+            //     router.push(redirect.value!, { replace: true });
+            //     return;
+            // }
+            router.replaceAll({ name: 'Home' });
         }, 1500);
     });
 };

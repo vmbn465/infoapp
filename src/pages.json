@@ -1,24 +1,22 @@
 {
     "pages": [
         {
+            "name": "Home",
             "path": "pages/index/index",
             "style": {
                 "navigationBarTitleText": "Home"
             },
-            "meta": {
-                "ignoreAuth": true
-            }
+            "meta": {}
         },
         {
+            "name": "Demo",
             "path": "pages/demo/index",
             "style": {
                 "navigationBarTitleText": "Demo"
-            },
-            "meta": {
-                "ignoreAuth": true
             }
         },
         {
+            "name": "About",
             "path": "pages/about/index",
             "style": {
                 "navigationBarTitleText": "关于"
@@ -28,6 +26,7 @@
             }
         },
         {
+            "name": "Login",
             "path": "pages/login/index",
             "style": {
                 "navigationBarTitleText": "登录"
@@ -37,12 +36,14 @@
             }
         },
         {
+            "name": "Log",
             "path": "pages/log/index",
             "style": {
                 "navigationBarTitleText": "日志"
             }
         },
         {
+            "name": "NotFound",
             "path": "pages/notFound/404",
             "style": {
                 "navigationBarTitleText": "Not Found"
