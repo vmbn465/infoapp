@@ -3,11 +3,11 @@
  * 头部导航栏
  * @description 所有尺寸都用px2rpx做适配
  */
-import { useSystem } from '@/hooks/useSystem';
+import { useSystem } from '@/hooks/app/useSystem';
 import { px2rpx } from '@/utils/uniapi';
 import { computed, ref } from 'vue';
 import { useRoute, useRouter } from 'uni-mini-router';
-import { useGlobalStyle } from '@/hooks/useGlobalStyle';
+import { useGlobalStyle } from '@/hooks/app/useGlobalStyle';
 import Iconify from '@/components/Iconify/index.vue';
 import { HOME_PAGE } from '@/enums/routerEnum';
 
