@@ -59,7 +59,6 @@
         "echarts": "^5.4.2",
         "lodash-es": "^4.17.21",
         "pinia": "^2.0.35",
-        "qs": "^6.11.1",
         "uni-read-pages-vite": "^0.0.5",
         "vue": "^3.2.47"
     },
@@ -75,7 +74,6 @@
         "@types/crypto-js": "^4.1.1",
         "@types/lodash-es": "^4.17.7",
         "@types/node": "^17.0.45",
-        "@types/qs": "^6.9.7",
         "@typescript-eslint/eslint-plugin": "^5.59.1",
         "@typescript-eslint/parser": "^5.59.1",
         "@unocss/preset-icons": "^0.46.5",
