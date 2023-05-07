@@ -1,11 +1,14 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { onShow } from '@dcloudio/uni-app';
+import { onLoad, onShow } from '@dcloudio/uni-app';
 import BasicButton from '@/components/BasicButton/index.vue';
 import AppProvider from '@/components/AppProvider/inedx.vue';
 import { useAuthStore } from '@/state/modules/auth';
 import { useRouter } from 'uni-mini-router';
 
+onLoad(() => {
+    console.log('about load');
+});
 const authStore = useAuthStore();
 const isLogin = ref(false);
 const router = useRouter();
@@ -33,7 +36,7 @@ const handleLoginOut = () => {
                 </view>
                 <view class="desc">{{ isLogin ? '测试' : '未登入' }}</view>
             </view>
-            <view class="cell"><BasicButton @click="handleJump('/pages/log/index?id=4345&title=log&word=困的顾客老师')">log</BasicButton></view>
+            <view class="cell"><BasicButton @click="handleJump('/pages/log/index?id=4345&title=log&word=关键词')">log</BasicButton></view>
             <view class="cell" v-if="isLogin"><BasicButton @click="handleLoginOut">登出</BasicButton></view>
             <view class="cell" v-else>
                 <BasicButton @click="handleJump('/pages/login/index')"> 登入 </BasicButton>
