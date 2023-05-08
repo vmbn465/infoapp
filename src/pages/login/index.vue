@@ -28,11 +28,16 @@ const submit = (e: any) => {
         setTimeout(() => {
             if (unref(pageQuery)?.redirect) {
                 // 如果有存在redirect(重定向)参数，登录成功后直接跳转
-                // 这里replace方法无法跳转tabbar页面故改为replaceAll
-                router.replaceAll({ name: unref(pageQuery).redirect, params: omit(unref(pageQuery), ['redirect']) });
+                const params = omit(unref(pageQuery), ['redirect', 'tabBar']);
+                if (unref(pageQuery)?.tabBar) {
+                    // 这里replace方法无法跳转tabbar页面故改为replaceAll
+                    router.replaceAll({ name: unref(pageQuery).redirect, params });
+                } else {
+                    router.replace({ name: unref(pageQuery).redirect, params });
+                }
             } else {
-                // 不存在则回到首页
-                router.replaceAll({ name: 'Home' });
+                // 不存在则返回上一页
+                router.back();
             }
         }, 1500);
     });
