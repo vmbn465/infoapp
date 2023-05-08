@@ -6,13 +6,18 @@
             "style": {
                 "navigationBarTitleText": "Home"
             },
-            "meta": {}
+            "meta": {
+                "tabBar": true
+            }
         },
         {
             "name": "Demo",
             "path": "pages/demo/index",
             "style": {
                 "navigationBarTitleText": "Demo"
+            },
+            "meta": {
+                "tabBar": true
             }
         },
         {
@@ -22,7 +27,8 @@
                 "navigationBarTitleText": "关于"
             },
             "meta": {
-                "ignoreAuth": true
+                "ignoreAuth": true,
+                "tabBar": true
             }
         },
         {
