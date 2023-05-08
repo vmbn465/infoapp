@@ -28,7 +28,6 @@ function createBeforeEachGuard(router: Router) {
 
 function createAfterEachGuard(router: Router) {
     router.afterEach((to) => {
-        console.log('afterEach', to);
         // @ts-ignore
         if (to && to?.meta?.ignoreAuth) return;
         const authStore = useAuthStore();
