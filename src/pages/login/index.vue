@@ -28,7 +28,8 @@ const submit = (e: any) => {
         setTimeout(() => {
             if (unref(pageQuery)?.redirect) {
                 // 如果有存在redirect(重定向)参数，登录成功后直接跳转
-                router.replace({ name: unref(pageQuery).redirect, params: omit(unref(pageQuery), ['redirect']) });
+                // 这里replace方法无法跳转tabbar页面故改为replaceAll
+                router.replaceAll({ name: unref(pageQuery).redirect, params: omit(unref(pageQuery), ['redirect']) });
             } else {
                 // 不存在则回到首页
                 router.replaceAll({ name: 'Home' });
@@ -61,26 +62,32 @@ const submit = (e: any) => {
 .container {
     margin: 0 auto;
     width: 80%;
+
     .title {
         padding: 320rpx 0 32rpx 0;
         text-align: center;
     }
+
     .form-wrap {
         padding: 20rpx 24rpx;
         box-shadow: 16rpx 16rpx 30rpx #e5e7eb;
+
         .form {
             .form-item {
                 display: flex;
                 height: 88rpx;
                 border-bottom: 2rpx solid #dbeafe;
                 align-items: center;
+
                 .form-label {
                     min-width: 96rpx;
                 }
+
                 .form-element {
                     flex-grow: 1;
                 }
             }
+
             .submit-btn {
                 margin-top: 44rpx;
                 border: 4rpx solid #bfdbfe;
@@ -88,6 +95,7 @@ const submit = (e: any) => {
                 border-radius: 8rpx;
                 font-size: 28rpx;
                 color: #ffffff;
+
                 :hover {
                     background-color: #3b82f6;
                 }
