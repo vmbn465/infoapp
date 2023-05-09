@@ -33,7 +33,7 @@ function createAfterEachGuard(router: Router) {
         const authStore = useAuthStore();
         if (!authStore.isLogin && to && to.name !== 'Login') {
             // 如果没有登录且目标路由不是登录页面则跳转到登录页面
-            router.push({ name: 'Login', tabBar: to?.meta?.tabBar, ...to.query });
+            router.push({ name: 'Login', params: { tabBar: to?.meta?.tabBar, ...to.query }});
         } else if (authStore.isLogin && to && to.name === 'Login') {
             // 如果已经登录且目标页面是登录页面则跳转至首页
             router.replaceAll({ name: 'Home' });
