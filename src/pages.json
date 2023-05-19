@@ -4,10 +4,12 @@
             "name": "Home",
             "path": "pages/index/index",
             "style": {
-                "navigationBarTitleText": "Home"
+                "navigationBarTitleText": "Home",
+				"enablePullDownRefresh":true
             },
             "meta": {
-                "tabBar": true
+                "tabBar": true,
+				"ignoreAuth": true
             }
         },
         {
@@ -17,7 +19,8 @@
                 "navigationBarTitleText": "Demo"
             },
             "meta": {
-                "tabBar": true
+                "tabBar": true,
+				"ignoreAuth": true
             }
         },
         {
@@ -57,6 +60,19 @@
             "meta": {
                 "ignoreAuth": true
             }
+        }
+        ,{
+			"name":"food",
+            "path" : "pages/food/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "今天吃什么",
+                "enablePullDownRefresh": false
+            },
+			"meta":{
+				"ignoreAuth":true
+			}
+            
         }
     ],
     "subPackages": [
@@ -100,37 +116,48 @@
         }
     ],
     "globalStyle": {
+		"navigationStyle":"custom",
         "navigationBarTextStyle": "black",
-        "navigationBarTitleText": "uni-app",
-        "navigationBarBackgroundColor": "#F2F2F2",
-        "backgroundColor": "#F2F2F2",
-        "navigationStyle": "default",
+        // "navigationBarTitleText": "uni-app",
+        "navigationBarBackgroundColor": "#ffffff",
+        "backgroundColor": "#ffffff",
         "renderingMode": "seperated",
         "pageOrientation": "portrait"
     },
     "tabBar": {
         "color": "#474747",
         "selectedColor": "#9BC6FC",
-        "backgroundColor": "#F2F2F2",
+        "backgroundColor": "#ffffff",
         "list": [
             {
                 "pagePath": "pages/index/index",
                 "text": "首页",
                 "iconPath": "static/images/tabBar/home.png",
-                "selectedIconPath": "static/images/tabBar/selectedHome.png"
+                "selectedIconPath": "static/images/tabBar/home_selected.png"
             },
             {
                 "pagePath": "pages/demo/index",
-                "text": "Demo",
-                "iconPath": "static/images/tabBar/demo.png",
-                "selectedIconPath": "static/images/tabBar/selectedDemo.png"
+                "text": "好物",
+                "iconPath": "static/images/tabBar/shop.png",
+                "selectedIconPath": "static/images/tabBar/shop_selected.png"
+            },
+            {
+                "pagePath": "pages/food/index",
+                "text": "吃什么",
+                "iconPath": "static/images/tabBar/food.png",
+                "selectedIconPath": "static/images/tabBar/food_selected.png"
             },
             {
                 "pagePath": "pages/about/index",
-                "text": "关于",
-                "iconPath": "static/images/tabBar/about.png",
-                "selectedIconPath": "static/images/tabBar/selectedAbout.png"
+                "text": "我的",
+                "iconPath": "static/images/tabBar/user.png",
+                "selectedIconPath": "static/images/tabBar/user_selected.png"
             }
-        ]
+        ],
+		"midButton":{
+			"iconPath":"/static/images/tabBar/add1.png",
+			"iconWidth":"30px",
+			"height":"42px"
+		}
     }
 }
