@@ -1,10 +1,7 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { onLoad, onShow } from '@dcloudio/uni-app';
 import BasicButton from '@/components/BasicButton/index.vue';
 import AppProvider from '@/components/AppProvider/inedx.vue';
 import { useAuthStore } from '@/state/modules/auth';
-import { useRouter } from 'uni-mini-router';
 
 onLoad(() => {
     console.log('about load');

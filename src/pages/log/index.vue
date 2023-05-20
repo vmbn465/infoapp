@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { onLoad } from '@dcloudio/uni-app';
-
 onLoad((query) => {
     console.log('log onLoad query', query);
 });

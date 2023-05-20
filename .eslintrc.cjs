@@ -19,7 +19,7 @@ module.exports = {
         parser: '@typescript-eslint/parser',
     },
     /**定义文件继承的子规范 */
-    extends: ['eslint:recommended', 'plugin:vue/vue3-essential', 'plugin:@typescript-eslint/recommended'],
+    extends: ['eslint:recommended', 'plugin:vue/vue3-essential', 'plugin:@typescript-eslint/recommended','./.eslintrc-auto-import.json'],
     plugins: ['vue', '@typescript-eslint'],
     rules: {
         'no-var': 'error', //要求使用 let 或 const 而不是 var

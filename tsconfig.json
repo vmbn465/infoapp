@@ -1,5 +1,13 @@
 {
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.*"], // 指定要包含在编译中的文件匹配列表
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "vite.config.*",
+        "typings/*.ts",
+        "typings/*.d.ts"
+    ], // 指定要包含在编译中的文件匹配列表
     "exclude": [], // 指定要从编译中排除的文件列表
     "compilerOptions": {
         "baseUrl": "./", // 指定基目录以解析非相对模块名
@@ -10,7 +18,7 @@
         "moduleResolution": "node", // 指定TypeScript如何从给定的模块说明符查找文件
         "esModuleInterop": true, // 允许export=导出，由import from 导入
         "lib": ["ESNext", "DOM", "ScriptHost"], // TS需要引用的库
-        "types": ["@dcloudio/types", "@types/node"], // 指定要包含的类型包名，而不需要在源文件中引用
+        "types": ["@types/node"], // 指定要包含的类型包名，而不需要在源文件中引用
         "removeComments": true, // 删除注释
         "paths": { "@/*": ["./src/*"] }, //指定一组条目，它们将导入重新映射到其他查找位置
         "pretty": true, // 在输出中启用颜色和格式，使编译器错误更容易阅读
