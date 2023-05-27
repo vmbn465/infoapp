@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { reactive, ref, unref } from 'vue';
-import { onLoad } from '@dcloudio/uni-app';
 import { useAuthStore } from '@/state/modules/auth';
 import { Toast } from '@/utils/uniapi/prompt';
-import { useRouter } from 'uni-mini-router';
-import { useRequest } from 'alova';
+// import { useRequest } from 'alova';
 import { login } from '@/services/api/auth';
 import { omit } from 'lodash-es';
+import { useRequest } from 'alova';
 
 const pageQuery = ref<Record<string, any> | undefined>(undefined);
 onLoad((query) => {

@@ -3,7 +3,8 @@ import { ConfigEnv, loadEnv, UserConfig } from 'vite';
 import { resolve } from 'path';
 import uni from '@dcloudio/vite-plugin-uni';
 import Unocss from 'unocss/vite';
-import TransformPages from 'uni-read-pages-vite';
+import TransformPages from 'uni-read-pages-vite'; // vite.config.ts
+import AutoImport from 'unplugin-auto-import/vite';
 
 export default ({ mode }: ConfigEnv): UserConfig => {
     const root = process.cwd();
@@ -20,7 +21,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         // 自定义全局变量
         define: {
             'process.env': {},
-            ROUTES: (new TransformPages()).routes,
+            ROUTES: new TransformPages().routes,
         },
         // 开发服务器配置
         server: {
@@ -58,6 +59,29 @@ export default ({ mode }: ConfigEnv): UserConfig => {
             },
         },
         // 插件
-        plugins: [uni(), Unocss()],
+        plugins: [
+            uni(),
+            Unocss(),
+            // 自动导入
+            AutoImport({
+                include: [
+                    /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+                    /\.vue$/,
+                    /\.vue\?vue/, // .vue
+                ],
+                imports: [
+                    'vue',
+                    'uni-app',
+                    'pinia',
+                    {
+                        'uni-mini-router': ['useRouter', 'useRoute'],
+                    },
+                ],
+                dts: 'typings/auto-imports.d.ts',
+                eslintrc: {
+                    enabled: true,
+                },
+            }),
+        ],
     };
 };
