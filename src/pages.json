@@ -74,6 +74,78 @@
 			}
             
         }
+        ,{
+			"name":"addDynamic",
+            "path" : "pages/addDynamic/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "动态",
+                "enablePullDownRefresh": false
+            },
+            "meta": {
+                "ignoreAuth": true
+            }
+        }
+        ,{
+            "path" : "pages/dynamicDetail/dynamicDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "详情",
+                "enablePullDownRefresh": false
+            },
+			"meta":{
+				"ignoreAuth":true
+			}
+            
+        }
+        ,{
+            "path" : "pages/userDetail/userDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "用户信息",
+                "enablePullDownRefresh": false
+            },
+			"meta":{
+				"ignoreAuth":true
+			}
+            
+        }
+        ,{
+            "path" : "pages/myMessageList/myMessageList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "消息",
+                "enablePullDownRefresh": false
+            },
+			"meta":{
+				"ignoreAuth":true
+			}
+            
+        }
+        ,{
+            "path" : "pages/myDynamicList/myDynamicList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的帖子",
+                "enablePullDownRefresh": false
+            },
+			"meta":{
+				"ignoreAuth":true
+			}
+            
+        }
+        ,{
+            "path" : "pages/aboutUs/aboutUs",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "关于我们",
+                "enablePullDownRefresh": false
+            },
+			"meta":{
+				"ignoreAuth":true
+			}
+            
+        }
     ],
     "subPackages": [
         {

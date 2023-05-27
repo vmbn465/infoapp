@@ -1,9 +1,10 @@
-import { createSSRApp } from 'vue';
-import App from './App.vue';
-import 'uno.css';
-import uviewPlus from '@/uni_modules/uview-plus';
-import { setupStore } from '@/state';
-import { setupRouter } from '@/router';
+import { createSSRApp } from "vue";
+import App from "./App.vue";
+import "uno.css";
+import uviewPlus from "@/uni_modules/uview-plus";
+import backTop from '@/components/back-top/back-top.vue';
+import { setupStore } from "@/state";
+import { setupRouter } from "@/router";
 
 export function createApp() {
     const app = createSSRApp(App);
@@ -14,6 +15,7 @@ export function createApp() {
     // Configure store
     setupStore(app);
 	app.use(uviewPlus)
+	app.component('back-top',backTop)
 	uni.$u.setConfig({
 		// 修改$u.config对象的属性
 			config: {

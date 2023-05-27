@@ -185,7 +185,6 @@
 				handler() {
 					this.formatFileList()
 				},
-				immediate: true,
 				deep: true,
 			},
 		},

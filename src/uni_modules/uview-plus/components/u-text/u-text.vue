@@ -9,6 +9,7 @@
         }"
         @tap="clickHandler"
     >
+        <slot name="preview" style="display: inline"></slot>
         <text
             :class="['u-text__price', type && `u-text__value--${type}`]"
             v-if="mode === 'price'"
@@ -50,6 +51,7 @@
                 {{ value }}
             </button>
         </template>
+
         <text
             v-else
             class="u-text__value"

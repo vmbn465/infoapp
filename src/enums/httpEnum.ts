@@ -20,3 +20,5 @@ export enum ContentTypeEnum {
     // form-data  upload
     FORM_DATA = 'multipart/form-data;charset=UTF-8',
 }
+
+export const IMG_URL = "http://home.server1.fixnas.xyz:9000/libo/infoapp/"

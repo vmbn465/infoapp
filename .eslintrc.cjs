@@ -24,9 +24,9 @@ module.exports = {
     rules: {
         'no-var': 'error', //要求使用 let 或 const 而不是 var
         camelcase: 'error', // 双峰驼命名格式
-        indent: ['error', 4, { SwitchCase: 1 }], //代码缩进2个空格
-        semi: ['error', 'always'], //行尾需要有分号
-        quotes: ['error', 'single'], //强制使用一致的反勾号、双引号或单引号
+        // indent: ['error', 4, { SwitchCase: 1 }], //代码缩进2个空格
+        // semi: ['error', 'always'], //行尾需要有分号
+        // quotes: ['error', 'single'], //强制使用一致的反勾号、双引号或单引号
         'linebreak-style': ['error', 'windows'], //强制使用一致的换行风格,"unix"：\n 表示 LF , "windows"：\r\n 表示 CRLF
         eqeqeq: ['error', 'always', { null: 'ignore' }], //比较时强制使用 === 或者 !==,但对null作比较时可以不用全等
         'no-unused-vars': 'off',
@@ -48,6 +48,7 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off', // 不允许@ts-<指令>评论或要求指令后的描述
         '@typescript-eslint/ban-types': 'off', // 不允许某些类型
         '@typescript-eslint/no-non-null-assertion': 'off', // 不允许使用！后缀操作符的非空断言
+        '@typescript/no-this-alias':'off',
     },
     globals: {
         //可以定义全局中的变量的权限（只读，可读可写）

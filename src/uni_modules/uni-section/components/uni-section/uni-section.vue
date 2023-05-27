@@ -103,7 +103,7 @@
 	$uni-primary: #2979ff !default;
 
 	.uni-section {
-		background-color: #fff;
+		//background-color: #fff;
     .uni-section-header {
       position: relative;
       /* #ifndef APP-NVUE */

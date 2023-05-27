@@ -2,6 +2,7 @@
 import BasicButton from '@/components/BasicButton/index.vue';
 import AppProvider from '@/components/AppProvider/inedx.vue';
 import { useRouter } from 'uni-mini-router';
+import UAvatar from "@/uni_modules/uview-plus/components/u-avatar/u-avatar.vue";
 
 const router = useRouter();
 const jumpList1 = () => {
@@ -16,6 +17,7 @@ const jumpList1 = () => {
         <view class="_u_center">
             <BasicButton @click="jumpList1">List1 → </BasicButton>
         </view>
+
     </AppProvider>
 </template>
 

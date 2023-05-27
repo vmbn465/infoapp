@@ -1,11 +1,12 @@
 <template>
-	<view class="body">
-		<view class="circle" @click="foodRandom()">
-			<div>
-				{{foodName}}
-			</div>
+	<view>
+		<view class="body">
+			<view class="circle" @click="foodRandom()">
+				<div>
+					{{foodName}}
+				</div>
+			</view>
 		</view>
-
 	</view>
 </template>
 
@@ -51,8 +52,13 @@
 		flex-direction: column;
 		align-items: center;
 		background: linear-gradient(45deg, rgb(19, 73, 95), rgb(118, 75, 226), rgb(131, 115, 198), rgb(119, 211, 185));
-		height: 90vh;
+		height: 100%;
 		color: #fff;
+		position: absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
 	}
 
 	.circle {
