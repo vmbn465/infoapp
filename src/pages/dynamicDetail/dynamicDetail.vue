@@ -83,9 +83,13 @@
                                         </view>
                                     </view>
                                 </view>
+                                <view class="showMore" v-if="item.more" @tap="showMore(index)">
+                                    显示更多评论
+                                </view>
                             </view>
                         </view>
                     </view>
+
                 </view>
                 <view class="bottomText">
                     <view class="text">
@@ -136,7 +140,7 @@ import UIcon from "@/uni_modules/uview-plus/components/u-icon/u-icon.vue";
 import UniDataPicker from "@/uni_modules/uni-data-picker/components/uni-data-picker/uni-data-picker.vue";
 import UniFilePicker from "@/uni_modules/uni-file-picker/components/uni-file-picker/uni-file-picker.vue";
 import UniBadge from "@/uni_modules/uni-badge/components/uni-badge/uni-badge.vue";
-import { addCommentApi, addRecommentApi, getCommentListApi } from "@/api/comment";
+import { addCommentApi, addRecommentApi, getAllRecommentApi, getCommentListApi } from "@/api/comment";
 import { useAuthStore } from "@/state/modules/auth";
 import { uploadImgs } from "@/api/oss";
 
@@ -275,7 +279,6 @@ export default {
         },
         previewImg(index) {
             let me = this;
-            // console.log(img);
             uni.previewImage({
                 current: index,
                 urls: me.imgList
@@ -393,6 +396,17 @@ export default {
                 me.commentId = item.commentId;
             }
         },
+        showMore(index){
+            let me = this
+            console.log(me.commentList[index]);
+            let item=me.commentList[index]
+            getAllRecommentApi(item.id).then(res=>{
+                console.log(res.data);
+                // me.commentList[index].recomment=[]
+                me.commentList[index].recomment=res.data
+                me.commentList[index].more=false
+            })
+        },
         cancelPic(pic) {
             console.log("取消图片", pic);
             let me = this;
@@ -446,17 +460,6 @@ export default {
             });
         });
     },
-    // activated() {
-    //     let me = this;
-    //     me.commentList = [];
-    //     me.getCommentList().then(res => {
-    //         me.commentList = res;
-    //         me.commentNum = me.commentList.length;
-    //         me.commentList.map(comment => {
-    //             me.commentNum += comment.recomment.length;
-    //         });
-    //     });
-    // },
     deactivated() {
         uni.closePreviewImage();
     },
@@ -678,6 +681,10 @@ page {
 
                     .recomment-item:not(:last-child) {
                         margin-bottom: 50rpx;
+                    }
+
+                    .showMore{
+                        color: #5b8fcb;
                     }
                 }
 

@@ -22,10 +22,10 @@ export function addRecommentApi(data){
   })
 }
 
-export function getRecommentApi(data){
+export function getAllRecommentApi(data){
   return requset({
-    url:'/recomment/list',
+    url:'/recomment/allRecomment/'+data,
     method:'POST',
-    params:data,
+    // params:data,
   })
 }
