@@ -186,16 +186,17 @@ export default {
     },
     onReachBottom() {
         let me = this;
-        if (me.isMoreContent) {
-            console.log("触底刷新");
-            me.curPage++;
-            me.getDynamicList(me.curTopicId).then(res => {
-                me.dynamicList = me.dynamicList.concat(res);
-                if (res.length === 0) {
-                    me.isMoreContent = false;
-                }
-            });
-        }
+        // if (me.isMoreContent) {
+        console.log("触底刷新");
+        me.curPage++;
+        me.getDynamicList(me.curTopicId).then(res => {
+            me.dynamicList = me.dynamicList.concat(res);
+            if (res.length === 0) {
+                me.isMoreContent = false;
+                me.curPage--
+            }
+        });
+        // }
 
         // if(this.listQuery.pageNum * this.listQuery.pageSize > this.total){
         //     this.listQuery.pageNum ++
@@ -203,6 +204,9 @@ export default {
         // }
     },
     mounted() {
+
+    },
+    created(){
         let me = this;
         console.log("onMounted");
         window.addEventListener("scroll", me.initHeight);

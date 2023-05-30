@@ -9,7 +9,7 @@ const request = (options) => {
 			method: options.method || 'GET',
 			data: options.params || {},
 			header:  {
-				"Authorization": uni.getStorageSync("token")
+				"token": uni.getStorageSync("token")
 			}
 		}).then(response => {
 			let data = response.data;
